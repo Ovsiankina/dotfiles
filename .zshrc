@@ -56,7 +56,7 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 # Alias
 # ==============================================
 
-source ~/aliases.zsh
+source ~/.zsh/aliases.zsh
 
 eval "$(tmuxifier init -)"
 eval "$(starship init zsh)"
