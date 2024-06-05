@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+waybar -c $HOME/.config/hypr/component/waybar/top_config.json -s $HOME/.config/hypr/component/waybar/top_style.css &
+sleep 1
+waybar -c $HOME/.config/hypr/component/waybar/config.json -s $HOME/.config/hypr/component/waybar/style.css &

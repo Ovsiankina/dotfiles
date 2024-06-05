@@ -1,0 +1,72 @@
+/* Reset all styles */
+/* The whole bar */
+* { 
+    padding: 0;
+    margin: -2;
+}
+
+#waybar {
+    background: #EDEFF6;
+}
+
+#custom-Color1 {
+  background-color: #EC8695;
+  min-width: 100px;
+}
+#custom-Color2 {
+  background-color: #F5A97F;
+  min-width: 100px;
+}
+#custom-Color3 {
+  background-color: #EED49F;
+  min-width: 100px;
+}
+#custom-Color4 {
+  background-color: #A6DA95;
+  min-width: 100px;
+}
+#custom-Color5 {
+  background-color: #7DC4E4;
+  min-width: 100px;
+}
+#custom-Color6 {
+  background-color: #C6A0F6;
+  min-width: 100px;
+}
+#custom-Color7 {
+  background-color: #EDEFF6;
+  min-width: 1320px;
+}
+
+/*
+#custom-Red{
+  background: #ED8796;
+  padding-right: 10px;
+}
+
+#custom-Orange{
+  background: #F8BF9F;
+  padding-right: 10px;
+}
+
+#custom-Yellow{
+  background: #EED49F;
+  padding-right: 10px;
+}
+
+#custom-Green{
+  background: #A6DA95;
+  padding-right: 10px;
+}
+
+#custom-Cyan{
+  background: #7DC4E4;
+  padding-right: 10px;
+}
+
+#custom-Rosewater{
+  background: #C6A0F6;
+  padding-right: 10px;
+}
+*/
+

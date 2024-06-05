@@ -1,0 +1,43 @@
+
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": [
+    "custom/Color1",
+    "custom/Color2",
+    "custom/Color3",
+    "custom/Color4",
+    "custom/Color5",
+    "custom/Color6",
+    "custom/Color7"
+  ],
+  "custom/Color1": {
+    "format": " ",
+    "return-type": "json"
+  },
+  "custom/Color2": {
+    "format": " ",
+    "return-type": "json"
+  },
+  "custom/Color3": {
+    "format": " ",
+    "return-type": "json"
+  },
+  "custom/Color4": {
+    "format": " ",
+    "return-type": "json"
+  },
+  "custom/Color5": {
+    "format": " ",
+    "return-type": "json"
+  },
+  "custom/Color6": {
+    "format": " ",
+    "return-type": "json"
+  },
+  "custom/Color7": {
+    "format": " ",
+    "return-type": "json"
+  }
+}
+
