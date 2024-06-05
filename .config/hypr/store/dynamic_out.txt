@@ -1,1 +1,1 @@
-{"class": "paused", "text": "\u25b6 Dreams of Autonomy - This Zsh config is perhaps my favorite one yet. ", "tooltip": "This Zsh config is perhaps my favorite one yet.\nby Dreams of Autonomy\n(firefox.instance_1_107)"}
+{"class": "paused", "text": "\u25b6 Dreams of Autonomy - We finally have a simple solution for backing up files on Linux ", "tooltip": "We finally have a simple solution for backing up files on Linux\nby Dreams of Autonomy\n(firefox.instance_1_107)"}

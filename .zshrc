@@ -12,26 +12,45 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+# Snippets (Oh My ZSH plugins without OMZP framework)
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::archlinux
+
+autoload -Uz compinit && compinit
+zinit cdreplay -q
 
 # config
 bindkey -e
+bindkey '^k' history-search-backward
+bindkey '^j' history-search-forward
 
 # TODO: Remove these from system:
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# ==============================================
-# Lines configured by zsh-newuser-install
-# ==============================================
-HISTFILE=~/.zsh_history
+HISTFILE=~/.zsh/.zsh_history
 HISTSIZE=2000
 SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory 
+setopt sharehistory
+setopt hist_ignore_space # prevent command hist when a space is put before it
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+
 unsetopt autocd beep
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/ovsiankina/.zshrc'
-autoload -Uz compinit && compinit
-# End of lines added by compinstall
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # ==============================================
 # ENV VARIABLES
@@ -58,8 +77,14 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 source ~/.zsh/aliases.zsh
 
+# ==============================================
+# Eval
+# ==============================================
+
 eval "$(tmuxifier init -)"
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(fzf --zsh)"
 
+# Bonus hihi
 neofetch
