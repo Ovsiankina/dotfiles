@@ -1,1 +1,1 @@
-{"class": "paused", "text": "\u25b6 Dreams of Autonomy - We finally have a simple solution for backing up files on Linux ", "tooltip": "We finally have a simple solution for backing up files on Linux\nby Dreams of Autonomy\n(firefox.instance_1_107)"}
+{"class": "paused", "text": "\u25b6 Pezzza's Work - How to train simple AIs to balance a double pendulum ", "tooltip": "How to train simple AIs to balance a double pendulum\nby Pezzza's Work\n(firefox.instance_1_107)"}
