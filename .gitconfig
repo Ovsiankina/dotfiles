@@ -1,0 +1,21 @@
+[user]
+	email = ovsiankina@proton.me
+	name = Ovsiankina
+[rerere]
+	enabled = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[core]
+  editor = nvim
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
+[delta]
+  navigate = true
+  side-by-side = true
