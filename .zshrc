@@ -72,10 +72,11 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 # ==============================================
-# Alias
+# Sources
 # ==============================================
 
 source ~/.zsh/aliases.zsh
+source ~/.zsh/fzf-git.sh/fzf-git.sh
 
 # ==============================================
 # Eval
@@ -85,6 +86,7 @@ eval "$(tmuxifier init -)"
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
+eval "$(thefuck --alias fk)"
 
 # Bonus hihi
 neofetch
