@@ -1,5 +1,25 @@
 # Doc
 
+## Requirements
+
+### Main
+
+- git
+- GNU stow
+- Neovim
+- Starship.rs
+- tmux
+- zsh
+- fzf
+- fzf-git
+- zoxide
+- us_qwerty-fr
+
+### Optional
+
+- Hyprland
+- Waybar
+
 ## Installation
 
 ```

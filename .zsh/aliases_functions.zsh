@@ -1,3 +1,12 @@
+ls() {
+    local args="$@"
+    if [[ "$args" == *"-l"* ]]; then
+        eza --long "$@"
+    else
+        eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions "$@"
+    fi
+}
+
 colorp() {
   confirm="y"
   colors=()

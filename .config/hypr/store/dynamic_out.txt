@@ -1,1 +1,1 @@
-{"class": "paused", "text": "\u25b6 My Concert Collection - Jack Black & Tenacious D perform Sax-a-Boom (Live in Milwaukee - September 2022) ", "tooltip": "Jack Black &amp; Tenacious D perform Sax-a-Boom (Live in Milwaukee - September 2022)\nby My Concert Collection\n(firefox.instance_1_26)"}
+{"class": "none", "text": ""}

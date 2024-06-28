@@ -1,8 +1,9 @@
 # Aliases
-alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
+# alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
 alias grep='grep --color=auto'
 alias sp='sudo pacman'
 alias cat='bat'
+alias clip='wl-copy'
 
 # zoxide
 # zoxide --help for more info

@@ -73,7 +73,7 @@ return {
 				capabilities = capabilities,
 			})
 			-- PHP
-			lspconfig.intelephense.setup({
+			lspconfig.phpactor.setup({
 				capabilities = capabilities,
 			})
 			-- Java
