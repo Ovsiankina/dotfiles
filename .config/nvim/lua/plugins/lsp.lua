@@ -88,10 +88,15 @@ return {
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
+			-- rust
+			lspconfig.rust_analyzer.setup({
+				capabilities = capabilities,
+			})
 			-- md
 			lspconfig.marksman.setup({
 				capabilities = capabilities,
 			})
+      -- latex
 			lspconfig.texlab.setup({
 				capabilities = capabilities,
 			})
