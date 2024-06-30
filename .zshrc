@@ -86,7 +86,9 @@ eval "$(tmuxifier init -)"
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
-eval "$(thefuck --alias fk)"
+eval "$(thefuck --alias fuck)"
 
 # Bonus hihi
 neofetch
+
+eval $(thefuck --alias)

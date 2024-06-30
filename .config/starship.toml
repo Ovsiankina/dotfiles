@@ -25,7 +25,9 @@ $docker_context\
 [](fg:#7DC4E4 bg:#C6A0F6)\
 [ ](fg:#C6A0F6)\
 $fill\
-[](#C6A0F6)\
+[](fg:#7DC4E4)\
+$cmd_duration\
+[](fg:#C6A0F6 bg:#7DC4E4)\
 $time\
 [](#C6A0F6)\
 [ ]()
@@ -38,6 +40,13 @@ add_newline = true
 symbol = ' '
 
 [character]
+error_symbol = '[✖](red)'
+
+[cmd_duration]
+min_time = 0
+style = "bg:#7DC4E4 fg:#4C4F69"
+format = '[ took $duration ]($style)'
+
 # You can also replace your username with a neat symbol like   or disable this
 # and use the os module below
 [username]
