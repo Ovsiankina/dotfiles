@@ -156,11 +156,11 @@
 }
 
 #backlight {
-    background-color: #90b1b1
+    color: #90b1b1
 }
 
 #pulseaudio {
-    background-color:  	#fab387;
+    /* background-color:  	#fab387; */
     color: #bf7d54;
     font-weight: bolder;
 }

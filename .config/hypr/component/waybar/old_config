@@ -1,199 +1,95 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 53, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 5, // Gaps between modules (4px)
-    // Choose the order of the modules
-    // "margin-left":25,
-    // "margin-right":25,
-    "margin-bottom":-11,
-    //"margin-top":5,
-    "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["temperature","network","battery","custom/ss","custom/cycle_wall","custom/expand","cpu","clock"],
-    "modules-center": ["custom/dynamic_pill"],
-    // Modules configuration
+	"layer": "top",
+	"modules-left": ["custom/launcher","cpu","memory","custom/media","tray"],
+	"modules-center": ["river/tags"],
+	"modules-right": ["custom/updates","custom/wallpaper","backlight","pulseaudio","clock", "battery","custom/power"],
+	
+	"pulseaudio": {
+		"tooltip": false,
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-muted": "{icon} {volume}%",
+		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": {
+			"default": ["", "", ""]
+		}
+	},
 
-
-    // custom modules ////////////////
-    "custom/dynamic_pill": {
-        "return-type": "json",
-        "exec": "~/.config/hypr/scripts/tools/start_dyn",
-        "escape":true
+    "river/tags": {
+		"num-tags": 6
     },
-    "custom/ss":{
-        "format":"{}",
-        "exec":"~/.config/hypr/scripts/tools/expand ss-icon",
-        "on-click": "~/.config/hypr/scripts/screenshot_full"
-    },
-    "custom/cycle_wall":{
-        "format":"{}",
-        "exec": "~/.config/hypr/scripts/tools/expand wall",
-        // "interval": 1,
-        "on-click": "~/.config/hypr/scripts/tools/expand cycle"
-    },
-    "custom/expand":{
-        "on-click":"~/.config/hypr/scripts/expand_toolbar",
-        "format":"{}",
-        "exec":"~/.config/hypr/scripts/tools/expand arrow-icon"
-    },
-    // "custom/waybar-mpris": {
-    //     "return-type": "json",
-    //     "exec": "echo '   '",
-    //     "on-click": "waybar-mpris --send toggle",
-    //     // This option will switch between players on right click.
-    //         "on-click-right": "waybar-mpris --send player-next",
-    //     // The options below will switch the selected player on scroll
-    //         // "on-scroll-up": "waybar-mpris --send player-next",
-    //         // "on-scroll-down": "waybar-mpris --send player-prev",
-    //     // The options below will go to next/previous track on scroll
-    //         // "on-scroll-up": "waybar-mpris --send next",
-    //         // "on-scroll-down": "waybar-mpris --send prev",
-    //     "escape": true
-    // },
-    //////////////////////////////////
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-active": " {icon} ",
-        "on-click": "activate",
-        "format-icons": {
-           "1": "",
-           "2": "",
-           "3": "󰈹",
-           "4": "󰣇",
-           "5": "",
-       },
-    },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-    "clock": {
-        "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "interval": 60,
-        "format": "{:%I:%M}",
-        "max-length": 25
-    },
-    "cpu": {
-        "interval":1,
-        "format": "{icon0} {icon1} {icon2} {icon3}",
-        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
-    },
-    "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        "format-critical": "{temperatureC}°C",
-        "format": "{temperatureC}°C {icon}"
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
+	"network": {
+		"tooltip": false,
+		"format-wifi": "  {essid}",
+		"format-ethernet": ""
+	},
+	"backlight": {
+		"tooltip": false,
+		"format": " {}%",
+		"interval":1,
+        "on-scroll-up": "light -A 5",
+		"on-scroll-down": "light -U 5"
+	},
     "battery": {
-          "states": {
-              // "good": 95,
-              "warning": 30,
-              "critical": 15
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format": "{icon}  {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
         "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
+	"tray":{
+		"icon-size":18,
+		"spacing": 10
+	},
+    "clock": {
+        "format": "{: %I:%M %p   %d/%m/%Y}"
     },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "cpu": {
+        "interval": 15,
+        "format": " {}%",
+        "max-length": 10
     },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10
     },
     "custom/media": {
+        "interval": 30,
         "format": "{icon} {}",
         "return-type": "json",
-        "max-length": 40,
+        "max-length": 20,
         "format-icons": {
-            "spotify": "",
-            "default": "🎜"
+            "spotify": " ",
+            "default": " "
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
+        "on-click": "playerctl play-pause"
+    },
+    "custom/launcher":{
+        "format": " ",
+        "on-click": "rofi -show drun",
+        "on-click-right": "killall rofi"
+    },
+    "custom/power":{
+        "format": " ",
+        "on-click": "bash ~/.config/rofi/leave/leave.sh",
+    },
+    "custom/updates":{
+        "format": "{} Update(s)",
+        "exec": "checkupdates | wc -l",
+        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+        "interval": 15,
+        "on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
+    },
+    "custom/wallpaper":{
+        "format":" ",
+        "on-click": "bash ~/.config/system_scripts/pkill_bc"
     }
 }
