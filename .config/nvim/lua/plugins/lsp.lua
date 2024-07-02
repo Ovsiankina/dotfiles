@@ -1,3 +1,20 @@
+local servers = {
+    "ast_grep",                -- AST Grep
+    "black",                   -- Black
+    "clangd",                  -- C++
+    "html",                    -- HTML
+    "jdtls",                   -- Java
+    "lua_ls",                  -- Lua
+    "marksman",                -- Markdown
+    "pylint",                  -- Pylint
+    "pyright",                 -- Python
+    "rust_analyzer",           -- Rust
+    "sqlls",                    -- SQL
+    "stylua",                  -- Stylua
+    "texlab",                  -- LaTeX
+    "tsserver",                -- JavaScript
+}
+
 return {
   -- LSP has three parts: Mason, Mason-lspconfig and nvim
 
@@ -5,14 +22,11 @@ return {
   -- Installs and manages the LSPs
   {
     "williamboman/mason.nvim",
+    opts = {},
     lazy = false,
     config = function()
       require("mason").setup()
     end,
-    -- opts = function(_, opts)
-    --   opts.ensure_installed = opts.ensure_installed or {}
-    --   vim.list_extend(opts.ensure_installed, { "java-test", "java-debug-adapter" })
-    -- end,
   },
 
   -- Mason-lspconfig
@@ -22,7 +36,8 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      auto_install = true,
+      ensure_installed = servers,
+      automatic_installation = true,
       -- java server
       servers = {
         jdtls = {},
@@ -53,57 +68,19 @@ return {
         -- Fallback to system python if no virtualenv is found
         return vim.fn.exepath("python3") or vim.fn.exepath("python")
       end
-      -- Python
-      -- Setup pyright with dynamic Python path
-      lspconfig.pyright.setup({
-        capabilities = capabilities,
-        on_init = function(client)
-          local python_path = get_python_path(client.config.root_dir)
-          client.config.settings.python.pythonPath = python_path
-          client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-        end,
-      })
-      -- Lua
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
-      -- JavaScript
-      lspconfig.tsserver.setup({
-        capabilities = capabilities,
-      })
-      -- SQL
-      lspconfig.sqls.setup({
-        capabilities = capabilities,
-      })
-      -- PHP
-      lspconfig.phpactor.setup({
-        capabilities = capabilities,
-      })
-      -- Java
-      lspconfig.jdtls.setup({
-        capabilities = capabilities,
-      })
-      -- HTML
-      lspconfig.html.setup({
-        capabilities = capabilities,
-      })
-      -- cpp
-      lspconfig.clangd.setup({
-        capabilities = capabilities,
-      })
-      -- rust
-      lspconfig.rust_analyzer.setup({
-        capabilities = capabilities,
-      })
-      -- md
-      lspconfig.marksman.setup({
-        capabilities = capabilities,
-      })
-      -- latex
-      lspconfig.texlab.setup({
-        capabilities = capabilities,
-      })
+
+      for _, server in ipairs(servers) do
+        lspconfig[server].setup {
+          capabilities = capabilities,
+          on_init = server == "pyright" and function(client)
+            local python_path = get_python_path(client.config.root_dir)
+            client.config.settings.python.pythonPath = python_path
+            client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+          end or nil,
+        }
+      end
     end,
   },
   { "nvim-lua/lsp-status.nvim" },
 }
+

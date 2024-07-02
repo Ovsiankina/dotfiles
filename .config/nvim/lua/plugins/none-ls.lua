@@ -12,6 +12,7 @@ return {
         null_ls.builtins.diagnostics.phpmd,   --PHP
         null_ls.builtins.diagnostics.pylint,  --Python
         null_ls.builtins.diagnostics.checkstyle, --Java
+        null_ls.builtins.formatting.black,
         -- not working for some reason
         -- null_ls.builtins.formatting.clang_format, --c++
         -- null_ls.builtins.completion.spell,
