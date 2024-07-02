@@ -3,6 +3,7 @@ vim.g.mapleader = " "                        -- The leader ( <space> )
 -- replaced by oil.lua
 -- vim.keymap.set("n", "<leader>b", vim.cmd.Ex) -- in normal mode, leader <space>, which command (Ex)
 
+-- TODO: write these remaps with which-key plugin
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 
 -- LSP and code actions
