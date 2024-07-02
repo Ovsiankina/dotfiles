@@ -3,7 +3,6 @@ return {
 	{
 		"tpope/vim-fugitive",
 		config = function()
-
 			----- Remap -----
 			vim.keymap.set("n", "<space>gc", ":Git ", {})
 		end,
@@ -14,9 +13,29 @@ return {
 		config = function()
 			require("gitsigns").setup()
 
-			----- Remap -----
-			vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
-			vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", {})
+			--          ╭─────────────────────────────────────────────────────────╮
+			--          │                          Remap                          │
+			--          ╰─────────────────────────────────────────────────────────╯
+
+			local wk = require("which-key")
+			wk.register({
+				g = {
+					mode = { "n" },
+					name = " Git",
+					c = { ":Git", "Short(c)ut for :Git in CMD" },
+					p = { ":Gitsigns preview_hunk<CR>", "(P)review hunk" },
+					b = {
+						name = " Blame",
+						l = { ":Gitsigns toggle_current_line_blame<CR>", "Blame current (L)ine" },
+					},
+					v = {
+						name = " Visualisation",
+						b = { ":Flog<CR>", " (B)ranches" },
+						s = { ":Flogsplit<CR>", " (S)plit" },
+						g = { ":Floggit<CR>", " (G)it" },
+					},
+				},
+			}, { prefix = "<leader>" })
 		end,
 	},
 	-- Git branches visualisation (:Flog)

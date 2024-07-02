@@ -41,9 +41,18 @@ return {
 		dap.listeners.before.event_exited.dapui_config = function()
 			dapui.close()
 		end
-		-- db: Debugging breakpoint
-		vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {})
-		-- dc: Debugging continue
-		vim.keymap.set("n", "<Leader>dc", dap.continue, {})
+
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                          Remap                          │
+--          ╰─────────────────────────────────────────────────────────╯
+		local wk = require("which-key")
+		wk.register({
+			d = {
+				mode = "n",
+				name = "Debugger",
+				b = { dap.toggle_breakpoint, "Toggle breakpoint"},
+				c = { dap.continue, "Continue" },
+			},
+		}, { prefix = "<leader>" })
 	end,
 }

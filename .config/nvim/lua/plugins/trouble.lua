@@ -1,37 +1,27 @@
 return {
   "folke/trouble.nvim",
+  opts = {},
   cmd = "Trouble",
-  keys = {
-    {
-      "<leader>xx",
-      "<cmd>TroubleToggle document_diagnostics<cr>",
-      desc = "Document Diagnostics (Trouble)",
-    },
-    {
-      "<leader>x",
-      "<cmd>TroubleToggle workspace_diagnostics<cr>",
-      desc = "Workspace Diagnostics (Trouble)",
-    },
-    {
-      "<leader>xL",
-      "<cmd>TroubleToggle loclist<cr>",
-      desc = "Location List (Trouble)",
-    },
-    {
-      "<leader>xQ",
-      "<cmd>TroubleToggle quickfix<cr>",
-      desc = "Quickfix List (Trouble)",
-    },
-  },
-  opts = {}, -- Use default options or add custom configurations if needed
+  auto_close = false,
+
+  keys = function()
+    local wk = require("which-key")
+    wk.register({
+      ["<leader>x"] = {
+        name = "Trouble",
+        x = { ":Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)" },
+        X = { ":Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)" },
+        -- BUG: xL and xQ doesn't work
+        L = { ":Trouble loclist toggle<cr>", "Location List (Trouble)" },
+        Q = { ":Trouble qflist toggle<cr>", "Quickfix List (Trouble)" },
+        t = { ":Trouble todo<CR>", "Todo telescope" },
+      },
+
+      -- FIX: these two below does not work
+      ["<leader>c"] = {
+        s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)" },
+        l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references / ... (Trouble)" },
+      },
+    }, { mode = "n", noremap = true, silent = true })
+  end,
 }
--- {
---   "<leader>cs",
---   "<cmd>Trouble symbols toggle focus=false<cr>",
---   desc = "Symbols (Trouble)",
--- },
--- {
---   "<leader>cl",
---   "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
---   desc = "LSP Definitions / references / ... (Trouble)",
--- },

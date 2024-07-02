@@ -7,8 +7,20 @@ return {
     "MunifTanjim/nui.nvim",
     -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
   },
+
   config = function()
-    vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal left<CR>", {})
-    vim.keymap.set("n", "<leader>Nf", ":Neotree buffers reveal float<CR>", {})
+    --          ╭─────────────────────────────────────────────────────────╮
+    --          │                          Remap                          │
+    --          ╰─────────────────────────────────────────────────────────╯
+
+    local wk = require("which-key")
+    wk.register({
+      N = {
+        mode = { "n" },
+        name = " Neotree filesystem",
+        l = { ":Neotree filesystem reveal left<CR>", "Reveal neotree (l)eft" },
+        f = { ":Neotree buffers reveal float<CR>", "Reveal neotree (f)oat" },
+      },
+    }, { prefix = "<leader>" })
   end,
 }

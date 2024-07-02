@@ -27,7 +27,6 @@ return {
 				shade = "dark",
 				percentage = 0.15, -- percentage of the shade to apply to the inactive window
 			},
-			color_overrides = {},
 			default_integrations = true,
 			integrations = {
 				cmp = true,
@@ -42,7 +41,10 @@ return {
 			},
 		})
 		vim.cmd.colorscheme("catppuccin")
-		----- Remap -----
+
+--          ╭─────────────────────────────────────────────────────────╮
+--          │                          Remap                          │
+--          ╰─────────────────────────────────────────────────────────╯
 		-- Change the to dark or light (macchiato/latte)
 		function ToggleBackground()
 			if vim.o.bg == "dark" then
@@ -53,6 +55,12 @@ return {
 			vim.cmd("colorscheme catppuccin")
 		end
 
-		vim.api.nvim_set_keymap("n", "<leader>l", ":lua ToggleBackground()<CR>", { noremap = true, silent = true })
+		local wk = require("which-key")
+		wk.register({
+        mode = "n",
+        silent = true,
+        noremap = true,
+        l = {":lua ToggleBackground()<CR>", "Toggle light mode"},
+      }, {prefix = "<leader>"})
 	end,
 }

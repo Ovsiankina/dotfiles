@@ -1,5 +1,5 @@
 local null_ls_sources = {
-  "black", -- Python
+  "black",  -- Python
   "stylua", -- Lua
 }
 
@@ -18,8 +18,18 @@ return {
       null_ls.setup({
         sources = sources,
 
-        ----- Remap -----
-        vim.keymap.set("n", "<space>fc", vim.lsp.buf.format, {}),
+      })
+
+      --          ╭─────────────────────────────────────────────────────────╮
+      --          │                          Remap                          │
+      --          ╰─────────────────────────────────────────────────────────╯
+      local wk = require("which-key")
+      wk.register({
+        f = {
+          mode = { "n" },
+          name = " ",
+          c = { vim.lsp.buf.format, "Format file" },
+        },
       })
     end,
   },
@@ -40,4 +50,3 @@ return {
     end,
   },
 }
-
