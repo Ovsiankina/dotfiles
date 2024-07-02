@@ -1,16 +1,13 @@
 local servers = {
     "ast_grep",                -- AST Grep
-    "black",                   -- Black
     "clangd",                  -- C++
     "html",                    -- HTML
     "jdtls",                   -- Java
     "lua_ls",                  -- Lua
     "marksman",                -- Markdown
-    "pylint",                  -- Pylint
     "pyright",                 -- Python
     "rust_analyzer",           -- Rust
     "sqlls",                    -- SQL
-    "stylua",                  -- Stylua
     "texlab",                  -- LaTeX
     "tsserver",                -- JavaScript
 }
