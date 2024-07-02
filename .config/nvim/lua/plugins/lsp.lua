@@ -42,16 +42,17 @@ return {
       -- Function to get the virtual environment path dynamically
       local function get_python_path(workspace)
         -- Use the virtualenv in the workspace directory if available
-        local venv_path = workspace .. "/venv/bin/python"
+        if workspace == nil then
+          return vim.fn.exepath("python3") or vim.fn.exepath("python")
+        end
+        local venv_path = workspace .. "/.venv/bin/python"
         local venv_exists = vim.fn.glob(venv_path)
         if venv_exists ~= "" then
           return venv_path
         end
-
         -- Fallback to system python if no virtualenv is found
         return vim.fn.exepath("python3") or vim.fn.exepath("python")
       end
-
       -- Python
       -- Setup pyright with dynamic Python path
       lspconfig.pyright.setup({
