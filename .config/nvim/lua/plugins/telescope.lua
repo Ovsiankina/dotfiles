@@ -26,6 +26,8 @@ return {
       --          │                          Remap                          │
       --          ╰─────────────────────────────────────────────────────────╯
 
+      -- BUG:  DO NOT use ':'
+      -- use <CMD> instead to enable dot-repeat
       local wk = require("which-key")
       wk.register({
         f = {
