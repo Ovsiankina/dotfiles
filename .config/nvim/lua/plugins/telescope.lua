@@ -16,6 +16,11 @@ return {
 		config = function()
 			-- This is your opts table
 			require("telescope").setup({
+				pickers = {
+					find_files = {
+						hidden = true,
+					},
+				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({
@@ -40,7 +45,7 @@ return {
 					g = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
 					b = { "<Cmd>Telescope buffers<CR>", "Buffers" },
 					h = { "<Cmd>Telescope help_tags<CR>", "Help Tags" },
-          -- BUG: keyword(args) does not show up in telescope
+					-- BUG: keyword(args) does not show up in telescope
 					t = { "<Cmd>TodoTelescope<CR>", "Todo telescope" },
 					B = { "<Cmd>Telescope file_browser<CR>", "(B)rowse files" },
 					p = { "<Cmd>Telescope file_browser<CR>", "Browse (p)rojects" },
