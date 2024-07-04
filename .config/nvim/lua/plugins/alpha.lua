@@ -8,3 +8,10 @@ return {
     require'alpha'.setup(require'alpha.themes.startify'.config)
 	end,
 }
+
+-- hihi
+-- hihi
+-- hihi
+-- hihi
+-- hihi
+-- hihi
