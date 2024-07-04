@@ -40,7 +40,7 @@ add_newline = true
 symbol = ' '
 
 [character]
-error_symbol = '[✖](red)'
+error_symbol = '[✖ ](red)'
 
 [cmd_duration]
 min_time = 0
@@ -63,8 +63,8 @@ style = "bg:#ED8796 fg:#4C4F69"
 disabled = false # Disabled by default
 
 [os.symbols]
-Windows = " "
-Arch = "\uf303"
+Windows = "  "
+Arch = "\uf303 "
 
 [directory]
 style = "bg:#F5A97F fg:#4C4F69"
