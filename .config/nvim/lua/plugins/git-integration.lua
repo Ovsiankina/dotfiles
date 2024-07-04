@@ -2,10 +2,6 @@ return {
 	-- Git commands integrated into neovim
 	{
 		"tpope/vim-fugitive",
-		config = function()
-			----- Remap -----
-			vim.keymap.set("n", "<space>gc", ":Git ", {})
-		end,
 	},
 	-- Previews, blame, etc..
 	{
@@ -22,8 +18,8 @@ return {
 				g = {
 					mode = { "n" },
 					name = " Git",
-					c = { ":Git", "Short(c)ut for :Git in CMD" },
-					p = { ":Gitsigns preview_hunk<CR>", "(P)review hunk" },
+					c = { ":Git ", "Short(c)ut for :Git in CMD" },
+					h = { ":Gitsigns preview_hunk<CR>", "Preview (h)unk" },
 					b = {
 						name = " Blame",
 						l = { ":Gitsigns toggle_current_line_blame<CR>", "Blame current (L)ine" },
