@@ -1,2 +1,6 @@
 # Ignore the Zsh history file
 .zsh/.zsh_history
+
+# Ignore hypr notif files
+.config/hypr/store/dynamic_out.txt
+.config/hypr/store/latest_notif
