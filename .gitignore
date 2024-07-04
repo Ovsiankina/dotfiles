@@ -1,0 +1,2 @@
+# Ignore the Zsh history file
+.zsh/.zsh_history
