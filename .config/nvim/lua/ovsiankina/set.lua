@@ -8,12 +8,9 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
--- Allow to chose with a command (TODO) catpuccin theme
--- TODO Add command to change this to dark or light
 vim.g.background = "light"
 
--- Disable line wrap
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- Prevent vim backups
 vim.opt.swapfile = false

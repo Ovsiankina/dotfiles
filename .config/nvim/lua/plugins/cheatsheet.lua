@@ -14,6 +14,15 @@ return {
         disabled = { "nerd-fonts" },
       },
       bundled_plugin_cheatsheets = {
+        enabled = {
+          "auto-session",
+          "goto-preview",
+          "octo.nvim",
+          "telescope.nvim",
+          "vim-easy-align",
+          "vim-sandwich",
+        },
+        disabled = { "gitsigns" },
       },
       include_only_installed_plugins = true,
       telescope_mappings = {
