@@ -1,8 +1,11 @@
 return {
   "folke/trouble.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {},
   cmd = "Trouble",
   auto_close = false,
+
+  -- BUG: Trouble does not use icons proprely (letters instead)
 
   keys = function()
     local wk = require("which-key")

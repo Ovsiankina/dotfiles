@@ -10,7 +10,7 @@ vim.opt.smartindent = true
 
 vim.g.background = "light"
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 -- Prevent vim backups
 vim.opt.swapfile = false
