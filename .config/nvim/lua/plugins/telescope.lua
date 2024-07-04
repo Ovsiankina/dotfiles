@@ -1,9 +1,11 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.5",
-    -- or                              , branch = '0.1.x',
     dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    "nvim-telescope/telescope-project.nvim",
+    dependencies = { "nvim-telescope/telescope-file-browser.nvim" },
   },
 
   -- Telescope extension to use code action with telescope
@@ -32,11 +34,13 @@ return {
       wk.register({
         f = {
           name = " Telescope",
-          f = { ":Telescope find_files<CR>", "Find Files" },
-          g = { ":Telescope live_grep<CR>", "Live Grep" },
-          b = { ":Telescope buffers<CR>", "Buffers" },
-          h = { ":Telescope help_tags<CR>", "Help Tags" },
-          t = { ":TodoTelescope<CR>", "Todo telescope" },
+          f = { "<Cmd>Telescope find_files<CR>", "Find Files" },
+          g = { "<Cmd>Telescope live_grep<CR>", "Live Grep" },
+          b = { "<Cmd>Telescope buffers<CR>", "Buffers" },
+          h = { "<Cmd>Telescope help_tags<CR>", "Help Tags" },
+          t = { "<Cmd>TodoTelescope<CR>", "Todo telescope" },
+          B = { "<Cmd>Telescope file_browser<CR>", "(B)rowse files" },
+          p = { "<Cmd>Telescope file_browser<CR>", "Browse (p)rojects" },
         },
       }, { prefix = "<leader>" })
 
