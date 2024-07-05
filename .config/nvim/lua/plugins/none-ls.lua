@@ -1,5 +1,5 @@
 local null_ls_sources = {
-  "black",  -- Python
+  "black", -- Python
   "stylua", -- Lua
 }
 
@@ -17,18 +17,17 @@ return {
       end
       null_ls.setup({
         sources = sources,
-
       })
 
       --          ╭─────────────────────────────────────────────────────────╮
       --          │                          Remap                          │
       --          ╰─────────────────────────────────────────────────────────╯
       local wk = require("which-key")
+      -- method 4
       wk.register({
-        f = {
-          mode = { "n" },
-          name = " ",
-          c = { vim.lsp.buf.format, "Format file" },
+        ["<leader>F"] = {
+          name = "Formatter",
+          { mode = { "n" }, vim.lsp.buf.format, "[F]ormat file" },
         },
       })
     end,

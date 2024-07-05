@@ -1,30 +1,44 @@
 return {
-  "folke/trouble.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  opts = {},
-  cmd = "Trouble",
-  auto_close = false,
+	"folke/trouble.nvim",
+	requires = { "kyazdani42/nvim-web-devicons" }, -- Ensuring dependency is correctly specified
+	config = function()
+		require("trouble").setup({
+			-- other configuration options
+		})
+		require("nvim-web-devicons").setup({
+			default = true,
+		})
 
-  -- BUG: Trouble does not use icons proprely (letters instead)
+		local signs = {
+			Error = "", -- icon for errors
+			Warn = "", -- icon for warnings
+			Hint = "", -- icon for hints
+			Info = "" , -- icon for information
+		}
 
-  keys = function()
-    local wk = require("which-key")
-    wk.register({
-      ["<leader>x"] = {
-        name = "Trouble",
-        x = { ":Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)" },
-        X = { ":Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)" },
-        -- BUG: xL and xQ doesn't work
-        L = { ":Trouble loclist toggle<cr>", "Location List (Trouble)" },
-        Q = { ":Trouble qflist toggle<cr>", "Quickfix List (Trouble)" },
-        t = { ":Trouble todo<CR>", "Todo telescope" },
-      },
+		for type, icon in pairs(signs) do
+			local hl = "DiagnosticSign" .. type
+			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+		end
 
-      -- FIX: these two below does not work
-      ["<leader>c"] = {
-        s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)" },
-        l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references / ... (Trouble)" },
-      },
-    }, { mode = "n", noremap = true, silent = true })
-  end,
+		local wk = require("which-key")
+		wk.register({
+			["<leader>x"] = {
+				name = "Trouble",
+				silent = true,
+				noremap = true,
+				["x"] = { mode = "n", "<cmd>Trouble diagnostics toggle<cr>", "[x]Diagnostics" },
+				["X"] = { mode = "n", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "[X]Buffer Diagnostics" },
+				["l"] = { mode = "n", "<cmd>Trouble loclist toggle<cr>", "[L]ocation List" },
+				["t"] = { mode = "n", "<cmd>Trouble todo<CR>", "[t]odo" },
+				["s"] = { mode = "n", "<cmd>Trouble symbols toggle focus=false<cr>", "[s]ymbols" },
+				["Q"] = { mode = "n", "<cmd>Trouble qflist toggle<cr>", "[Q]uickfix List" },
+				["L"] = {
+					mode = "n",
+					"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+					"[L]SP Definitions / references / ...",
+				},
+			},
+		})
+	end,
 }
