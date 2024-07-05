@@ -15,25 +15,24 @@ return {
 
       local wk = require("which-key")
       wk.register({
-        g = {
-          mode = { "n" },
-          name = " Git",
-          A = { "<cmd>Git add .<CR>", "Git (A)dd ." },
-          C = { "<cmd>Git commit<CR>", "Git (C)ommit" },
-          h = { "<cmd>Gitsigns preview_hunk<CR>", "(p)review (h)unk" },
-          r = { "<cmd>Gitsigns reset_hunk<CR>", "(r)eset (h)unk" },
-          D = { "<cmd>Gitsigns diffthis<CR>", "(D)iff this" },
-          d = { "<cmd>Gdiffsplit<CR>", " (d)iff split: working tree vs. staged " },
-          b = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Blame current (L)ine" },
-
-          v = {
-            name = " Visualisation",
-            b = { ":Flog<CR>", " (b)ranches" },
-            s = { ":Flogsplit<CR>", " (s)plit" },
-            g = { ":Floggit<CR>", " (g)it" },
-          },
+        ["<leader>g"] = {
+          name = "Git",
+          ["A"] = { mode = "n", "<cmd>Git add .<CR>", "Git [A]dd ." },
+          ["C"] = { mode = "n", "<cmd>Git commit<CR>", "Git [C]ommit" },
+          ["h"] = { mode = "n", "<cmd>Gitsigns preview_hunk<CR>", "[p]review hunk" },
+          ["r"] = { mode = "n", "<cmd>Gitsigns reset_hunk<CR>", "[r]eset hunk" },
+          ["D"] = { mode = "n", "<cmd>Gitsigns diffthis<CR>", "[D]iff this" },
+          ["d"] = { mode = "n", "<cmd>Gdiffsplit<CR>", "[d]iff split: working tree vs. staged " },
+          ["b"] = { mode = "n", "<cmd>Gitsigns toggle_current_line_blame<CR>", "[b]lame current line" },
         },
-      }, { prefix = "<leader>" })
+
+        ["<leader>gv"] = {
+          name = " Visualisation",
+          ["b"] = { mode = "n", "<cmd>Flog<CR>", " (b)ranches" },
+          ["s"] = { mode = "n", "<cmd>Flogsplit<CR>", " (s)plit" },
+          ["g"] = { mode = "n", "<cmd>Floggit<CR>", " (g)it" },
+        },
+      })
     end,
   },
   -- Git branches visualisation (:Flog)

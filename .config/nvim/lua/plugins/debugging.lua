@@ -42,17 +42,16 @@ return {
 			dapui.close()
 		end
 
---          ╭─────────────────────────────────────────────────────────╮
---          │                          Remap                          │
---          ╰─────────────────────────────────────────────────────────╯
+		--          ╭─────────────────────────────────────────────────────────╮
+		--          │                          Remap                          │
+		--          ╰─────────────────────────────────────────────────────────╯
 		local wk = require("which-key")
 		wk.register({
-			d = {
-				mode = "n",
+			["<leader>d"] = {
 				name = "Debugger",
-				b = { dap.toggle_breakpoint, "Toggle breakpoint"},
-				c = { dap.continue, "Continue" },
+				["b"] = { mode = "n", dap.toggle_breakpoint, "Toggle breakpoint" },
+				["c"] = { mode = "n", dap.continue, "Continue" },
 			},
-		}, { prefix = "<leader>" })
+		})
 	end,
 }

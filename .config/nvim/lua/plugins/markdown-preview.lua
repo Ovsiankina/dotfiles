@@ -5,18 +5,16 @@ return {
   build = function()
     vim.fn["mkdp#util#install"]()
 
---          ╭─────────────────────────────────────────────────────────╮
---          │                          Remap                          │
---          ╰─────────────────────────────────────────────────────────╯
+    --          ╭─────────────────────────────────────────────────────────╮
+    --          │                          Remap                          │
+    --          ╰─────────────────────────────────────────────────────────╯
 
     local wk = require("which-key")
     wk.register({
-      m = {
-        mode = { "n" },
-        name = " Markdown",
-        p = { "MarkdownPreviewToggle<CR>", "Markdown (p)review" },
+      ["<leader>m"] = {
+        name = "Markdown",
+        ["p"] = { mode = "n", "<Cmd>MarkdownPreviewToggle<CR>", "Markdown [p]review" },
       },
-    }, { prefix = "<leader>" })
+    })
   end,
-
 }

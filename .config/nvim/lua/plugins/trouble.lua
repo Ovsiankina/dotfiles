@@ -8,23 +8,26 @@ return {
   -- BUG: Trouble does not use icons proprely (letters instead)
 
   keys = function()
+    -- BUG: xL and xQ doesn't work
+    -- FIX: these two below does not work
     local wk = require("which-key")
     wk.register({
       ["<leader>x"] = {
         name = "Trouble",
-        x = { ":Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)" },
-        X = { ":Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)" },
-        -- BUG: xL and xQ doesn't work
-        L = { ":Trouble loclist toggle<cr>", "Location List (Trouble)" },
-        Q = { ":Trouble qflist toggle<cr>", "Quickfix List (Trouble)" },
-        t = { ":Trouble todo<CR>", "Todo telescope" },
+        silent = true,
+        noremap = true,
+        ["x"] = { mode = "n", "<cmd>Trouble diagnostics toggle<cr>", "[x]Diagnostics" },
+        ["X"] = { mode = "n", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "[X]Buffer Diagnostics" },
+        ["l"] = { mode = "n", "<cmd>Trouble loclist toggle<cr>", "[L]ocation List" },
+        ["Q"] = { mode = "n", "<cmd>Trouble qflist toggle<cr>", "[Q]uickfix List" },
+        ["t"] = { mode = "n", "<cmd>Trouble todo<CR>", "[t]odo" },
+        ["s"] = { mode = "n", "<cmd>Trouble symbols toggle focus=false<cr>", "[s]ymbols" },
+        ["L"] = {
+          mode = "n",
+          "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+          "[L]SP Definitions / references / ...",
+        },
       },
-
-      -- FIX: these two below does not work
-      ["<leader>c"] = {
-        s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)" },
-        l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions / references / ... (Trouble)" },
-      },
-    }, { mode = "n", noremap = true, silent = true })
+    })
   end,
 }
