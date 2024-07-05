@@ -18,7 +18,7 @@ return {
     { "]b",    "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
     { "[B",    "<cmd>BufferLineMovePrev<cr>",  desc = "Move buffer prev" },
     { "]B",    "<cmd>BufferLineMoveNext<cr>",  desc = "Move buffer next" },
-    { "bd",    "<cmd>bd<cr>",  desc = "Delete current buffer" },
+    { "<S-d>",    "<cmd>bd<cr>",  desc = "Delete current buffer" },
   },
   opts = {
     options = {
