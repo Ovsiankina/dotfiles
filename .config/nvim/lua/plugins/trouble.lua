@@ -3,7 +3,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {},
   cmd = "Trouble",
-  auto_close = false,
+  auto_close = true,
 
   -- BUG: Trouble does not use icons proprely (letters instead)
 

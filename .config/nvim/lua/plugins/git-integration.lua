@@ -18,13 +18,13 @@ return {
         g = {
           mode = { "n" },
           name = " Git",
-          A = { ":Git add .<CR>", "Git (A)dd ." },
-          C = { ":Git commit<CR>", "Git (C)ommit" },
-          h = { ":Gitsigns preview_hunk<CR>", "(p)review (h)unk" },
-          r = { ":Gitsigns reset_hunk<CR>", "(r)eset (h)unk" },
-          D = { ":Gitsigns diffthis<CR>", "(D)iff this" },
-          d = { ":Gdiffsplit<CR>", " (d)iff split: working tree vs. staged " },
-          b = { ":Gitsigns toggle_current_line_blame<CR>", "Blame current (L)ine" },
+          A = { "<cmd>Git add .<CR>", "Git (A)dd ." },
+          C = { "<cmd>Git commit<CR>", "Git (C)ommit" },
+          h = { "<cmd>Gitsigns preview_hunk<CR>", "(p)review (h)unk" },
+          r = { "<cmd>Gitsigns reset_hunk<CR>", "(r)eset (h)unk" },
+          D = { "<cmd>Gitsigns diffthis<CR>", "(D)iff this" },
+          d = { "<cmd>Gdiffsplit<CR>", " (d)iff split: working tree vs. staged " },
+          b = { "<cmd>Gitsigns toggle_current_line_blame<CR>", "Blame current (L)ine" },
 
           v = {
             name = " Visualisation",
