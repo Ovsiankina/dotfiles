@@ -65,25 +65,18 @@ return {
 
     -- NOTE ( test ) :
 
-    -- NOTE ( test ) :
+    --test  NOTE( test ) :
+
+    merge_keywords = true, -- when true, custom keywords will be merged with the defaults
 
     highlight = {
-      before = "",                                 -- "fg" or "bg" or empty
-      keyword = "wide_bg",                         -- "fg", "bg", "wide" or empty. (wide is the same as bg, but will also highlight surrounding characters)
-      after = "fg",                                -- "fg" or "bg" or empty
-      pattern = [[.*<(KEYWORDS)\s*(\([^)]*\))?\s*:]], -- match keywords
-      comments_only = true,                        -- uses treesitter to match keywords in comments only
+      before = "",
+      keyword = "wide_bg",
+      after = "fg",
+      pattern = [[.*(KEYWORDS)\s*(\([^)]*\))?\s*:]],
     },
 
     search = {
-      command = "rg",
-      args = {
-        "--color=never",
-        "--no-heading",
-        "--with-filename",
-        "--line-number",
-        "--column",
-      },
       -- regex that will be used to match keywords.
       -- don't replace the (KEYWORDS) placeholder
       pattern = [[\b(KEYWORDS)\b\s*(\([^)]*\))?\s*:]], -- ripgrep regex
@@ -96,6 +89,11 @@ return {
       hint = { "#a6da95" },
       default = { "#c6a0f6" },
       test = { "#f5bde6" },
+    },
+
+    gui_style = {
+      fg = "NONE", -- The gui style to use for the fg highlight group.
+      bg = "BOLD", -- The gui style to use for the bg highlight group.
     },
   },
 }
