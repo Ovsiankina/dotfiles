@@ -1,15 +1,15 @@
 local servers = {
-    "ast_grep",                -- AST Grep
-    "clangd",                  -- C++
-    "html",                    -- HTML
-    "jdtls",                   -- Java
-    "lua_ls",                  -- Lua
-    "marksman",                -- Markdown
-    "pyright",                 -- Python
-    "rust_analyzer",           -- Rust
-    "sqlls",                    -- SQL
-    "texlab",                  -- LaTeX
-    "tsserver",                -- JavaScript
+  "ast_grep",     -- AST Grep
+  "clangd",       -- C++
+  "html",         -- HTML
+  "jdtls",        -- Java
+  "lua_ls",       -- Lua
+  "marksman",     -- Markdown
+  "pyright",      -- Python
+  "rust_analyzer", -- Rust
+  "sqlls",        -- SQL
+  "texlab",       -- LaTeX
+  "tsserver",     -- JavaScript
 }
 
 return {
@@ -67,17 +67,27 @@ return {
       end
 
       for _, server in ipairs(servers) do
-        lspconfig[server].setup {
+        lspconfig[server].setup({
           capabilities = capabilities,
           on_init = server == "pyright" and function(client)
             local python_path = get_python_path(client.config.root_dir)
             client.config.settings.python.pythonPath = python_path
             client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
           end or nil,
-        }
+        })
       end
+
+      --          ╭─────────────────────────────────────────────────────────╮
+      --          │                          Remap                          │
+      --          ╰─────────────────────────────────────────────────────────╯
+
+      local wk = require("which-key")
+      wk.register({
+        ["K"] = { vim.lsp.buf.hover, "Definitions", mode = "n" },
+        ["gd"] = { vim.lsp.buf.definition, "Go to definitions", mode = "n" },
+        ["<space>ca"] = { vim.lsp.buf.code_action, "Code action", mode = { "n", "v" } },
+      })
     end,
   },
   { "nvim-lua/lsp-status.nvim" },
 }
-
