@@ -1,6 +1,7 @@
 # Ignore the Zsh history file
 .zsh/.zsh_history
 
-# Ignore hypr notif files
+# Ignore temp files
 .config/hypr/store/dynamic_out.txt
 .config/hypr/store/latest_notif
+.config/thefuck/__pycache__/settings.cpython-312.pyc
