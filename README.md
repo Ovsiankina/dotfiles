@@ -7,13 +7,20 @@
 - git
 - GNU stow
 - Neovim
-- Starship.rs
-- tmux
+- starship
 - zsh
 - fzf
 - fzf-git
 - zoxide
 - us_qwerty-fr
+- gcc
+- bat
+- tmux
+- tmux tpm
+- tmux-resurrect
+- tmux-sensible
+- tpm
+- vim-tmux-navigator
 
 ### Optional
 
