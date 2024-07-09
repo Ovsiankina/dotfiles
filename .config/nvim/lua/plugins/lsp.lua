@@ -77,6 +77,17 @@ return {
           end or nil,
         })
       end
+
+      --          ╭─────────────────────────────────────────────────────────╮
+      --          │                          Remap                          │
+      --          ╰─────────────────────────────────────────────────────────╯
+
+      local wk = require("which-key")
+      wk.register({
+        ["K"] = { vim.lsp.buf.hover, "Definitions", mode = "n" },
+        ["gd"] = { vim.lsp.buf.definition, "Go to definitions", mode = "n" },
+        ["<space>ca"] = { vim.lsp.buf.code_action, "Code action", mode = { "n", "v" } },
+      })
     end,
   },
   { "nvim-lua/lsp-status.nvim" },

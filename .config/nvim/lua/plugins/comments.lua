@@ -14,7 +14,6 @@ return {
 
       -- Remove comment box or normal comment
 
-      -- method 4
       local wk = require("which-key")
       wk.register({
         ["<leader>C"] = {

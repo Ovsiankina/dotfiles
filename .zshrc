@@ -76,7 +76,7 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 # ==============================================
 
 source ~/.zsh/aliases.zsh
-source ~/.zsh/fzf-git.sh/fzf-git.sh
+source ~/.zsh/fzf-git.sh
 
 # ==============================================
 # Eval

@@ -54,12 +54,14 @@ return {
       end
       vim.cmd("colorscheme catppuccin")
     end
+    -- Register the command in Vim
+    vim.cmd("command! ToggleBackground lua ToggleBackground()")
 
     local wk = require("which-key")
     wk.register({
       silent = true,
       noremap = true,
-      ["<leader>l"] = { mode = "n", "<CMD>  ToggleBackground()<CR>", "Toggle [l]ight mode" },
+      ["<leader>l"] = { mode = "n", "<CMD> ToggleBackground<CR>", "Toggle [l]ight mode" },
     })
   end,
 }
