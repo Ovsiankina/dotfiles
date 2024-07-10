@@ -8,28 +8,35 @@ The path used:
 
 ### Main
 
-#### pacman -S
+#### pacman packages
 - git
-- GNU stow
-- Neovim
-- starship
+- stow
+- neovim
 - zsh
-- fzf
 - zoxide
-- us_qwerty-fr
 - gcc
 - bat
 - tmux
-- tmuxifier
+- which
+- starship
+- fzf
+- thefuck
+- neofetch
+- eza
+- zip
+- unzip
+- texlive
 
 #### git clone
-- fzf-git into $PATH/.zsh
+- fzf-git
+- tmuxifier
+- tpm
 
-#### tmux plugins
+#### install tmux plugins
 1. open tmux
 2. `<leader> + I` (capitalized) to install all plugins listed in .tmux.conf
 
-### Optional pacman -S
+### Optional pacman packages
 - Hyprland
 - Waybar
 

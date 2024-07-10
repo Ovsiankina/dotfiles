@@ -1,6 +1,6 @@
 #!/bin/bash                                                                  
                                                                              
-sudo pacman -Syu git stow neovim zsh zoxide gcc bat tmux which starship fzf thefuck neofetch eza zip unzip
+sudo pacman -Syu git stow neovim zsh zoxide gcc bat tmux which starship fzf thefuck neofetch eza zip unzip texlive
 git clone https://github.com/Ovsiankina/dotfiles.git                        
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier                 
