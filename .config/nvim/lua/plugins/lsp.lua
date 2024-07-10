@@ -1,6 +1,7 @@
 local servers = {
   "ast_grep",     -- AST Grep
   "clangd",       -- C++
+  "gopls",        -- Go
   "html",         -- HTML
   "jdtls",        -- Java
   "lua_ls",       -- Lua
