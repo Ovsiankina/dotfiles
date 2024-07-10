@@ -25,7 +25,7 @@ The path used:
 - eza
 - zip
 - unzip
-- texlive
+- texlive (npm install -g tree-sitter-cli)
 
 #### git clone
 - fzf-git

@@ -4,6 +4,9 @@ sudo pacman -Syu git stow neovim zsh zoxide gcc bat tmux which starship fzf thef
 git clone https://github.com/Ovsiankina/dotfiles.git                        
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier                 
+
+# For textlab (LaTeX) tree-sitter
+npm install -g tree-sitter-cli
                                                                               
 chsh -s /bin/zsh
                                                                               
