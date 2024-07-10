@@ -1,4 +1,5 @@
 -- Line numbers vim.opt.nu = true
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- 4 spaces indents
@@ -25,7 +26,7 @@ vim.opt.undofile = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
--- idk colors I guess
+-- idk colors I gues
 vim.opt.termguicolors = true
 
 -- Always keep at least 8 lines from the bottom to where I work
