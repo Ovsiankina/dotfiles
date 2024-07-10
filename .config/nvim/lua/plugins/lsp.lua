@@ -11,6 +11,7 @@ local servers = {
   "sqlls",        -- SQL
   "texlab",       -- LaTeX
   "tsserver",     -- JavaScript
+  "bashls"        -- Bash
 }
 
 return {

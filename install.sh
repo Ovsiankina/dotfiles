@@ -16,9 +16,9 @@ sudo pacman-key --populate
 sudo pacman -Sy archlinux-keyring
 sudo pacman -Su
 
-sudo pacman -Syu git
+sudo pacman -Syu git tow neovim zsh zoxide gcc bat tmux which starship fzf thefuck neofetch
+
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
-sudo pacman -S stow neovim zsh zoxide gcc bat tmux which starship fzf thefuck neofetch
 
 chsh -s $(which zsh)
 
