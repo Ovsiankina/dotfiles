@@ -1,6 +1,7 @@
 local null_ls_sources = {
 	"black", -- Python
 	"stylua", -- Lua
+  "latexindent" -- LaTeX
 }
 
 return {
