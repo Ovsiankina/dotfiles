@@ -6,5 +6,10 @@ return {
       enable_named_colors = true,
       enable_tailwind = true,
     }
+    require("cmp").setup({
+        formatting = {
+                format = require("nvim-highlight-colors").format
+        }
+})
   end,
 }
