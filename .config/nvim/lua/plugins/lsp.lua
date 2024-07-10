@@ -1,17 +1,17 @@
 local servers = {
-  "ast_grep",     -- AST Grep
-  "clangd",       -- C++
-  "gopls",        -- Go
-  "html",         -- HTML
-  "jdtls",        -- Java
-  "lua_ls",       -- Lua
-  "marksman",     -- Markdown
-  "pyright",      -- Python
-  "rust_analyzer", -- Rust
-  "sqlls",        -- SQL
-  "texlab",       -- LaTeX
-  "tsserver",     -- JavaScript
-  "bashls"        -- Bash
+  "ast_grep",         -- AST Grep
+  "clangd",           -- C++
+  "gopls",            -- Go
+  "html",             -- HTML
+  "jdtls",            -- Java
+  "lua_ls",           -- Lua
+  "marksman",         -- Markdown
+  "pyright",          -- Python
+  "rust_analyzer",    -- Rust
+  "sqlls",            -- SQL
+  "ltex",             -- LaTeX
+  "tsserver",         -- JavaScript
+  "bashls"            -- Bash
 }
 
 return {
