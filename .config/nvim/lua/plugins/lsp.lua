@@ -12,6 +12,7 @@ local servers = {
   "texlab",       -- LaTeX
   "tsserver",     -- JavaScript
   "bashls",       -- Bash
+  "taplo"         -- TOML
 }
 
 return {
