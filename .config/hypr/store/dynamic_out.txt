@@ -1,1 +1,1 @@
-{"class": "none", "text": ""}
+{"class": "paused", "text": "\u25b6 Julia Frank - What is Wayland? A Beginner's Introduction for New Linux Users. #wayland #linux ", "tooltip": "What is Wayland? A Beginner's Introduction for New Linux Users. #wayland #linux\nby Julia Frank\n(firefox.instance_1_35)"}

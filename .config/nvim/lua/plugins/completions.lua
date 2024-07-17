@@ -1,6 +1,6 @@
 return {
-	{"hrsh7th/cmp-nvim-lsp",},
-	{"hrsh7th/cmp-buffer",},
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/cmp-buffer" },
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = {
@@ -31,10 +31,23 @@ return {
 				}, {
 					{ name = "buffer" },
 				}),
+				formatting = {
+					format = function(entry, item)
+						local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+						item = require("lspkind").cmp_format({
+							-- any lspkind format settings here
+						})(entry, item)
+						if color_item.abbr_hl_group then
+							item.kind_hl_group = color_item.abbr_hl_group
+							item.kind = color_item.abbr
+						end
+						return item
+					end,
+				},
 
---          ╭─────────────────────────────────────────────────────────╮
---          │                          Remap                          │
---          ╰─────────────────────────────────────────────────────────╯
+				--          ╭─────────────────────────────────────────────────────────╮
+				--          │                          Remap                          │
+				--          ╰─────────────────────────────────────────────────────────╯
 				mapping = cmp.mapping.preset.insert({
 					["<C-k>"] = cmp.mapping.select_prev_item(),
 					["<C-j>"] = cmp.mapping.select_next_item(),

@@ -1,35 +1,9 @@
 # Sets user-defined palette
 
-# [palettes.catppuccin_macchiato]
-# cat-rosewater = "#f4dbd6"
-# cat-flamingo = "#f0c6c6"
-# cat-pink = "#f5bde6"
-# cat-mauve = "#c6a0f6"
-# cat-red = "#ed8796"
-# cat-maroon = "#ee99a0"
-# cat-peach = "#f5a97f"
-# cat-yellow = "#eed49f"
-# cat-green = "#a6da95"
-# cat-teal = "#8bd5ca"
-# cat-sky = "#91d7e3"
-# cat-sapphire = "#7dc4e4"
-# cat-blue = "#8aadf4"
-# cat-lavender = "#b7bdf8"
-# cat-text = "#cad3f5"
-# cat-subtext1 = "#b8c0e0"
-# cat-subtext0 = "#a5adcb"
-# cat-overlay2 = "#939ab7"
-# cat-overlay1 = "#8087a2"
-# cat-overlay0 = "#6e738d"
-# cat-surface2 = "#5b6078"
-# cat-surface1 = "#494d64"
-# cat-surface0 = "#363a4f"
-# cat-base = "#24273a"
-# cat-mantle = "#1e2030"
-# cat-crust = "#181926"
+palette = "catppuccin_macchiato"
 
 format = """
-[](red)\
+[](macchiato-blue)\
 $os\
 $username\
 [](bg:#F5A97F fg:#ED8796)\
@@ -194,3 +168,30 @@ time_format = "%R" # Hour:Minute Format
 style = "bg:#C6A0F6 fg:#4C4F69"
 format = '[ $time ]($style)'
 
+[palettes.catppuccin_macchiato]
+macchiato-rosewater = "#f4dbd6"
+macchiato-flamingo = "#f0c6c6"
+macchiato-pink = "#f5bde6"
+macchiato-mauve = "#c6a0f6"
+macchiato-red = "#ed8796"
+macchiato-maroon = "#ee99a0"
+macchiato-peach = "#f5a97f"
+macchiato-yellow = "#eed49f"
+macchiato-green = "#a6da95"
+macchiato-teal = "#8bd5ca"
+macchiato-sky = "#91d7e3"
+macchiato-sapphire = "#7dc4e4"
+macchiato-blue = "#8aadf4"
+macchiato-lavender = "#b7bdf8"
+macchiato-text = "#cad3f5"
+macchiato-subtext1 = "#b8c0e0"
+macchiato-subtext0 = "#a5adcb"
+macchiato-overlay2 = "#939ab7"
+macchiato-overlay1 = "#8087a2"
+macchiato-overlay0 = "#6e738d"
+macchiato-surface2 = "#5b6078"
+macchiato-surface1 = "#494d64"
+macchiato-surface0 = "#363a4f"
+macchiato-base = "#24273a"
+macchiato-mantle = "#1e2030"
+macchiato-crust = "#181926"
