@@ -15,7 +15,7 @@ return {
 
 			local wk = require("which-key")
 			wk.register({
-				["<leader>g"] = {
+				["<leader>G"] = {
 					name = "Git",
 					["A"] = { mode = "n", "<cmd>Git add .<CR>", "Git [A]dd ." },
 					["C"] = { mode = "n", "<cmd>Git commit<CR>", "Git [C]ommit" },
