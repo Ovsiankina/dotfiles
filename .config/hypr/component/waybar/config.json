@@ -19,9 +19,9 @@
     "temperature",
     "battery",
     "custom/test",
+    "custom/test2",
     "custom/ss",
     "custom/cycle_wall",
-    "cpu",
     "custom/expand",
     "clock"
   ],
@@ -55,28 +55,40 @@
     "format": "{}",
     "exec": "~/.config/hypr/scripts/tools/expand test"
   },
+  "custom/test2": {
+    "format": "{}",
+    "exec": "~/.config/hypr/scripts/tools/expand test2"
+  },
 
   "cava": {
-    // "cava_config": "$HOME/.config/cava/config",
-    "framerate": 60,
+    // "cava_config": "~/.config/cava/config",
+    "on-click": "~/.config/hypr/scripts/launch_cava",
+    "framerate": 30,
     "autosens": 1,
-    "sensitivity": 1,
-    "bars": 14,
+    "sensitivity": 2,
+    "bars": 20,
     "lower_cutoff_freq": 50,
     "higher_cutoff_freq": 10000,
     "method": "pulse",
     "source": "auto",
     "stereo": false,
-    "reverse": false,
+    "sleep_timer": 5,
+    "hide_on_silence": true,
     "bar_delimiter": 0,
-    "monstercat": false,
-    "waves": false,
+    "monstercat": true,
+    "waves": true,
     "noise_reduction": 0.77,
     "input_delay": 2,
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    "actions": {
-      "on-click-right": "mode"
-    }
+    "format-icons": [
+      "<span color='#69ff94'>▁</span>", // green
+      "<span color='#2aa9ff'>▂</span>", // blue
+      "<span color='#f8f8f2'>▃</span>", // white
+      "<span color='#f8f8f2'>▄</span>", // white
+      "<span color='#ffffa5'>▅</span>", // yellow
+      "<span color='#ffffa5'>▆</span>", // yellow
+      "<span color='#ff9977'>▇</span>", // orange
+      "<span color='#dd532e'>█</span>" // red
+    ],
   },
 
   // "custom/waybar-mpris": {
@@ -174,23 +186,6 @@
       "on-scroll-down": "shift_down"
     }
   },
-  "cpu": {
-    "interval": 1,
-    "format": "{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7} {icon8} {icon9} {icon10} {icon11}",
-    "format-icons": [
-      "<span color='#69ff94'>▁</span>", // green
-      "<span color='#2aa9ff'>▂</span>", // blue
-      "<span color='#f8f8f2'>▃</span>", // white
-      "<span color='#f8f8f2'>▄</span>", // white
-      "<span color='#ffffa5'>▅</span>", // yellow
-      "<span color='#ffffa5'>▆</span>", // yellow
-      "<span color='#ff9977'>▇</span>", // orange
-      "<span color='#dd532e'>█</span>" // red
-    ]
-  },
-  "memory": {
-    "format": "{}% "
-  },
   "temperature": {
     // "thermal-zone": 2,
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
@@ -263,6 +258,6 @@
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
     "interval": 15,
-    "on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
+    "on-click": "kitty -e paru -Syu && notify-send 'The system has been updated' "
   }
 }

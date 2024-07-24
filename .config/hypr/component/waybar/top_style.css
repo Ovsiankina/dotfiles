@@ -1,12 +1,16 @@
 /* Reset all styles */
 /* The whole bar */
 * { 
-    padding: 0;
-    margin: -2;
+    padding: 0px;
+    margin: -1px;
 }
 
 #waybar {
-    background: #EDEFF6;
+    background: #323232;
+    color: white;
+    font-family: Fira Code;
+    font-size: 10px;
+    font-weight: bolder;
 }
 
 #custom-Color1 {
@@ -33,40 +37,20 @@
   background-color: #C6A0F6;
   min-width: 100px;
 }
-#custom-Color7 {
-  background-color: #EDEFF6;
-  min-width: 1320px;
+
+#memory {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    padding: 1px;
 }
 
-/*
-#custom-Red{
-  background: #ED8796;
-  padding-right: 10px;
+#memory.warning {
+    color: orange;
 }
 
-#custom-Orange{
-  background: #F8BF9F;
-  padding-right: 10px;
+#memory.critical {
+    color: red;
+    animation-name: blink-critical;
+    animation-duration: 2s;
 }
-
-#custom-Yellow{
-  background: #EED49F;
-  padding-right: 10px;
-}
-
-#custom-Green{
-  background: #A6DA95;
-  padding-right: 10px;
-}
-
-#custom-Cyan{
-  background: #7DC4E4;
-  padding-right: 10px;
-}
-
-#custom-Rosewater{
-  background: #C6A0F6;
-  padding-right: 10px;
-}
-*/
-

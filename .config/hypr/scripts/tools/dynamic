@@ -43,7 +43,6 @@ def notif_watcher():
                         "tooltip":"notification"
                 }
                 print(doc)
-                time.sleep(3)
                 print({"class":"none","text":""})
                 PAUSE_MEDIA = False
                 prev = new

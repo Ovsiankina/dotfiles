@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+kitty --title float_kitty --hold cava

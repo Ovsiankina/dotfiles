@@ -43,6 +43,13 @@ do
                 echo ""
             fi
             ;;
+        "test2")
+            if $scripts/toolbar_state; then
+                echo "test222"
+            else
+                echo ""
+            fi
+            ;;
         # "media")
             
         *)

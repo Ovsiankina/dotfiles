@@ -20,3 +20,6 @@ keymap("n", "<c-l>", "wincmd l<CR>")
 
 ---------- Quick save ----------
 keymap("n", "<leader>w", ":w<CR>", {desc = "Quick save"})
+
+---------- Remap "+y to <c-v> ----------
+keymap("n", '"+y', "<c-c>", {desc = "Remap +y to <c-v>"})

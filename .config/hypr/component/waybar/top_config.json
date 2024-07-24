@@ -1,7 +1,6 @@
-
 {
   "layer": "top",
-  "position": "top",
+  "position": "bottom",
   "modules-left": [
     "custom/Color1",
     "custom/Color2",
@@ -9,8 +8,12 @@
     "custom/Color4",
     "custom/Color5",
     "custom/Color6",
-    "custom/Color7"
   ],
+  "modules-right": [
+    "cpu",
+    "memory",
+  ],
+
   "custom/Color1": {
     "format": " ",
     "return-type": "json"
@@ -35,9 +38,34 @@
     "format": " ",
     "return-type": "json"
   },
-  "custom/Color7": {
-    "format": " ",
-    "return-type": "json"
-  }
+
+  "cpu": {
+    "interval": 1,
+    "format": "{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7} {icon8} {icon9} {icon10} {icon11}",
+    "format-icons": [
+      "<span color='#69ff94'>▁</span>", // green
+      "<span color='#2aa9ff'>▂</span>", // blue
+      "<span color='#f8f8f2'>▃</span>", // white
+      "<span color='#f8f8f2'>▄</span>", // white
+      "<span color='#ffffa5'>▅</span>", // yellow
+      "<span color='#ffffa5'>▆</span>", // yellow
+      "<span color='#ff9977'>▇</span>", // orange
+      "<span color='#dd532e'>█</span>" // red
+    ]
+  },
+  "memory": {
+	"interval": 15,
+	"format": "  {used:0.1f}G/{total:0.1f}G  "
+  },
+  /*"bluetooth": {
+	"format": " {status}",
+	"format-connected": " {device_alias}",
+	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+}*/
 }
 

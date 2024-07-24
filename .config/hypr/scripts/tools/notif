@@ -2,7 +2,7 @@
 import pickle
 import os
 from pathlib import Path
-dat = {
+data = {
     "app_name":os.getenv("DUNST_APP_NAME"),
     "summary":os.getenv("DUNST_SUMMARY"),
     "body":os.getenv("DUNST_BODY"),
@@ -19,4 +19,4 @@ dat = {
     "stack-tag":os.getenv("DUNST_STACK_TAG"),
 }
 with open(f"{Path.home()}/.config/hypr/store/latest_notif", "wb") as f:
-    pickle.dump(dat, f)
+    pickle.dump(data, f)
