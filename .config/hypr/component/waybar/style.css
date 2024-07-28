@@ -6,63 +6,63 @@
  *
  * =========================================================================== */
 
+/* Import the color definitions */
+@import url("/home/ovsiankina/dotfiles/.config/hypr/component/waybar/catppuccin_macchiato.css");
 /* -----------------------------------------------------------------------------
  * Keyframes
  * -------------------------------------------------------------------------- */
 
 @keyframes blink-warning {
     70% {
-        color: white;
+        color: @macchiato-base;
     }
-
     to {
-        color: white;
-        background-color: orange;
+        color: @macchiato-base;
+        background-color: @macchiato-peach;
     }
 }
 
 @keyframes blink-critical {
     70% {
-      color: white;
+        color: @macchiato-base;
     }
-
     to {
-        color: white;
-        background-color: red;
+        color: @macchiato-base;
+        background-color: @macchiato-red;
     }
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 30%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 30%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @keyframes gradient_f {
-	0% {
-		background-position: 0% 200%;
-	}
+    0% {
+        background-position: 0% 200%;
+    }
     50% {
         background-position: 200% 0%;
     }
-	100% {
-		background-position: 400% 200%;
-	}
+    100% {
+        background-position: 400% 200%;
+    }
 }
 
 @keyframes gradient_f_nh {
-	0% {
-		background-position: 0% 200%;
-	}
-	100% {
-		background-position: 200% 200%;
-	}
+    0% {
+        background-position: 0% 200%;
+    }
+    100% {
+        background-position: 200% 200%;
+    }
 }
 
 /* -----------------------------------------------------------------------------
@@ -72,7 +72,8 @@
 /* Reset all styles */
 * {
     border: none;
-    border-radius: 0;
+    font-size: 12px;
+    border-radius: 0 0 5px 5px;
     min-height: 0;
     margin: 0;
     padding: 0;
@@ -80,8 +81,8 @@
 
 /* The whole bar */
 #waybar {
-    background: #323232;
-    color: white;
+    background-color: transparent;
+    color: @macchiato-text;
     font-family: Fira Code;
     font-size: 13px;
     font-weight: bolder;
@@ -89,150 +90,158 @@
 
 /* Each module */
 #battery,
-#clock,
-#cpu,
-#custom-keyboard-layout,
-#memory,
-#mode,
 #network,
-#pulseaudio,
-#temperature,
-#tray {
-    padding-left: 10px;
-    padding-right: 10px;
+#backlight,
+#custom-updates,
+#pulseaudio {
+    border-radius: 12px 0 0 12px;
+    min-height: 0;
+    margin-left: -12;
+    padding-left: 15;
+    padding-right: 25;
 }
 
+#cava,
+#clock {
+    padding-left: 15;
+    padding-right: 15;
+    border-radius: 0 0 12px 12px;
+}
 
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
 
 /* hyprland/workspaces */
+#workspaces {
+    background-color: @macchiato-base;
+}
 #workspaces button {
-    border-top: 2px solid transparent;
-    /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
     padding-left: 10px;
     padding-right: 10px;
-    color: #888888;
+    color: @macchiato-overlay1;
+    border-radius: 0px;
 }
 
 #workspaces button.active {
-    border-color: #4c7899;
-    color: white;
-    background-color: #285577;
+    border-top: 2px solid @macchiato-sapphire;
+    border-bottom: 2px solid @macchiato-sapphire;
+    color: @macchiato-sapphire;
 }
 
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+    border-top: 2px solid @macchiato-red;
+    border-bottom: 2px solid @macchiato-red;
+    color: @macchiato-red;
+}
+
+#workspaces button:first-child {
+    border-radius: 0 0 0 5px;
+}
+
+#workspaces button:last-child {
+    border-radius: 0 0 5px 0;
+}
+
+/* cava */
+#cava {
+    background-color: @macchiato-base;
 }
 
 /* custom/dynamic_pill */
-#custom-dynamic_pill.low{
-    background: rgb(148,226,213);
-    background: linear-gradient(52deg, rgba(148,226,213,1) 0%, rgba(137,220,235,1) 19%, rgba(116,199,236,1) 43%, rgba(137,180,250,1) 56%, rgba(180,190,254,1) 80%, rgba(186,187,241,1) 100%); 
+#custom-dynamic_pill.low {
+    background: linear-gradient(52deg, @macchiato-green 0%, @macchiato-teal 19%, @macchiato-sky 43%, @macchiato-blue 56%, @macchiato-lavender 80%, @macchiato-surface0 100%);
     background-size: 300% 300%;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
     animation: gradient 15s ease infinite;
     font-weight: bolder;
-    color: #fff;
+    color: @macchiato-base;
 }
 
-#custom-dynamic_pill.normal{
-    background: rgb(148,226,213);
-    background: radial-gradient(circle, rgba(148,226,213,1) 0%, rgba(156,227,191,1) 21%, rgba(249,226,175,1) 34%, rgba(158,227,186,1) 35%, rgba(163,227,169,1) 59%, rgba(148,226,213,1) 74%, rgba(164,227,167,1) 74%, rgba(166,227,161,1) 100%); 
+#custom-dynamic_pill.normal {
+    background: radial-gradient(circle, @macchiato-green 0%, @macchiato-flamingo 21%, @macchiato-yellow 34%, @macchiato-green 35%, @macchiato-peach 59%, @macchiato-green 74%, @macchiato-pink 100%);
     background-size: 400% 400%;
     animation: gradient_f 4s ease infinite;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
     font-weight: bolder;
-    color: #fff;
+    color: @macchiato-base;
 }
 
-#custom-dynamic_pill.critical{
-    background: rgb(235,160,172);
-    background: linear-gradient(52deg, rgba(235,160,172,1) 0%, rgba(243,139,168,1) 30%, rgba(231,130,132,1) 48%, rgba(250,179,135,1) 77%, rgba(249,226,175,1) 100%); 
+#custom-dynamic_pill.critical {
+    background: linear-gradient(52deg, @macchiato-red 0%, @macchiato-flamingo 30%, @macchiato-maroon 48%, @macchiato-peach 77%, @macchiato-yellow 100%);
     background-size: 300% 300%;
     animation: gradient 15s cubic-bezier(.55,-0.68,.48,1.68) infinite;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
     font-weight: bolder;
-    color: #fff;
+    color: @macchiato-base;
 }
 
-#custom-dynamic_pill.playing{
-    background: rgb(137,180,250);
-    background: radial-gradient(circle, rgba(137,180,250,120) 0%, rgba(142,179,250,120) 6%, rgba(148,226,213,1) 14%, rgba(147,178,250,1) 14%, rgba(155,176,249,1) 18%, rgba(245,194,231,1) 28%, rgba(158,175,249,1) 28%, rgba(181,170,248,1) 58%, rgba(205,214,244,1) 69%, rgba(186,169,248,1) 69%, rgba(195,167,247,1) 72%, rgba(137,220,235,1) 73%, rgba(198,167,247,1) 78%, rgba(203,166,247,1) 100%); 
+#custom-dynamic_pill.playing {
+    background: radial-gradient(circle, @macchiato-blue 0%, @macchiato-teal 6%, @macchiato-green 14%, @macchiato-sky 28%, @macchiato-lavender 100%);
     background-size: 400% 400%;
     animation: gradient_f 9s cubic-bezier(.72,.39,.21,1) infinite;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
     font-weight: bold;
-    color: #fff ;
+    color: @macchiato-base;
 }
 
-#custom-dynamic_pill.paused{
-    background: #11111b ;
+#custom-dynamic_pill.paused {
+    background: @crust;
     font-weight: bolder;
-    color: #b4befe;
+    color: @macchiato-lavender;
 }
 
-/* custom/updates */
-/* No styles provided */
+#custom-updates {
+    background-color: @macchiato-base;
+    color: @macchiato-red;
+}
 
 /* backlight */
 #backlight {
-    color: #90b1b1
+    color: @macchiato-peach;
+    background-color: @macchiato-base;
 }
-
-/* cava */
-/* No styles provided */
 
 /* pulseaudio */
 #pulseaudio {
-    /* background-color:  	#fab387; */
-    color: #bf7d54;
+    background-color: @macchiato-base;
+    color: @macchiato-yellow;
     font-weight: bolder;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
+    background-color: @macchiato-overlay1;
 }
 
 /* network */
 #network {
-    /* No styles */
+    background-color: @macchiato-base;
+  color: @macchiato-green;
 }
 
-#network.disconnected{
-    background: rgb(243,139,168);
-    background: linear-gradient(45deg, rgba(243,139,168,1) 0%, rgba(250,179,135,1) 100%); 
-    color: #fff;
+#network.disconnected {
+    background: linear-gradient(45deg, @macchiato-red 0%, @macchiato-base 100%);
+    color: @macchiato-overlay1;
     font-weight: bolder;
     padding-top: 3px;
     padding-right: 11px;
 }
 
-/* temperature */
-#temperature {
-    /* No styles */
-}
-
-#temperature.critical {
-    color: red;
-}
-
 /* battery */
 #battery {
+    background-color: @macchiato-base;
+    color: @macchiato-blue;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
 #battery.warning {
-    color: orange;
+    color: @macchiato-peach;
 }
 
 #battery.critical {
-    color: red;
+    color: @macchiato-red;
 }
 
 #battery.warning.discharging {
@@ -246,7 +255,8 @@
 }
 
 #battery.charging, #battery.plugged {
-    background-color: #94e2d5 ;
+    background-color: @macchiato-green;
+    color: @macchiato-crust;
 }
 
 /* custom/test */
@@ -256,32 +266,36 @@
 /* No styles provided */
 
 /* custom/ss */
-#custom-ss{
-    background: #11111b;
-    color: #89b4fa;
-    font-weight:  bolder;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 15px;
+#custom-ss {
+    background-color: @macchiato-base;
+    color: @macchiato-mauve;
 }
-
-/* custom/cycle_wall */
-#custom-cycle_wall{
-    background: rgb(245,194,231);
-    background: linear-gradient(45deg, rgba(245,194,231,1) 0%, rgba(203,166,247,1) 0%, rgba(243,139,168,1) 13%, rgba(235,160,172,1) 26%, rgba(250,179,135,1) 34%, rgba(249,226,175,1) 49%, rgba(166,227,161,1) 65%, rgba(148,226,213,1) 77%, rgba(137,220,235,1) 82%, rgba(116,199,236,1) 88%, rgba(137,180,250,1) 95%); 
-    color: #fff;
-    background-size: 500% 500%;
-    animation: gradient 7s linear infinite;
-    font-weight:  bolder;
-    border-radius: 15px;
-}
-
-/* custom/expand */
-/* No styles provided */
 
 /* clock */
 #clock {
+    background-color: @macchiato-base;
     font-weight: bold;
+}
+
+/* -----------------------------------------------------------------------------
+ * Media styling
+ * -------------------------------------------------------------------------- */
+
+/* Media styling */
+#media {
+    /* No styles provided */
+}
+
+#media svg {
+    color: @macchiato-pink;
+    padding-right: 2px;
+}
+
+#media.paused {
+    color: @macchiato-overlay2;
+}
+
+#media.stopped {
+    color: @macchiato-text;
 }
 

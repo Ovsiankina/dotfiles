@@ -38,6 +38,15 @@
   min-width: 100px;
 }
 
+/* temperature */
+#temperature {
+    background-color: #24273a;
+}
+
+#temperature.critical {
+    color: red;
+}
+
 #memory {
     animation-timing-function: linear;
     animation-iteration-count: infinite;

@@ -10,6 +10,7 @@
     "custom/Color6",
   ],
   "modules-right": [
+    "temperature",
     "cpu",
     "memory",
   ],
@@ -39,6 +40,11 @@
     "return-type": "json"
   },
 
+  "temperature": {
+    "critical-threshold": 60,
+    "format-critical": "{temperatureC}°C",
+    "format": "{temperatureC}°C {icon}"
+  },
   "cpu": {
     "interval": 1,
     "format": "{icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7} {icon8} {icon9} {icon10} {icon11}",

@@ -3,29 +3,27 @@
   "position": "top", // Waybar position (top|bottom|left|right)
   "height": 30, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
-  "spacing": 5, // Gaps between modules (4px)
   // Choose the order of the modules
   // "margin-left":25,
-  // "margin-right":25,
+  // "margin-right":-20,
   "margin-bottom": -11,
   //"margin-top":5,
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": [
+    "hyprland/workspaces",
+  ],
   "modules-right": [
     "custom/updates",
     "backlight",
-    "cava",
     "pulseaudio",
     "network",
-    "temperature",
     "battery",
     "custom/test",
     "custom/test2",
     "custom/ss",
     "custom/cycle_wall",
     "custom/expand",
-    "clock"
   ],
-  "modules-center": ["custom/dynamic_pill"],
+  "modules-center": ["cava","custom/dynamic_pill","clock"],
 
   // Modules configuration
 
@@ -35,62 +33,30 @@
     "exec": "~/.config/hypr/scripts/tools/start_dyn",
     "escape": true
   },
-  "custom/ss": {
-    "format": "{}",
-    "exec": "~/.config/hypr/scripts/tools/expand ss-icon",
-    "on-click": "~/.config/hypr/scripts/screenshot_full"
-  },
-  "custom/cycle_wall": {
-    "format": "{}",
-    "exec": "~/.config/hypr/scripts/tools/expand wall",
-    // "interval": 1,
-    "on-click": "~/.config/hypr/scripts/tools/expand cycle"
-  },
-  "custom/expand": {
-    "on-click": "~/.config/hypr/scripts/expand_toolbar",
-    "format": "{}",
-    "exec": "~/.config/hypr/scripts/tools/expand arrow-icon"
-  },
-  "custom/test": {
-    "format": "{}",
-    "exec": "~/.config/hypr/scripts/tools/expand test"
-  },
-  "custom/test2": {
-    "format": "{}",
-    "exec": "~/.config/hypr/scripts/tools/expand test2"
-  },
-
-  "cava": {
-    // "cava_config": "~/.config/cava/config",
-    "on-click": "~/.config/hypr/scripts/launch_cava",
-    "framerate": 30,
-    "autosens": 1,
-    "sensitivity": 2,
-    "bars": 20,
-    "lower_cutoff_freq": 50,
-    "higher_cutoff_freq": 10000,
-    "method": "pulse",
-    "source": "auto",
-    "stereo": false,
-    "sleep_timer": 5,
-    "hide_on_silence": true,
-    "bar_delimiter": 0,
-    "monstercat": true,
-    "waves": true,
-    "noise_reduction": 0.77,
-    "input_delay": 2,
-    "format-icons": [
-      "<span color='#69ff94'>▁</span>", // green
-      "<span color='#2aa9ff'>▂</span>", // blue
-      "<span color='#f8f8f2'>▃</span>", // white
-      "<span color='#f8f8f2'>▄</span>", // white
-      "<span color='#ffffa5'>▅</span>", // yellow
-      "<span color='#ffffa5'>▆</span>", // yellow
-      "<span color='#ff9977'>▇</span>", // orange
-      "<span color='#dd532e'>█</span>" // red
-    ],
-  },
-
+  // "custom/ss": {
+  //   "format": "{}",
+  //   "exec": "~/.config/hypr/scripts/tools/expand ss-icon",
+  //   "on-click": "~/.config/hypr/scripts/screenshot_full"
+  // },
+  // "custom/cycle_wall": {
+  //   "format": "{}",
+  //   "exec": "~/.config/hypr/scripts/tools/expand wall",
+  //   // "interval": 1,
+  //   "on-click": "~/.config/hypr/scripts/tools/expand cycle"
+  // },
+  // "custom/expand": {
+  //   "on-click": "~/.config/hypr/scripts/expand_toolbar",
+  //   "format": "{}",
+  //   "exec": "~/.config/hypr/scripts/tools/expand arrow-icon"
+  // },
+  // "custom/test": {
+  //   "format": "{}",
+  //   "exec": "~/.config/hypr/scripts/tools/expand test"
+  // },
+  // "custom/test2": {
+  //   "format": "{}",
+  //   "exec": "~/.config/hypr/scripts/tools/expand test2"
+  // },
   // "custom/waybar-mpris": {
   //     "return-type": "json",
   //     "exec": "echo '   '",
@@ -154,15 +120,11 @@
       "deactivated": ""
     }
   },
-  "tray": {
-    // "icon-size": 21,
-    "spacing": 10
-  },
   "clock": {
     "timezone": "Europe/Zurich",
     "locale": "fr_CH.utf8",
 
-    "format": "{:%H:%M}  ",
+    "format": "{:%H:%M} ",
     "format-alt": "{:%A, %B %d, %Y (%R)}  ",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
@@ -186,16 +148,9 @@
       "on-scroll-down": "shift_down"
     }
   },
-  "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    "critical-threshold": 60,
-    "format-critical": "{temperatureC}°C",
-    "format": "{temperatureC}°C {icon}"
-  },
   "backlight": {
     "device": "intel_backlight",
-    "format": " {percent}% {icon} ",
+    "format": " {percent} {icon} ",
     "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
   "battery": {
@@ -216,12 +171,12 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-wifi": "{essid} {signalStrength}% ",
     "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
+    "tooltip-format": "{ifname} via {ipaddr}/{cidr}",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "on-click": "nmcli device wifi rescan && notify-send 'Scanning for network'"
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -240,6 +195,36 @@
     },
     "on-click": "pavucontrol"
     //"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+  },
+  "cava": {
+    // "cava_config": "~/.config/cava/config",
+    "on-click": "~/.config/hypr/scripts/launch_cava",
+    "framerate": 30,
+    "autosens": 1,
+    "sensitivity": 2,
+    "bars": 20,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": false,
+    "sleep_timer": 5,
+    "hide_on_silence": true,
+    "bar_delimiter": 0,
+    "monstercat": true,
+    "waves": true,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons": [
+      "<span color='#69ff94'>▁</span>", // green
+      "<span color='#2aa9ff'>▂</span>", // blue
+      "<span color='#f8f8f2'>▃</span>", // white
+      "<span color='#f8f8f2'>▄</span>", // white
+      "<span color='#ffffa5'>▅</span>", // yellow
+      "<span color='#ffffa5'>▆</span>", // yellow
+      "<span color='#ff9977'>▇</span>", // orange
+      "<span color='#dd532e'>█</span>" // red
+    ],
   },
   "custom/media": {
     "format": "{icon} {}",
