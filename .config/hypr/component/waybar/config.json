@@ -151,7 +151,8 @@
   "backlight": {
     "device": "intel_backlight",
     "format": " {percent} {icon} ",
-    "format-icons": ["", "", "", "", "", "", "", "", ""]
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-click": "~/.config/hypr/scripts/tools/expand cycle"
   },
   "battery": {
     "states": {
