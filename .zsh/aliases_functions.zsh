@@ -232,4 +232,3 @@ catppuccin() {
 
   fi
 }
-# NOTE: == ChatGPT CODE END ==

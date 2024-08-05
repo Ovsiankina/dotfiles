@@ -152,7 +152,7 @@
     "device": "intel_backlight",
     "format": " {percent} {icon} ",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "on-click": "~/.config/hypr/scripts/tools/expand cycle"
+    "on-click": "~/.config/hypr/scripts/tools/rand_wall"
   },
   "battery": {
     "states": {

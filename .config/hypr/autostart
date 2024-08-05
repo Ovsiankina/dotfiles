@@ -12,7 +12,8 @@ $scripts/launch_waybar &
 $scripts/tools/dynamic &
 
 # wallpaper
-$scripts/wall $config/wallpapers/4.jpg &
+swww-daemon
+$scripts/rand_wall &
 
 # effects
 $scripts/rgb &
