@@ -26,6 +26,7 @@ The path used:
 - zip
 - unzip
 - texlive (npm install -g tree-sitter-cli)
+- openssh
 
 #### git clone
 - fzf-git
