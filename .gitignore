@@ -2,7 +2,6 @@
 .zsh/.zsh_history
 
 # Ignore temp files
-.config/hypr/store/dynamic_out.txt
-.config/hypr/store/latest_notif
+# .config/hypr/store
 .config/thefuck/__pycache__/settings.cpython-312.pyc
 .config/hypr/wallpapers
