@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Directory containing wallpapers
+WALLPAPER_DIR="/home/ovsiankina/.config/hypr/wallpapers"
+
+
+# Get list of wallpapers
+WALLPAPERS=("$WALLPAPER_DIR"/*)
+
+# Function to change wallpaper
+change_wallpaper() {
+  local wallpaper=${WALLPAPERS[$RANDOM % ${#WALLPAPERS[@]}]}
+  swww img "$wallpaper" --transition-type grow --transition-duration 3 --transition-pos 0,0
+}
+
+# Initial wallpaper change
+change_wallpaper
+
+# Loop to change wallpaper every hour
+while true; do
+  sleep 30m
+  change_wallpaper
+done
