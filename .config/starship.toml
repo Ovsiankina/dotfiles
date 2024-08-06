@@ -164,7 +164,7 @@ format = '[ $symbol $context ]($style)'
 command = 'if [ -n "$VIRTUAL_ENV" ]; then echo "$(basename $VIRTUAL_ENV)"; fi'
 when = 'true'
 style = "bg:#7DC4E4 fg:#4C4F69"
-format = '[(${output})]($style)'
+format = '[( $output )]($style)'
 
 #          ╭──────────────────────────────────────────────────────────╮
 #          │                        Right side                        │
