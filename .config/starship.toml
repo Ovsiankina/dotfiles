@@ -27,6 +27,7 @@ $scala\
 $python\
 [](fg:#A6DA95 bg:#7DC4E4)\
 $docker_context\
+$custom\
 [](fg:#7DC4E4 bg:#C6A0F6)\
 [ ](fg:#C6A0F6)\
 $fill\
@@ -40,20 +41,29 @@ $character\
 """
 # Disable the blank line at the start of the prompt
 add_newline = true
- 
+# Separate left side from right side
 [fill]
 symbol = ' '
-
+# CMD error symbol
 [character]
 error_symbol = '[✖](red)'
 
-[cmd_duration]
-min_time = 0
-style = "bg:#7DC4E4 fg:#4C4F69"
-format = '[ took $duration ]($style)'
+[directory]
+style = "bg:#F5A97F fg:#4C4F69"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+#          ╭──────────────────────────────────────────────────────────╮
+#          │                        Left side                         │
+#          ╰──────────────────────────────────────────────────────────╯
+
 [username]
 show_always = true
 style_user = "bg:#ED8796 fg:#4C4F69"
@@ -61,8 +71,6 @@ style_root = "bg:#ED8796 fg:#4C4F69"
 format = '[$user ]($style)'
 disabled = true
 
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
 [os]
 style = "bg:#ED8796 fg:#4C4F69"
 disabled = false # Disabled by default
@@ -72,34 +80,10 @@ format = "[$symbol $version]($style)"
 Windows = " "
 Arch = "\uf303"
 
-[directory]
-style = "bg:#F5A97F fg:#4C4F69"
-format = "[ $path ]($style)"
-truncation_length = 3
-truncation_symbol = "…/"
-
-# Here is how you can shorten some long paths by text replacement
-# similar to mapped_locations in Oh My Posh:
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-# Keep in mind that the order matters. For example:
-# "Important Documents" = " 󰈙 "
-# will not be replaced, because "Documents" was already substituted before.
-# So either put "Important Documents" before "Documents" or use the substituted version:
-# "Important 󰈙 " = " 󰈙 "
-
 [c]
 symbol = " "
 style = "bg:#A6DA95 fg:#4C4F69"
 format = '[ $symbol ($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#7DC4E4 fg:#4C4F69"
-format = '[ $symbol $context ]($style)'
 
 [elixir]
 symbol = " "
@@ -169,13 +153,37 @@ symbol = ''
 pyenv_version_name = false
 style = "bg:#A6DA95 fg:#4C4F69"
 detect_folders = ['.venv', 'venv']
-format = '[ ${symbol} (${version} )(\($virtualenv\) )]($style)'
+format = '[ ${symbol} ${version} ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#7DC4E4 fg:#4C4F69"
+format = '[ $symbol $context ]($style)'
+
+[custom.python-venv]
+command = 'if [ -n "$VIRTUAL_ENV" ]; then echo "$(basename $VIRTUAL_ENV)"; fi'
+when = 'true'
+style = "bg:#7DC4E4 fg:#4C4F69"
+format = '[(${output})]($style)'
+
+#          ╭──────────────────────────────────────────────────────────╮
+#          │                        Right side                        │
+#          ╰──────────────────────────────────────────────────────────╯
+
+[cmd_duration]
+min_time = 0
+style = "bg:#7DC4E4 fg:#4C4F69"
+format = '[ took $duration ]($style)'
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#C6A0F6 fg:#4C4F69"
 format = '[ $time ]($style)'
+
+#          ╭──────────────────────────────────────────────────────────╮
+#          │                      Color palette                       │
+#          ╰──────────────────────────────────────────────────────────╯
 
 [palettes.catppuccin_macchiato]
 macchiato-rosewater = "#f4dbd6"
