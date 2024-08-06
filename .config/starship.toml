@@ -3,7 +3,7 @@
 palette = "catppuccin_macchiato"
 
 format = """
-[](macchiato-blue)\
+[](#ED8796)\
 $os\
 $username\
 [](bg:#F5A97F fg:#ED8796)\
@@ -24,6 +24,7 @@ $nodejs\
 $nim\
 $rust\
 $scala\
+$python\
 [](fg:#A6DA95 bg:#7DC4E4)\
 $docker_context\
 [](fg:#7DC4E4 bg:#C6A0F6)\
@@ -65,6 +66,7 @@ disabled = true
 [os]
 style = "bg:#ED8796 fg:#4C4F69"
 disabled = false # Disabled by default
+format = "[$symbol $version]($style)"
 
 [os.symbols]
 Windows = " "
@@ -161,6 +163,13 @@ format = '[ $symbol ($version) ]($style)'
 symbol = " "
 style = "bg:#A6DA95 fg:#4C4F69"
 format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = ''
+pyenv_version_name = false
+style = "bg:#A6DA95 fg:#4C4F69"
+detect_folders = ['.venv', 'venv']
+format = '[ ${symbol} (${version} )(\($virtualenv\) )]($style)'
 
 [time]
 disabled = false
