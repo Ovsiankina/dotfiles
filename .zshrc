@@ -71,6 +71,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Tmux
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 
+# Display for XLaunch (WSL2)
+export DISPLAY=$(grep nameserver /etc/resolv.conf | awk '{print $2}'):0.0
+
 # ==============================================
 # Sources
 # ==============================================
