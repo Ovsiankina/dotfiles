@@ -60,7 +60,7 @@ return {
 				if workspace == nil then
 					return vim.fn.exepath("python3") or vim.fn.exepath("python")
 				end
-				local venv_path = workspace .. "/.venv/bin/python"
+				local venv_path = workspace .. "/.venv/bin/python" -- WARN: venv name can be something else than '/venv'
 				local venv_exists = vim.fn.glob(venv_path)
 				if venv_exists ~= "" then
 					return venv_path

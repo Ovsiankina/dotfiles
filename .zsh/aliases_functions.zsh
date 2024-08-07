@@ -164,7 +164,6 @@ rewa(){
   notify-send foo
 }
 
-# NOTE: == ChatGPT CODE ==
 catppuccin() {
   local macchiato_colors=(
     "#f4dbd6" "#f0c6c6" "#f5bde6" "#c6a0f6" "#ed8796" "#ee99a0"
