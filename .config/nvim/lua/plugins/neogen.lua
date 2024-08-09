@@ -9,22 +9,22 @@ return {
 				name = "Annotation generation",
 				["f"] = {
 					mode = { "n", "v" },
-					":lua require('neogen').generate()<CR>",
+					"<CMD>  require('neogen').generate()<CR>",
 					"Generate annotation for [f]unctions",
 				},
 				["c"] = {
 					mode = { "n", "v" },
-					":lua require('neogen').generate({ type = 'class' })<CR>",
+					"<CMD>  require('neogen').generate({ type = 'class' })<CR>",
 					"Generate annotation for [c]lasses",
 				},
 				["t"] = {
 					mode = { "n", "v" },
-					":lua require('neogen').generate({ type = 'type' })<CR>",
+					"<CMD>  require('neogen').generate({ type = 'type' })<CR>",
 					"Generate annotation for [t]ype",
 				},
 				["F"] = {
 					mode = { "n", "v" },
-					":lua require('neogen').generate({ type = 'file' })<CR>",
+					"<CMD>  require('neogen').generate({ type = 'file' })<CR>",
 					"Generate annotation for [F]ile",
 				},
 			},
