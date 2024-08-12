@@ -59,21 +59,27 @@ return {
       },
     },
 
-    -- TODO: fhdsfjk
-
-    -- NOTE(test): d
-
-    -- NOTE ( test ) :
-
-    --test  NOTE( test ) :
-
+    -- NOTE(a):
+    --
+    -- NOTE ( aBc1 ) :
+    --
+    -- NOTE: fjdksh
+    --
+    -- NOTE@: fjdksh
+    --
+    -- @WARN: fd
+    --
+    -- @NOTE: fjdksh
     merge_keywords = true, -- when true, custom keywords will be merged with the defaults
 
     highlight = {
       before = "",
-      keyword = "wide_bg",
-      after = "fg",
-      pattern = [[.*(KEYWORDS)\s*(\([^)]*\))?\s*:]],
+      keyword = "bg",
+      after = "",
+      -- pattern = [[.*(KEYWORDS)\s*(\([^)]*\))?\s*:]],
+      -- pattern = [[[a-zA-Z_].*(KEYWORDS)]]
+      --pattern = [[.*(KEYWORDS).*]]
+      pattern = [[[@]?.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlighting (vim regex)
     },
 
     search = {
