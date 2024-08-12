@@ -13,6 +13,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+# zsh vim mode
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
 
 # Snippets (Oh My ZSH plugins without OMZP framework)
 zinit snippet OMZP::git
@@ -24,6 +27,7 @@ zinit cdreplay -q
 
 # config
 bindkey -e
+bindkey -v
 bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
 
@@ -94,4 +98,14 @@ eval "$(thefuck --alias fuck)"
 # Bonus hihi
 neofetch
 
-eval $(thefuck --alias)
+# The plugin will auto execute this zvm_after_select_vi_mode function
+function zvm_after_select_vi_mode() {
+  case $ZVM_MODE in
+    n) export VIM="NORMAL " ;;
+    i) export VIM="INSERT " ;;
+    v) export VIM="VISUAL " ;;
+    c) export VIM="COMMAND" ;;
+    r) export VIM="REPLACE" ;;
+    *) export VIM="UNKNOWN" ;;
+  esac
+}

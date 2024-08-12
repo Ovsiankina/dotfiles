@@ -1,4 +1,4 @@
-ls() {
+function ls() {
     local args="$@"
     if [[ "$args" == *"-l"* ]]; then
         eza --long "$@"
@@ -7,7 +7,7 @@ ls() {
     fi
 }
 
-colorp() {
+function colorp() {
   confirm="y"
   colors=()
 
@@ -30,7 +30,18 @@ colorp() {
   done
 }
 
-catppuccin() {
+function current_vi_mode() {
+  case $ZVM_MODE in
+    n) echo "NORMAL" ;;
+    i) echo "INSERT" ;;
+    v) echo "VISUAL" ;;
+    c) echo "COMMAND" ;;
+    r) echo "REPLACE" ;;
+    *) echo "UNKNOWN" ;;
+  esac
+}
+
+function catppuccin() {
   local macchiato_colors=(
     "#f4dbd6" "#f0c6c6" "#f5bde6" "#c6a0f6" "#ed8796" "#ee99a0"
     "#f5a97f" "#eed49f" "#a6da95" "#8bd5ca" "#91d7e3" "#7dc4e4"

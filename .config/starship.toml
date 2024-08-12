@@ -4,8 +4,7 @@ palette = "catppuccin_macchiato"
 
 format = """
 [](#ED8796)\
-$os\
-$username\
+${custom.ZVM_MODE}\
 [](bg:#F5A97F fg:#ED8796)\
 $directory\
 [](fg:#F5A97F bg:#F2DFB7)\
@@ -27,11 +26,14 @@ $scala\
 $python\
 [](fg:#A6DA95 bg:#7DC4E4)\
 $docker_context\
-$custom\
+${custom.python}\
 [](fg:#7DC4E4 bg:#C6A0F6)\
 [ ](fg:#C6A0F6)\
 $fill\
-[](fg:#7DC4E4)\
+[](fg:#A6DA95)\
+$os\
+$username\
+[](fg:#7DC4E4 bg:#A6DA95)\
 $cmd_duration\
 [](fg:#C6A0F6 bg:#7DC4E4)\
 $time\
@@ -39,14 +41,19 @@ $time\
 [ ]()
 $character\
 """
+
 # Disable the blank line at the start of the prompt
 add_newline = true
+
 # Separate left side from right side
 [fill]
 symbol = ' '
 # CMD error symbol
 [character]
-error_symbol = '[✖](red)'
+success_symbol = '[❯](bold green)'
+error_symbol = '[](red)'
+# Vim modes
+vimcmd_symbol = '[❮](bold purple)'
 
 [directory]
 style = "bg:#F5A97F fg:#4C4F69"
@@ -73,7 +80,7 @@ disabled = true
 
 [os]
 style = "bg:#ED8796 fg:#4C4F69"
-disabled = false # Disabled by default
+disabled = false                      # Disabled by default
 format = "[$symbol $version]($style)"
 
 [os.symbols]
@@ -166,6 +173,13 @@ when = 'true'
 style = "bg:#7DC4E4 fg:#4C4F69"
 format = '[( $output )]($style)'
 
+[custom.ZVM_MODE]
+command = 'echo $VIM'
+when = 'true'
+style = "bg:#ED8796 fg:#4C4F69"
+format = '[($output )]($style)'
+shell = "/bin/zsh"
+
 #          ╭──────────────────────────────────────────────────────────╮
 #          │                        Right side                        │
 #          ╰──────────────────────────────────────────────────────────╯
@@ -177,7 +191,7 @@ format = '[ took $duration ]($style)'
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
+time_format = "%R"              # Hour:Minute Format
 style = "bg:#C6A0F6 fg:#4C4F69"
 format = '[ $time ]($style)'
 
@@ -211,4 +225,5 @@ macchiato-surface1 = "#494d64"
 macchiato-surface0 = "#363a4f"
 macchiato-base = "#24273a"
 macchiato-mantle = "#1e2030"
+
 macchiato-crust = "#181926"
