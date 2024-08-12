@@ -8,7 +8,7 @@ return {
     opts = {},
     config = function()
       -- Open compiler
-      vim.api.nvim_set_keymap("n", "<C-A>", "<cmd>CompilerOpen<cr>", { noremap = true, silent = true })
+      vim.api.nvim_set_keymap("n", "<F6>", "<cmd>CompilerOpen<cr>", { noremap = true, silent = true })
 
       -- Redo last selected option
       vim.api.nvim_set_keymap(
