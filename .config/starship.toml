@@ -3,14 +3,14 @@
 palette = "catppuccin_macchiato"
 
 format = """
-[](#ED8796)\
+[](zvm)\
 ${custom.ZVM_MODE}\
-[](bg:#F5A97F fg:#ED8796)\
+[](bg:dir fg:zvm)\
 $directory\
-[](fg:#F5A97F bg:#F2DFB7)\
+[](fg:dir bg:git)\
 $git_branch\
 $git_status\
-[](fg:#F2DFB7 bg:#A6DA95)\
+[](fg:git bg:lve)\
 $c\
 $elixir\
 $elm\
@@ -24,20 +24,20 @@ $nim\
 $rust\
 $scala\
 $python\
-[](fg:#A6DA95 bg:#7DC4E4)\
+[](fg:lve bg:env)\
 $docker_context\
-${custom.python}\
-[](fg:#7DC4E4 bg:#C6A0F6)\
+${custom.python-venv}\
+[](fg:env bg:#C6A0F6)\
 [ ](fg:#C6A0F6)\
 $fill\
-[](fg:#A6DA95)\
+[](fg:sys)\
 $os\
 $username\
-[](fg:#7DC4E4 bg:#A6DA95)\
+[](fg:cmd bg:sys)\
 $cmd_duration\
-[](fg:#C6A0F6 bg:#7DC4E4)\
+[](fg:tim bg:cmd)\
 $time\
-[](#C6A0F6)\
+[](tim)\
 [ ]()
 $character\
 """
@@ -45,9 +45,6 @@ $character\
 # Disable the blank line at the start of the prompt
 add_newline = true
 
-# Separate left side from right side
-[fill]
-symbol = ' '
 # CMD error symbol
 [character]
 success_symbol = '[❯](bold green)'
@@ -55,8 +52,20 @@ error_symbol = '[](red)'
 # Vim modes
 vimcmd_symbol = '[❮](bold purple)'
 
+#          ╭──────────────────────────────────────────────────────────╮
+#          │                        Left side                         │
+#          ╰──────────────────────────────────────────────────────────╯
+
+
+[custom.ZVM_MODE]
+command = 'echo $ZVM'
+when = 'true'
+style = "bg:zvm fg:txt"
+format = '[($output )]($style)'
+shell = "/bin/zsh"
+
 [directory]
-style = "bg:#F5A97F fg:#4C4F69"
+style = "bg:dir fg:txt"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -67,19 +76,109 @@ truncation_symbol = "…/"
 "Music" = " "
 "Pictures" = " "
 
+[git_branch]
+symbol = ""
+style = "bg:git fg:txt"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:git fg:txt"
+format = '[$all_status$ahead_behind ]($style)'
+
+[c]
+symbol = " "
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[elixir]
+symbol = " "
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[gradle]
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = "󰆥 "
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bg:lve fg:txt"
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = ''
+pyenv_version_name = false
+style = "bg:lve fg:txt"
+detect_folders = ['.venv', 'venv']
+format = '[ ${symbol} ${version} ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:env fg:txt"
+format = '[ $symbol $context ]($style)'
+
+[custom.python-venv]
+command = 'if [ -n "$VIRTUAL_ENV" ]; then echo "$(basename $VIRTUAL_ENV)"; fi'
+when = 'true'
+style = "bg:env fg:txt"
+format = '[( $output )]($style)'
+
+# Separate left side from right side
+[fill]
+symbol = ' '
+
 #          ╭──────────────────────────────────────────────────────────╮
-#          │                        Left side                         │
+#          │                        Right side                        │
 #          ╰──────────────────────────────────────────────────────────╯
 
 [username]
 show_always = true
-style_user = "bg:#ED8796 fg:#4C4F69"
-style_root = "bg:#ED8796 fg:#4C4F69"
+style_user = "bg:sys fg:txt"
+style_root = "bg:sys fg:txt"
 format = '[$user ]($style)'
 disabled = true
 
 [os]
-style = "bg:#ED8796 fg:#4C4F69"
+style = "bg:sys fg:txt"
 disabled = false                      # Disabled by default
 format = "[$symbol $version]($style)"
 
@@ -87,119 +186,34 @@ format = "[$symbol $version]($style)"
 Windows = " "
 Arch = "\uf303"
 
-[c]
-symbol = " "
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[elixir]
-symbol = " "
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[git_branch]
-symbol = ""
-style = "bg:#F2DFB7 fg:#4C4F69"
-format = '[ $symbol $branch ]($style)'
-
-[git_status]
-style = "bg:#F2DFB7 fg:#4C4F69"
-format = '[$all_status$ahead_behind ]($style)'
-
-[golang]
-symbol = " "
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[gradle]
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[haskell]
-symbol = " "
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = " "
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[julia]
-symbol = " "
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = "󰆥 "
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[rust]
-symbol = ""
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[scala]
-symbol = " "
-style = "bg:#A6DA95 fg:#4C4F69"
-format = '[ $symbol ($version) ]($style)'
-
-[python]
-symbol = ''
-pyenv_version_name = false
-style = "bg:#A6DA95 fg:#4C4F69"
-detect_folders = ['.venv', 'venv']
-format = '[ ${symbol} ${version} ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#7DC4E4 fg:#4C4F69"
-format = '[ $symbol $context ]($style)'
-
-[custom.python-venv]
-command = 'if [ -n "$VIRTUAL_ENV" ]; then echo "$(basename $VIRTUAL_ENV)"; fi'
-when = 'true'
-style = "bg:#7DC4E4 fg:#4C4F69"
-format = '[( $output )]($style)'
-
-[custom.ZVM_MODE]
-command = 'echo $ZVM'
-when = 'true'
-style = "bg:#ED8796 fg:#4C4F69"
-format = '[($output )]($style)'
-shell = "/bin/zsh"
-
-#          ╭──────────────────────────────────────────────────────────╮
-#          │                        Right side                        │
-#          ╰──────────────────────────────────────────────────────────╯
-
 [cmd_duration]
 min_time = 0
-style = "bg:#7DC4E4 fg:#4C4F69"
+style = "bg:env fg:txt"
 format = '[ took $duration ]($style)'
 
 [time]
 disabled = false
 time_format = "%R"              # Hour:Minute Format
-style = "bg:#C6A0F6 fg:#4C4F69"
+style = "bg:tim fg:txt"
 format = '[ $time ]($style)'
 
 #          ╭──────────────────────────────────────────────────────────╮
 #          │                      Color palette                       │
 #          ╰──────────────────────────────────────────────────────────╯
 
+[palettes.color_variables]
+
 [palettes.catppuccin_macchiato]
+zvm = "#363a4f" # zsh vim
+dir = "#c6a0f6" # directory
+git = "#7dc4e4" # git status
+lve = "#a6da95" # language version
+env = "#eed49f" # virtual env
+sys = "#a6da95" # system info (os, username, etc.)
+cmd = "#eed49f" # cmd duration
+tim = "#c6a0f6" # time
+txt = "#4C4F69" # text color
+
 macchiato-rosewater = "#f4dbd6"
 macchiato-flamingo = "#f0c6c6"
 macchiato-pink = "#f5bde6"
