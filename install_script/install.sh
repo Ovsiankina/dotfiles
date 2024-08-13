@@ -9,6 +9,8 @@ git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
 
 # For textlab (LaTeX) tree-sitter
 npm install -g tree-sitter-cli
+# For pyright LSP
+npm i -g pyright
                                                                               
 chsh -s /bin/zsh
                                                                               

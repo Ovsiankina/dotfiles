@@ -27,8 +27,7 @@ $python\
 [](fg:lve bg:env)\
 $docker_context\
 ${custom.python-venv}\
-[](fg:env bg:#C6A0F6)\
-[ ](fg:#C6A0F6)\
+[](fg:env)\
 $fill\
 [](fg:sys)\
 $os\
