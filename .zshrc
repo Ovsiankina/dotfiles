@@ -30,6 +30,7 @@ bindkey -e
 bindkey -v
 bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
+KEYTIMEOUT=1
 
 # TODO: Remove these from system:
 #source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -101,11 +102,11 @@ neofetch
 # The plugin will auto execute this zvm_after_select_vi_mode function
 function zvm_after_select_vi_mode() {
   case $ZVM_MODE in
-    n) export ZVM="NORMAL " ;;
-    i) export ZVM="INSERT " ;;
-    v) export ZVM="VISUAL " ;;
-    c) export ZVM="COMMAND" ;;
-    r) export ZVM="REPLACE" ;;
-    *) export ZVM="UNKNOWN" ;;
+    n) export ZVM=" [N] " ;;
+    i) export ZVM=" [I] " ;;
+    v) export ZVM=" [V] " ;;
+    c) export ZVM=" [C] " ;;
+    r) export ZVM=" [R] " ;;
+    *) export ZVM=" [.] " ;;
   esac
 }
