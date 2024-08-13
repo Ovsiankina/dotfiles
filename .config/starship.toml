@@ -174,7 +174,7 @@ style = "bg:#7DC4E4 fg:#4C4F69"
 format = '[( $output )]($style)'
 
 [custom.ZVM_MODE]
-command = 'echo $VIM'
+command = 'echo $ZVM'
 when = 'true'
 style = "bg:#ED8796 fg:#4C4F69"
 format = '[($output )]($style)'

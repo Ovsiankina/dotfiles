@@ -101,11 +101,11 @@ neofetch
 # The plugin will auto execute this zvm_after_select_vi_mode function
 function zvm_after_select_vi_mode() {
   case $ZVM_MODE in
-    n) export VIM="NORMAL " ;;
-    i) export VIM="INSERT " ;;
-    v) export VIM="VISUAL " ;;
-    c) export VIM="COMMAND" ;;
-    r) export VIM="REPLACE" ;;
-    *) export VIM="UNKNOWN" ;;
+    n) export ZVM="NORMAL " ;;
+    i) export ZVM="INSERT " ;;
+    v) export ZVM="VISUAL " ;;
+    c) export ZVM="COMMAND" ;;
+    r) export ZVM="REPLACE" ;;
+    *) export ZVM="UNKNOWN" ;;
   esac
 }
