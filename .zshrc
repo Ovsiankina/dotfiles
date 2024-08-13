@@ -102,11 +102,11 @@ neofetch
 # The plugin will auto execute this zvm_after_select_vi_mode function
 function zvm_after_select_vi_mode() {
   case $ZVM_MODE in
-    n) export ZVM=" [N] " ;;
-    i) export ZVM=" [I] " ;;
-    v) export ZVM=" [V] " ;;
-    c) export ZVM=" [C] " ;;
-    r) export ZVM=" [R] " ;;
-    *) export ZVM=" [.] " ;;
+    n) export ZVM="N" ;;
+    i) export ZVM="I" ;;
+    v) export ZVM="V" ;;
+    c) export ZVM="C" ;;
+    r) export ZVM="R" ;;
+    *) export ZVM=" " ;;
   esac
 }
