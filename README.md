@@ -28,11 +28,16 @@ The path used:
 - texlive (npm install -g tree-sitter-cli)
 - openssh
 - wl-clipboard
+##### Optional
+- xorg-server (For python x11 within wsl)
 
 #### git clone
 - fzf-git
 - tmuxifier
 - tpm
+
+#### NPM packages
+- npm i -g pyright
 
 #### install tmux plugins
 1. open tmux
