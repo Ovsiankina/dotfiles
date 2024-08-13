@@ -26,7 +26,7 @@ $scala\
 $python\
 [](fg:#A6DA95 bg:#7DC4E4)\
 $docker_context\
-${custom.python}\
+${custom.python-venv}\
 [](fg:#7DC4E4 bg:#C6A0F6)\
 [ ](fg:#C6A0F6)\
 $fill\
