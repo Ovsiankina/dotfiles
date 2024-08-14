@@ -32,7 +32,9 @@ $fill\
 [](fg:sys)\
 $os\
 $username\
-[](fg:cmd bg:sys)\
+[](fg:aur bg:sys)\
+${custom.combined_updates}\
+[](fg:cmd bg:aur)\
 $cmd_duration\
 [](fg:tim bg:cmd)\
 $time\
@@ -191,11 +193,32 @@ disabled = true
 [os]
 style = "bg:sys fg:txt"
 disabled = false                      # Disabled by default
-format = "[$symbol $version]($style)"
+format = "[ $symbol $version]($style)"
 
 [os.symbols]
 Windows = " "
 Arch = "\uf303"
+
+[custom.combined_updates]
+command = """
+RATE=5;
+CACHE_FILE="${HOME}/.cache/aur_update_count.txt";
+write_updates () { echo "$(($(checkupdates --nocolor | wc -l)))|$(($(pacman -Qm | aur vercmp | wc -l)))" > $CACHE_FILE;
+};
+if ! test -f $CACHE_FILE;
+then touch $CACHE_FILE && write_updates;
+fi;
+if test `find $CACHE_FILE -mmin +$RATE`;
+then write_updates;
+fi;
+echo "$(<$CACHE_FILE)"
+"""
+style = "bg:aur fg:txt"
+ignore_timeout = true
+when = "true"
+symbol = "󰮯"
+shell = ["bash", "--noprofile", "--norc"]
+format = "[ $symbol $output ]($style)"
 
 [cmd_duration]
 min_time = 0
@@ -220,10 +243,11 @@ dir = "#c6a0f6" # directory
 git = "#7dc4e4" # git status
 lve = "#a6da95" # language version
 env = "#eed49f" # virtual env
-sys = "#a6da95" # system info (os, username, etc.)
+sys = "#7dc4e4" # system info (os, username, etc.)
 cmd = "#eed49f" # cmd duration
 tim = "#c6a0f6" # time
 txt = "#4C4F69" # text color
+aur = "#a6da95" # pacman | AUR updates
 
 macchiato-rosewater = "#f4dbd6"
 macchiato-flamingo = "#f0c6c6"
