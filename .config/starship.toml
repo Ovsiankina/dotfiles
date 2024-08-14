@@ -60,12 +60,13 @@ error_symbol = '[](red)'
 #command = 'echo $ZVM'  [N] 
 command = '''
 case $ZVM in
-  N) color="\033[38;5;075m" ;;  # Blue
-  I) color="\033[38;5;112m" ;;  # Green
-  V) color="\033[38;5;141m" ;;  # Purple
-  R) color="\033[38;5;167m" ;;  # Red
-  C) color="\033[38;5;208m" ;;  # Orange
-  *) ZVM="󱃓"                ;;  # No color
+  N)  color="\033[38;5;075m" ;;  # Blue
+  I)  color="\033[38;5;112m" ;;  # Green
+  V)  color="\033[38;5;141m" ;;  # Purple
+  VL) color="\033[38;5;141m" ;;  # Purple
+  C)  color="\033[38;5;208m" ;;  # Orange
+  R)  color="\033[38;5;167m" ;;  # Red
+  *)  ZVM="󱃓"                ;;  # No color
 esac
 echo "${color}[${ZVM}]"
 '''
