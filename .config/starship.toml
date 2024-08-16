@@ -214,7 +214,6 @@ fi;
 echo "$(<$CACHE_FILE)"
 """
 style = "bg:aur fg:txt"
-ignore_timeout = true
 when = "true"
 symbol = "󰮯"
 shell = ["bash", "--noprofile", "--norc"]
