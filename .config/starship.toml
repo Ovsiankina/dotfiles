@@ -199,25 +199,25 @@ format = "[ $symbol $version]($style)"
 Windows = " "
 Arch = "\uf303"
 
-[custom.combined_updates]
-command = """
-RATE=5;
-CACHE_FILE="${HOME}/.cache/aur_update_count.txt";
-write_updates () { echo "$(($(checkupdates --nocolor | wc -l)))|$(($(pacman -Qm | aur vercmp | wc -l)))" > $CACHE_FILE;
-};
-if ! test -f $CACHE_FILE;
-then touch $CACHE_FILE && write_updates;
-fi;
-if test `find $CACHE_FILE -mmin +$RATE`;
-then write_updates;
-fi;
-echo "$(<$CACHE_FILE)"
-"""
-style = "bg:aur fg:txt"
-when = "true"
-symbol = "󰮯"
-shell = ["bash", "--noprofile", "--norc"]
-format = "[ $symbol $output ]($style)"
+# [custom.combined_updates]
+# command = """
+# RATE=5;
+# CACHE_FILE="${HOME}/.cache/aur_update_count.txt";
+# write_updates () { echo "$(($(checkupdates --nocolor | wc -l)))|$(($(pacman -Qm | aur vercmp | wc -l)))" > $CACHE_FILE;
+# };
+# if ! test -f $CACHE_FILE;
+# then touch $CACHE_FILE && write_updates;
+# fi;
+# if test `find $CACHE_FILE -mmin +$RATE`;
+# then write_updates;
+# fi;
+# echo "$(<$CACHE_FILE)"
+# """
+# style = "bg:aur fg:txt"
+# when = "true"
+# symbol = "󰮯"
+# shell = ["bash", "--noprofile", "--norc"]
+# format = "[ $symbol $output ]($style)"
 
 [cmd_duration]
 min_time = 0
