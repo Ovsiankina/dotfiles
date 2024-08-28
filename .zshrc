@@ -61,10 +61,10 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # ==============================================
 
 # locale
-export LANG=us_CH.UTF-8
-export LC_CTYPE=us_CH.UTF-8
-export LANGUAGE=us_CH.UTF-8
-export LC_ALL=fr_CH.UTF-8
+# export LANG=us_CH.UTF-8
+# export LC_CTYPE=us_CH.UTF-8
+# export LANGUAGE=us_CH.UTF-8
+# export LC_ALL=us_CH.UTF-8
 
 # Keymap layout
 # setxkbmap us_qwerty-fr
