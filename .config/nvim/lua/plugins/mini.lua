@@ -12,5 +12,11 @@ return {
 		end,
 	},
 	-- Improve the textobject e.g inside content of () {} []
-	{ "echasnovski/mini.ai", version = false },
+	{
+		"echasnovski/mini.ai",
+		version = false,
+		config = function()
+			require("mini.ai").setup()
+		end,
+	},
 }
