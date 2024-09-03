@@ -122,8 +122,6 @@
   },
   "clock": {
     "timezone": "Europe/Zurich",
-    "locale": "fr_CH.utf8",
-
     "format": "{:%H:%M} ",
     "format-alt": "{:%A, %B %d, %Y (%R)}  ",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
