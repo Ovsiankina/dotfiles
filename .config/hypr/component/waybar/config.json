@@ -175,7 +175,7 @@
     "tooltip-format": "{ifname} via {ipaddr}/{cidr}",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
-    "on-click": "nmcli device wifi rescan && notify-send 'Scanning for network'"
+    "on-click": "nmcli device wifi rescan && notify-send 'Scanning for network'",
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -241,7 +241,9 @@
     "format": "{} Update(s)",
     "exec": "checkupdates | wc -l",
     "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-    "interval": 15,
-    "on-click": "kitty --title float_kitty -e paru -Syu && notify-send 'The system has been updated' "
+    "interval": 120,
+    "on-click": "kitty --title float_kitty -e sudo pacman -Syu && notify-send 'The system has been updated' ",
+    "on-click-right": "kitty --title float_kitty -e yay && notify-send 'The system has been updated using yay' ",
+    "tooltip-format": "LMB: sp -Syu | RMB: yay",
   }
 }
