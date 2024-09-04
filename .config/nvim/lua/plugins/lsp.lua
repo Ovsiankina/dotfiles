@@ -13,6 +13,7 @@ local servers = {
 	"tsserver", -- JavaScript
 	"bashls", -- Bash
 	"taplo", -- TOML
+  "intelephense", -- PHP
 }
 
 return {
@@ -54,6 +55,15 @@ return {
 			-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
+
+			-- INTELEPHENSE
+
+			lspconfig.intelephense.setup({
+				init_options = {
+					licenceKey = vim.fn.expand("~/.intelephense/licence.txt"),
+				},
+			})
+
 			-- Function to get the virtual environment path dynamically
 			local function get_python_path(workspace)
 				-- Use the virtualenv in the workspace directory if available
