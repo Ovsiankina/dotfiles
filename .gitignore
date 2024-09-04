@@ -2,6 +2,7 @@
 .zsh/.zsh_history
 
 # Ignore temp files
+.config/nvim/lazy-lock.json
 .config/hypr/store
 .config/thefuck/
 .config/hypr/wallpapers
