@@ -26,7 +26,7 @@ vim.opt.undofile = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
--- idk colors I gues
+-- idk colors I guess
 vim.opt.termguicolors = true
 
 -- Always keep at least 8 lines from the bottom to where I work

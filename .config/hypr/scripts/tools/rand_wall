@@ -1,8 +1,7 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Directory containing wallpapers
 WALLPAPER_DIR="/home/ovsiankina/.config/hypr/wallpapers"
-
 
 # Get list of wallpapers
 WALLPAPERS=("$WALLPAPER_DIR"/*)
@@ -18,6 +17,7 @@ change_wallpaper
 
 # Loop to change wallpaper every hour
 while true; do
+  notify-send -a aurora "Wallpaper change" &
   sleep 30m
   change_wallpaper
 done

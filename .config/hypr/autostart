@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/zsh
 
 # variables
 config=$HOME/.config/hypr
@@ -13,7 +13,8 @@ $scripts/tools/dynamic &
 
 # wallpaper
 swww-daemon
-$scripts/rand_wall &
+notify-send -a aurora "swww" &
+$scripts/tools/rand_wall &
 
 # effects
 $scripts/rgb &
