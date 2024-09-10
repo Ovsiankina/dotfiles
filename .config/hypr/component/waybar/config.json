@@ -10,6 +10,8 @@
   //"margin-top":5,
   "modules-left": [
     "hyprland/workspaces",
+    "custom/dynamic_pill",
+    "cava",
   ],
   "modules-right": [
     "custom/updates",
@@ -23,54 +25,16 @@
     "custom/cycle_wall",
     "custom/expand",
   ],
-  "modules-center": ["cava","custom/dynamic_pill","clock"],
+  "modules-center": ["clock"],
 
   // Modules configuration
 
-  // custom modules ////////////////
+  // custom modules
   "custom/dynamic_pill": {
     "return-type": "json",
     "exec": "~/.config/hypr/scripts/tools/start_dyn",
     "escape": true
   },
-  // "custom/ss": {
-  //   "format": "{}",
-  //   "exec": "~/.config/hypr/scripts/tools/expand ss-icon",
-  //   "on-click": "~/.config/hypr/scripts/screenshot_full"
-  // },
-  // "custom/cycle_wall": {
-  //   "format": "{}",
-  //   "exec": "~/.config/hypr/scripts/tools/expand wall",
-  //   // "interval": 1,
-  //   "on-click": "~/.config/hypr/scripts/tools/expand cycle"
-  // },
-  // "custom/expand": {
-  //   "on-click": "~/.config/hypr/scripts/expand_toolbar",
-  //   "format": "{}",
-  //   "exec": "~/.config/hypr/scripts/tools/expand arrow-icon"
-  // },
-  // "custom/test": {
-  //   "format": "{}",
-  //   "exec": "~/.config/hypr/scripts/tools/expand test"
-  // },
-  // "custom/test2": {
-  //   "format": "{}",
-  //   "exec": "~/.config/hypr/scripts/tools/expand test2"
-  // },
-  // "custom/waybar-mpris": {
-  //     "return-type": "json",
-  //     "exec": "echo '   '",
-  //     "on-click": "waybar-mpris --send toggle",
-  //     // This option will switch between players on right click.
-  //         "on-click-right": "waybar-mpris --send player-next",
-  //     // The options below will switch the selected player on scroll
-  //         // "on-scroll-up": "waybar-mpris --send player-next",
-  //         // "on-scroll-down": "waybar-mpris --send player-prev",
-  //     // The options below will go to next/previous track on scroll
-  //         // "on-scroll-up": "waybar-mpris --send next",
-  //         // "on-scroll-down": "waybar-mpris --send prev",
-  //     "escape": true
-  // },
 
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -79,7 +43,7 @@
     "format-icons": {
       "1": "",
       "2": "",
-      "3": "󰈹",
+      "3": "󰖟",
       "4": "󰣇",
       "5": ""
     }

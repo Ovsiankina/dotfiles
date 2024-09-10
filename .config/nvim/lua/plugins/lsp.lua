@@ -60,7 +60,7 @@ return {
 
 			lspconfig.intelephense.setup({
 				init_options = {
-					licenceKey = vim.fn.expand("~/.intelephense/licence.txt"),
+					licenceKey = vim.fn.expand("~/intelephense/licence.txt"),
 				},
 			})
 

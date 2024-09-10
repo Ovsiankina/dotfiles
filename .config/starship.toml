@@ -167,6 +167,7 @@ format = '[ ${symbol} ${version} ]($style)'
 [docker_context]
 symbol = " "
 style = "bg:env fg:txt"
+only_with_files = false
 format = '[ $symbol $context ]($style)'
 
 [custom.python-venv]
