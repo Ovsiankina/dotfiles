@@ -14,6 +14,7 @@ local servers = {
 	"bashls", -- Bash
 	"taplo", -- TOML
   "intelephense", -- PHP
+  "lemminx", -- XML
 }
 
 return {
