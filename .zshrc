@@ -70,7 +70,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # setxkbmap us_qwerty-fr
 export XKB_DEFAULT_LAYOUT=us_qwerty-fr
 # Java
-export JAVA_HOME=/usr/lib/jvm/java-22-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export _JAVA_AWT_WM_NONREPARENTING=1
 # Tmux
 export PATH="$HOME/.tmuxifier/bin:$PATH"
