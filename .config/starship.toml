@@ -26,7 +26,7 @@ $scala\
 $python\
 [](fg:lve bg:env)\
 $docker_context\
-${custom.python-venv}\
+${custom.docker}\
 [](fg:env)\
 $fill\
 [](fg:sys)\
@@ -169,6 +169,23 @@ symbol = " "
 style = "bg:env fg:txt"
 only_with_files = false
 format = '[ $symbol $context ]($style)'
+
+# [custom.docker]
+# symbol = " "
+# command = "docker ps --format '{{.Names}}'"
+# when = "docker ps -q | grep -q ."
+# description = "Show Docker container names"
+# style = "bg:env fg:txt"
+# format = "[ $symbol $output ]($style)"
+
+[custom.docker]
+symbol = " "
+style = "bg:env fg:txt"
+command = "docker ps --format '{{.Names}}'"
+when = "systemctl is-active --quiet docker"
+description = "Show Docker daemon status and running containers"
+format = "[ $symbol$output ]($style)"
+
 
 [custom.python-venv]
 command = 'if [ -n "$VIRTUAL_ENV" ]; then echo "$(basename $VIRTUAL_ENV)"; fi'
