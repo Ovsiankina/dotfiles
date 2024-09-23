@@ -16,6 +16,9 @@ local servers = {
 	"taplo", -- TOML
   "intelephense", -- PHP
   "lemminx", -- XML
+  "docker_compose_language_service", -- Docker compose
+  "dockerls", -- Dockerfile
+
 }
 
 return {
