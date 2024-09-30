@@ -211,7 +211,7 @@ disabled = true
 [os]
 style = "bg:sys fg:txt"
 disabled = false                      # Disabled by default
-format = "[ $symbol $version]($style)"
+format = "[ $symbol ]($style)"
 
 [os.symbols]
 Windows = " "

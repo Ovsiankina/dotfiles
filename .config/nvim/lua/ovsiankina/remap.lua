@@ -23,3 +23,9 @@ keymap("n", "<leader>w", ":w<CR>", {desc = "Quick save"})
 
 ---------- Remap "+y to <c-v> ----------
 keymap("n", '"+y', "<c-c>", {desc = "Remap +y to <c-v>"})
+
+-- Compile Arduino sketch with arduino-cli
+keymap("n", "<leader>ac", ":!arduino-cli compile --fqbn arduino:avr:uno %:p:h<CR>", { desc = "Compile Sketch" })
+
+-- Upload Arduino sketch to the board
+keymap("n", "<leader>au", ":!arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno %:p:h<CR>", { desc = "Upload Sketch" })
