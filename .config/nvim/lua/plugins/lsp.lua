@@ -1,6 +1,7 @@
 local servers = {
 	"ast_grep", -- AST Grep
 	"clangd", -- C++
+	"csharp_ls", -- C++
 	"gopls", -- Go
 	"html", -- HTML
 	"jdtls", -- Java
@@ -15,6 +16,9 @@ local servers = {
 	"taplo", -- TOML
   "intelephense", -- PHP
   "lemminx", -- XML
+  "docker_compose_language_service", -- Docker compose
+  "dockerls", -- Dockerfile
+
 }
 
 return {

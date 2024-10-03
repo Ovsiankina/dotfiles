@@ -2,14 +2,13 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- 2 spaces indents
+-- 4 spaces indents
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
-vim.g.background = "light"
 
 vim.opt.wrap = false
 
