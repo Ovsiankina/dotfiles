@@ -2,7 +2,7 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- 4 spaces indents
+-- 2 spaces indents
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
