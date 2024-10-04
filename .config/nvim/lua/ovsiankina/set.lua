@@ -2,13 +2,12 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4        -- Number of spaces that a <Tab> in the file counts for
-vim.opt.shiftwidth = 4     -- Number of spaces used for each step of (auto)indent
-vim.opt.expandtab = false   -- Use spaces instead of tabs
-vim.opt.smarttab = false    -- Insert spaces based on shiftwidth and tabstop
-vim.opt.autoindent = true  -- Copy indent from the previous line
-vim.opt.smartindent = true -- Smart indentation based on file type
-vim.opt.softtabstop = 4    -- Number of spaces a Tab counts for while editing
+-- 4 spaces indents
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
 
 
 vim.opt.wrap = false
