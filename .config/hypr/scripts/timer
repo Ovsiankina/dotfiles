@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+echo -n "Enter estimated time for the work in min (without the -20%):"
+read TIME
+
+# Perform the multiplication and round the result
+TIME80=$(echo "($TIME * 0.8)/1" | bc)
+
+tty-countdown -m $TIME80
+
+notify-send "Timer ended !" -a "ss"
