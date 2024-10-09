@@ -27,6 +27,7 @@ $python\
 [](fg:lve bg:env)\
 $docker_context\
 ${custom.docker}\
+${custom.python-venv}\
 [](fg:env)\
 $fill\
 [](fg:sys)\
@@ -188,7 +189,7 @@ format = "[ $symbol$output ]($style)"
 
 
 [custom.python-venv]
-command = 'if [ -n "$VIRTUAL_ENV" ]; then echo "$(basename $VIRTUAL_ENV)"; fi'
+command = 'basename "$VIRTUAL_ENV"'
 when = 'true'
 style = "bg:env fg:txt"
 format = '[( $output )]($style)'
