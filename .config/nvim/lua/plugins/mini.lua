@@ -19,4 +19,5 @@ return {
 			require("mini.ai").setup()
 		end,
 	},
+    { 'echasnovski/mini.nvim', version = false },
 }
