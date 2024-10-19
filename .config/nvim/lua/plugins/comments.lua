@@ -1,38 +1,68 @@
 return {
-  {
-    "LudoPinelli/comment-box.nvim",
-    config = function()
-      -- ── Named parts ─────────────────────────────────────────────────────
+    {
+        "LudoPinelli/comment-box.nvim",
 
-      -- Simple line
+        -- ── Named parts ─────────────────────────────────────────────────────
 
-      -- ──────────────────────────────────────────────────────────────────────
+        -- Simple line
 
-      --                                                           ▲
-      --   Marked comments                                         █
-      --                                                           ▼
+        -- ──────────────────────────────────────────────────────────────────────
 
-      -- Remove comment box or normal comment
+        --                                                           ▲
+        --   Marked comments                                         █
+        --                                                           ▼
 
-      local wk = require("which-key")
-      wk.register({
-        ["<leader>C"] = {
-          name = "Comments boxes",
-          silent = true,
-          noremap = true,
-          ["b"] = { mode = { "n", "v" }, "<Cmd>CBccbox<CR>", "[b]ox Title" },
-          ["t"] = { mode = { "n", "v" }, "<Cmd>CBllline<CR>", "[t]itled Line" },
-          ["l"] = { mode = { "n", "v" }, "<Cmd>CBline<CR>", "Simple [l]ine" },
-          ["m"] = { mode = { "n", "v" }, "<Cmd>CBllbox14<CR>", "[m]arked" },
-          ["r"] = { mode = { "n", "v" }, "<Cmd>CBd<CR>", "[r]emove a box" },
+        -- Remove comment box or normal comment
+
+        keys = {
+            {
+                "<leader>Cb",
+                "<Cmd>CBccbox<CR>",
+                mode = { "n", "v" },
+                silent = true,
+                noremap = true,
+                desc = "[b]ox Title",
+            },
+            {
+                "<leader>Ct",
+                "<Cmd>CBllline<CR>",
+                mode = { "n", "v" },
+                silent = true,
+                noremap = true,
+                desc = "[t]itled Line",
+            },
+            {
+                "<leader>Cl",
+                "<Cmd>CBline<CR>",
+                mode = { "n", "v" },
+                silent = true,
+                noremap = true,
+                desc = "Simple [l]ine",
+            },
+            {
+                "<leader>Cm",
+                "<Cmd>CBllbox14<CR>",
+                mode = { "n", "v" },
+                silent = true,
+                noremap = true,
+                desc = "[m]arked",
+            },
+            {
+                "<leader>Cr",
+                "<Cmd>CBd<CR>",
+                mode = { "n", "v" },
+                silent = true,
+                noremap = true,
+                desc = "[r]emove a box",
+            },
         },
-      })
-    end,
-  },
-  {
-    "folke/ts-comments.nvim",
-    opts = {},
-    event = "VeryLazy",
-    enabled = true,
-  },
+    },
+    {
+        "folke/ts-comments.nvim",
+        opts = {},
+        event = "VeryLazy",
+        enabled = true,
+
+        -- `gcc` to comment and uncomment line under cursor
+    },
 }
