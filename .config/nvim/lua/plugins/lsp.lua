@@ -17,6 +17,7 @@ local servers = {
   "lemminx", -- XML
   "docker_compose_language_service", -- Docker compose
   "dockerls", -- Dockerfile
+  "csharp_ls", -- c#
 
 }
 
