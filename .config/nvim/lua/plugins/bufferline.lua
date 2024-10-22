@@ -4,7 +4,7 @@
 return {
     -- Full bufferline configuration with LSP diagnostic icons
     -- BUG: bufferline desapear when scope.nvim ?
-    { "tiagovla/scope.nvim" },
+    -- { "tiagovla/scope.nvim" },
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
