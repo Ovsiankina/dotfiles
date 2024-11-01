@@ -182,11 +182,10 @@ format = '[ $symbol $context ]($style)'
 [custom.docker]
 symbol = " "
 style = "bg:env fg:txt"
-command = "docker ps --format '{{.Names}}'"
+command = "docker ps --format '{{.Names}}' | paste -sd ' ' -"
 when = "systemctl is-active --quiet docker"
 description = "Show Docker daemon status and running containers"
 format = "[ $symbol$output ]($style)"
-
 
 [custom.python-venv]
 command = 'basename "$VIRTUAL_ENV"'
