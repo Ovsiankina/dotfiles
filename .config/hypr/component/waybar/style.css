@@ -73,7 +73,6 @@
 * {
     border: none;
     font-size: 12px;
-    border-radius: 0 0 5px 5px;
     min-height: 0;
     margin: 0;
     padding: 0;
@@ -81,7 +80,7 @@
 
 /* The whole bar */
 #waybar {
-    background-color: transparent;
+    background-color: rgba(156, 160, 176, 0.5);
     color: @macchiato-text;
     font-family: Fira Code;
     font-size: 13px;
@@ -94,9 +93,9 @@
 #backlight,
 #custom-updates,
 #pulseaudio {
-    border-radius: 12px 0 0 12px;
     min-height: 0;
     margin-left: -12;
+    margin-left: 0;
     padding-left: 15;
     padding-right: 25;
 }
@@ -105,7 +104,6 @@
 #clock {
     padding-left: 15;
     padding-right: 15;
-    border-radius: 0 0 12px 12px;
 }
 
 /* -----------------------------------------------------------------------------
@@ -120,7 +118,6 @@
     padding-left: 10px;
     padding-right: 10px;
     color: @macchiato-overlay1;
-    border-radius: 0px;
 }
 
 #workspaces button.active {
@@ -136,11 +133,11 @@
 }
 
 #workspaces button:first-child {
-    border-radius: 0 0 0 5px;
+    /* border-radius: 0 0 0 5px; */
 }
 
 #workspaces button:last-child {
-    border-radius: 0 0 5px 0;
+    /* border-radius: 0 0 5px 0; */
 }
 
 /* cava */
@@ -257,18 +254,6 @@
 #battery.charging, #battery.plugged {
     background-color: @macchiato-green;
     color: @macchiato-crust;
-}
-
-/* custom/test */
-/* No styles provided */
-
-/* custom/test2 */
-/* No styles provided */
-
-/* custom/ss */
-#custom-ss {
-    background-color: @macchiato-base;
-    color: @macchiato-mauve;
 }
 
 /* clock */

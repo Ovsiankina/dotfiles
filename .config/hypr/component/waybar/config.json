@@ -2,12 +2,7 @@
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
   "height": 30, // Waybar height (to be removed for auto height)
-  // "width": 1280, // Waybar width
-  // Choose the order of the modules
-  // "margin-left":25,
-  // "margin-right":-20,
   "margin-bottom": -11,
-  //"margin-top":5,
   "modules-left": [
     "hyprland/workspaces",
     "custom/dynamic_pill",
@@ -19,13 +14,10 @@
     "pulseaudio",
     "network",
     "battery",
-    "custom/test",
-    "custom/test2",
-    "custom/ss",
-    "custom/cycle_wall",
-    "custom/expand",
   ],
-  "modules-center": ["clock"],
+  "modules-center": [
+      "clock",
+  ],
 
   // Modules configuration
 
