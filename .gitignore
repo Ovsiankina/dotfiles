@@ -1,9 +1,19 @@
 # Ignore the Zsh history file
 .zsh/.zsh_history
 
-# Ignore temp files
+# Ignore nvim/lazy-lock.json
 .config/nvim/lazy-lock.json
+nvim/lazy-lock.json
+
+# Ignore .config/nvim/.luarc.json
+.config/nvim/.luarc.json
+nvim/.luarc.json
+
+# Ignore temp files
 .config/hypr/store
 .config/thefuck/
 .config/hypr/wallpapers
 .config/gh
+
+# Ignore .config/go directory
+.config/go/
