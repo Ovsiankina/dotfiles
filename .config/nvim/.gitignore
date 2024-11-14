@@ -1,3 +1,8 @@
-luarc.json
+# Ignore .config/go directory
+.config/go/
 
-lazy-lock.json
+# Ignore .config/nvim/.luarc.json
+.config/nvim/.luarc.json
+
+# Ignore .config/nvim/lazy-lock.json
+.config/nvim/lazy-lock.json
