@@ -7,17 +7,13 @@ return {
 	{
 		"echasnovski/mini.pairs",
 		version = false,
-		config = function()
-			require("mini.pairs").setup()
-		end,
+        opts = {},
 	},
 	-- Improve the textobject e.g inside content of () {} []
 	{
 		"echasnovski/mini.ai",
 		version = false,
-		config = function()
-			require("mini.ai").setup()
-		end,
+        opts = {},
 	},
     { 'echasnovski/mini.nvim', version = false },
 }

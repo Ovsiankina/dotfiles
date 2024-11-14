@@ -60,8 +60,4 @@ return {
         { "[B",         "<cmd>BufferLineMovePrev<cr>",             mode = "n", desc = "Move buffer prev" },
         { "]B",         "<cmd>BufferLineMoveNext<cr>",             mode = "n", desc = "Move buffer next" },
     },
-
-    config = function(_, opts)
-        require("bufferline").setup(opts)
-    end,
 }

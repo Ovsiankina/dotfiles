@@ -8,18 +8,9 @@ return {
 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 	},
 
-	config = function()
-		--          ╭─────────────────────────────────────────────────────────╮
-		--          │                          Remap                          │
-		--          ╰─────────────────────────────────────────────────────────╯
-
-		local wk = require("which-key")
-		wk.register({
-			["<leader>N"] = {
-				name = "Neotree filesystem",
-				["l"] = { mode = { "n" }, ":Neotree filesystem reveal left<CR>", "Reveal neotree [l]eft" },
-				["f"] = { mode = { "n" }, ":Neotree buffers reveal float<CR>", "Reveal neotree [f]oat" },
-			},
-		})
-	end,
+	keys = {
+		{ "<leader>N", "", mode = "n", desc = "Neotree filesystem" },
+		{ "<leader>Nl", ":Neotree filesystem reveal left<CR>", mode = "n", desc = "Reveal neotree [l]eft" },
+		{ "<leader>Nf", ":Neotree buffers reveal float<CR>", mode = "n", desc = "Reveal neotree [f]oat" },
+	},
 }

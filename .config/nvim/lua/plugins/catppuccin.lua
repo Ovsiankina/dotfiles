@@ -3,16 +3,15 @@ return {
 	lazy = false,
 	name = "catppuccin",
 	priority = 1000,
-	config = function() -- This automatically calls 'require'
-		require("catppuccin").setup({
-
+	opts = function()
+		local u = require("catppuccin.utils.colors")
+		return {
 			background = { -- :h background
 				light = "latte",
 				dark = "macchiato",
 			},
 			transparent_background = false, -- disables setting the background color.
 			custom_highlights = function(colors)
-				local u = require("catppuccin.utils.colors")
 				return {
 					CursorLine = {
 						bg = u.vary_color(
@@ -33,36 +32,34 @@ return {
 				gitsigns = true,
 				nvimtree = true,
 				treesitter = true,
-				notify = true,
+				notify = false,
 				mini = {
 					enabled = true,
 					indentscope_color = "",
 				},
 			},
-		})
-		vim.cmd.colorscheme("catppuccin")
-
-		--          ╭─────────────────────────────────────────────────────────╮
-		--          │                          Remap                          │
-		--          ╰─────────────────────────────────────────────────────────╯
-		-- Change the to dark or light (macchiato/latte)
-		function ToggleBackground()
-			if vim.o.bg == "dark" then
-				vim.o.bg = "light"
-			else
-				vim.o.bg = "dark"
-			end
-			vim.cmd("colorscheme catppuccin")
-		end
-
-		-- Register the command in Vim
-		vim.cmd("command! ToggleBackground lua ToggleBackground()")
-
-		local wk = require("which-key")
-		wk.register({
-			silent = true,
-			noremap = true,
-			["<leader>l"] = { mode = "n", "<CMD> ToggleBackground<CR>", "Toggle [l]ight mode" },
-		})
+		}
 	end,
+
+	-- Directly set the colorscheme after the plugin is loaded
+	config = function(_, opts)
+		require("catppuccin").setup(opts)
+		vim.cmd("colorscheme catppuccin")  -- This directly applies the colorscheme after setup
+	end,
+
+	-- Keybinding for toggling background
+	keys = {
+		{
+			"<leader>l",
+			function()
+				if vim.o.bg == "dark" then
+					vim.o.bg = "light"
+				else
+					vim.o.bg = "dark"
+				end
+				vim.cmd("colorscheme catppuccin")  -- Refresh the colorscheme after toggling
+			end,
+			desc = "Toggle [l]ight mode",
+		},
+	},
 }

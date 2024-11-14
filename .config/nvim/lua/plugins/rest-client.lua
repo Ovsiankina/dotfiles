@@ -1,1 +1,5 @@
-return { 'mistweaverco/kulala.nvim', opts = {} }
+return {
+	"mistweaverco/kulala.nvim",
+	event = "VeryLazy",
+	opts = {},
+}

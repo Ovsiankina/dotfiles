@@ -1,6 +1,43 @@
 return {
 	"folke/trouble.nvim",
+	keys = {
+		{ "<leader>x", "", mode = "n", desc = "Trouble" },
+		{
+			"<leader>xx",
+			"<cmd>Trouble diagnostics toggle<cr>",
+			mode = "n",
+			desc = "[x] Diagnostics",
+		},
+		{
+			"<leader>xX",
+			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+			mode = "n",
+			desc = "[X] Buffer Diagnostics",
+		},
+		{
+			"<leader>xl",
+			"<cmd>Trouble loclist toggle<cr>",
+			mode = "n",
+			desc = "[L]ocation List",
+		},
+		{ "<leader>xt", "<cmd>Trouble todo<CR>", mode = "n", desc = "[t]odo" },
+		{ "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>", mode = "n", desc = "[s]ymbols" },
+		{
+			"<leader>xQ",
+			"<cmd>Trouble qflist toggle<cr>",
+			mode = "n",
+			desc = "[Q]uickfix List",
+		},
+		{
+			"<leader>xL",
+			"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+			mode = "n",
+			desc = "[L]SP Definitions / references / ...",
+		},
+	},
+
 	requires = { "kyazdani42/nvim-web-devicons" }, -- Ensuring dependency is correctly specified
+
 	config = function()
 		require("trouble").setup({
 			-- other configuration options
@@ -13,32 +50,12 @@ return {
 			Error = "", -- icon for errors
 			Warn = "", -- icon for warnings
 			Hint = "", -- icon for hints
-			Info = "" , -- icon for information
+			Info = "", -- icon for information
 		}
 
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
-
-		local wk = require("which-key")
-		wk.register({
-			["<leader>x"] = {
-				name = "Trouble",
-				silent = true,
-				noremap = true,
-				["x"] = { mode = "n", "<cmd>Trouble diagnostics toggle<cr>", "[x]Diagnostics" },
-				["X"] = { mode = "n", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "[X]Buffer Diagnostics" },
-				["l"] = { mode = "n", "<cmd>Trouble loclist toggle<cr>", "[L]ocation List" },
-				["t"] = { mode = "n", "<cmd>Trouble todo<CR>", "[t]odo" },
-				["s"] = { mode = "n", "<cmd>Trouble symbols toggle focus=false<cr>", "[s]ymbols" },
-				["Q"] = { mode = "n", "<cmd>Trouble qflist toggle<cr>", "[Q]uickfix List" },
-				["L"] = {
-					mode = "n",
-					"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-					"[L]SP Definitions / references / ...",
-				},
-			},
-		})
 	end,
 }

@@ -7,9 +7,7 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" }, -- Load on buffer read or new file
-		config = function()
-			require("gitsigns").setup()
-		end,
+		opts = {},
 		keys = {
 			-- Git commands
 			{ "<leader>G", group = "Git" },
