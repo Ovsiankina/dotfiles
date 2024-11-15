@@ -1,7 +1,10 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-    opts = {
+	opts = function()
+		local configs = require("nvim-treesitter.configs")
+
+		configs.setup({
 			ensure_installed = {
 				"c",
 				"lua",
@@ -18,15 +21,15 @@ return {
 				"php",
 				"java",
 			},
-			additional_vim_regex_highlighting = false,
 			auto_install = true,
-			sync_install = false,
+			sync_install = true,
 			highlight = {
 				enable = true,
-				additional_vim_regex_highlighting = false,
+				additional_vim_regex_highlighting = true,
 			},
 			indent = {
 				enable = true,
 			},
-    },
+		})
+	end,
 }

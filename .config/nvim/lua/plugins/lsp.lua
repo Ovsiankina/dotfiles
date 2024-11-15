@@ -102,6 +102,7 @@ return {
 			wk.register({
 				["K"] = { vim.lsp.buf.hover, "Definitions", mode = "n" },
 				["gd"] = { vim.lsp.buf.definition, "Go to definitions", mode = "n" },
+				["gr"] = { vim.lsp.buf.references, "Go to reference", mode = "n" },
 				["<space>ca"] = { vim.lsp.buf.code_action, "Code action", mode = { "n", "v" } },
 			})
 			vim.api.nvim_create_autocmd("FileType", {
