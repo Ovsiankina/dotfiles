@@ -34,3 +34,7 @@ vim.opt.isfname:append('@-@') -- IDK
 
 vim.opt.updatetime = 50 -- Update time
 vim.opt.colorcolumn = '80'
+
+-- VimTex required options
+vim.o.encoding = "utf-8"
+
