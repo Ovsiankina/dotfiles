@@ -37,4 +37,3 @@ vim.opt.colorcolumn = '80'
 
 -- VimTex required options
 vim.o.encoding = "utf-8"
-
