@@ -8,7 +8,7 @@ return {
 		-- `$ sudo pacman -S extra/texlive-latex extra/texlive-latexextra extra/texlive-plaingeneric zathura-pdf-mupdf`
 
 		init = function()
-			vim.g.maplocalleader = "\\"
+			-- vim.g.maplocalleader = "\\"
 
             vim.g.vimtex_compiler_latexmk_options = "-pdf -quiet"
 

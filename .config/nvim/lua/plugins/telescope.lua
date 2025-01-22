@@ -13,6 +13,23 @@ return {
 	-- Telescope extension to use code action with telescope
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
+		keys = {
+			{ "<leader>f", group = "Telescope" },
+			{ "<leader>fB", "<Cmd>Telescope file_browser<CR>", desc = "(B)rowse files" },
+			{ "<leader>fG", group = "Git pickers" },
+			{ "<leader>fGC", "<Cmd>Telescope git_bcommits<CR>", desc = "Buffer git [C]ommits" },
+			{ "<leader>fGS", "<Cmd>Telescope git_stash<CR>", desc = "Git [S]tash" },
+			{ "<leader>fGb", "<Cmd>Telescope git_branches<CR>", desc = "Git [b]ranches" },
+			{ "<leader>fGc", "<Cmd>Telescope git_commits<CR>", desc = "Git [c]ommits" },
+			{ "<leader>fGr", "<Cmd>Telescope git_bcommits_range<CR>", desc = "Buffer git commits [r]ange" },
+			{ "<leader>fGs", "<Cmd>Telescope git_status<CR>", desc = "Git [s]tatus" },
+			{ "<leader>fb", "<Cmd>Telescope buffers<CR>", desc = "Buffers" },
+			{ "<leader>ff", "<Cmd>Telescope find_files<CR>", desc = "Find Files" },
+			{ "<leader>fg", "<Cmd>Telescope live_grep<CR>", desc = "Live Grep" },
+			{ "<leader>fh", "<Cmd>Telescope help_tags<CR>", desc = "Help Tags" },
+			{ "<leader>fp", "<Cmd>Telescope file_browser<CR>", desc = "Browse (p)rojects" },
+			{ "<leader>ft", "<Cmd>TodoTelescope<CR>", desc = "Todo telescope" },
+		},
 		config = function()
 			-- This is your opts table
 			require("telescope").setup({
@@ -43,38 +60,6 @@ return {
 					},
 				},
 			})
-
-			--          ╭─────────────────────────────────────────────────────────╮
-			--          │                          Remap                          │
-			--          ╰─────────────────────────────────────────────────────────╯
-
-			local wk = require("which-key")
-			wk.register({
-				["<leader>f"] = {
-					name = "Telescope",
-					["f"] = { mode = "n", "<Cmd>Telescope find_files<CR>", "Find Files" },
-					["g"] = { mode = "n", "<Cmd>Telescope live_grep<CR>", "Live Grep" },
-					["b"] = { mode = "n", "<Cmd>Telescope buffers<CR>", "Buffers" },
-					["h"] = { mode = "n", "<Cmd>Telescope help_tags<CR>", "Help Tags" },
-					-- BUG: keyword(args) does not show up in TodoTelescope
-					["t"] = { mode = "n", "<Cmd>TodoTelescope<CR>", "Todo telescope" },
-					["B"] = { mode = "n", "<Cmd>Telescope file_browser<CR>", "(B)rowse files" },
-					["p"] = { mode = "n", "<Cmd>Telescope file_browser<CR>", "Browse (p)rojects" },
-				},
-
-				["<leader>fG"] = {
-					name = "Git pickers",
-					["c"] = { mode = "n", "<Cmd>Telescope git_commits<CR>", "Git [c]ommits" },
-					["C"] = { mode = "n", "<Cmd>Telescope git_bcommits<CR>", "Buffer git [C]ommits" },
-					["r"] = { mode = "n", "<Cmd>Telescope git_bcommits_range<CR>", "Buffer git commits [r]ange" },
-					["b"] = { mode = "n", "<Cmd>Telescope git_branches<CR>", "Git [b]ranches" },
-					["s"] = { mode = "n", "<Cmd>Telescope git_status<CR>", "Git [s]tatus" },
-					["S"] = { mode = "n", "<Cmd>Telescope git_stash<CR>", "Git [S]tash" },
-				},
-			})
-
-			-- To get ui-select loaded and working with telescope, you need to call
-			-- load_extension, somewhere after setup function:
 			require("telescope").load_extension("ui-select")
 		end,
 	},
