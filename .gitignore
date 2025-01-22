@@ -16,4 +16,4 @@ nvim/.luarc.json
 .config/gh
 
 # Ignore .config/go directory
-.config/go/
+.config/go
