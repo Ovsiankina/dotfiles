@@ -43,16 +43,6 @@ return {
 				view = "split", -- Use the split view for long messages
 				-- Skip VimTeX error messages or notifications
 			},
-
-			{
-				filter = {
-					event = "notify", -- The event for notifications
-					opts = {
-						title = "VimTeX:", -- Target VimTeX messages (adjust title if needed)
-					},
-				},
-				opts = { skip = true }, -- Skip processing these messages by Noice
-			},
 		},
 		lsp = {
 			progress = { enabled = true },

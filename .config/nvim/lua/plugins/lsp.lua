@@ -10,7 +10,7 @@ local servers = {
 	"rust_analyzer", -- Rust
 	"sqlls", -- SQL
 	"texlab", -- LaTeX
-	"tsserver", -- JavaScript
+	"ts_ls", -- JavaScript
 	"bashls", -- Bash
 	"taplo", -- TOML
 	"intelephense", -- PHP
