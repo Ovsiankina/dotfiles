@@ -240,7 +240,7 @@ Arch = "\uf303"
 [cmd_duration]
 min_time = 0
 style = "bg:env fg:txt"
-format = '[ took $duration ]($style)'
+format = '[ $duration ]($style)'
 
 [time]
 disabled = false
@@ -256,15 +256,15 @@ format = '[ $time ]($style)'
 
 [palettes.catppuccin_macchiato]
 zvm = "#363a4f" # zsh vim
-dir = "#c6a0f6" # directory
-git = "#7dc4e4" # git status
-lve = "#a6da95" # language version
-env = "#eed49f" # virtual env
-sys = "#7dc4e4" # system info (os, username, etc.)
-cmd = "#eed49f" # cmd duration
-tim = "#c6a0f6" # time
+dir = "#d576f6" # directory
+git = "#76cffa" # git status
+lve = "#61FA78" # language version
+env = "#fad361" # virtual env
+sys = "#76cffa" # system info (os, username, etc.)
+cmd = "#fad361" # cmd duration
+tim = "#d576f6" # time
 txt = "#4C4F69" # text color
-aur = "#a6da95" # pacman | AUR updates
+aur = "#61FA78" # pacman | AUR updates
 
 macchiato-rosewater = "#f4dbd6"
 macchiato-flamingo = "#f0c6c6"
