@@ -95,8 +95,8 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 eval "$(thefuck --alias fuck)"
 
-# Bonus hihi
-neofetch
+# Bonus (slows down startup time)
+# neofetch
 
 # The plugin will auto execute this zvm_after_select_vi_mode function
 function zvm_after_select_vi_mode() {
