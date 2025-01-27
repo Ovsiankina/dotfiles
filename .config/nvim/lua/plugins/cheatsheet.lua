@@ -1,3 +1,4 @@
+-- TODO: fix colorscheme OR integrate the original plugin (nvchad/ui)
 local M = { 'smartinellimarco/nvcheatsheet.nvim' }
 
 M.opts = {

@@ -1,3 +1,4 @@
+-- TODO: Change UI to match better chadnv's version
 return {
     {
         "nvim-telescope/telescope.nvim",

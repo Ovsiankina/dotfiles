@@ -1,3 +1,4 @@
+-- TODO: keymap <leader>ca should call this plugin by default
 return {
     "rachartier/tiny-code-action.nvim",
     dependencies = {
