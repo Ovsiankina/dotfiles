@@ -1,30 +1,11 @@
 local servers = {
-    "ast_grep",                     -- AST Grep
-    "clangd",                       -- C++
-    "gopls",                        -- Go
-    "html",                         -- HTML
-    "jdtls",                        -- Java
-    "lua_ls",                       -- Lua
-    "marksman",                     -- Markdown
-    "pyright",                      -- Python
-    "rust_analyzer",                -- Rust
-    "sqlls",                        -- SQL
-    "texlab",                       -- LaTeX
-    "ts_ls",                        -- JavaScript
-    "bashls",                       -- Bash
-    "taplo",                        -- TOML
-    "intelephense",                 -- PHP
-    "lemminx",                      -- XML
-    "docker_compose_language_service", -- Docker compose
-    "dockerls",                     -- Dockerfile
-    -- "csharp_ls",                    -- c#
+    "ast_grep", "clangd", "gopls", "html", "jdtls", "lua_ls", "marksman",
+    "pyright", "rust_analyzer", "sqlls", "texlab", "ts_ls", "bashls",
+    "taplo", "intelephense", "lemminx", "docker_compose_language_service",
+    "dockerls"
 }
 
 return {
-    -- LSP has three parts: Mason, Mason-lspconfig and nvim
-
-    -- Mason
-    -- Installs and manages the LSPs
     {
         "williamboman/mason.nvim",
         opts = {},
@@ -33,76 +14,63 @@ return {
             require("mason").setup()
         end,
     },
-
-    -- Mason-lspconfig
-    -- Bridge the gap between neovim and Language servers and ensures languages
-    -- are installed
     {
         "williamboman/mason-lspconfig.nvim",
         lazy = false,
         opts = {
             ensure_installed = servers,
             automatic_installation = true,
-            -- java server
             servers = {
                 jdtls = {},
             },
         },
     },
-
-    -- nvim-lspconfig
-    -- Allows neovim to communicate with language servers (I/O)
     {
         "neovim/nvim-lspconfig",
+        dependencies = { 'saghen/blink.cmp' },
         lazy = false,
         keys = {
-          { "K", vim.lsp.buf.hover, desc = "Definitions" },
-          { "gd", vim.lsp.buf.definitions, desc = "Go to definitions" },
-          { "gr", vim.lsp.buf.references, desc = "Go to reference" },
-          { "<space>ca", vim.lsp.buf.code_action, desc = "Code action", mode = { "n", "v" } },
+            { "K", vim.lsp.buf.hover, desc = "Definitions" },
+            { "gd", vim.lsp.buf.definitions, desc = "Go to definitions" },
+            { "gr", vim.lsp.buf.references, desc = "Go to reference" },
+            { "<space>ca", vim.lsp.buf.code_action, desc = "Code action", mode = { "n", "v" } },
         },
         config = function()
-            -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
             local lspconfig = require("lspconfig")
-
-            -- INTELEPHENSE
+            local capabilities = require('blink.cmp').get_lsp_capabilities()
 
             lspconfig.intelephense.setup({
+                capabilities = capabilities,
                 init_options = {
                     licenceKey = vim.fn.expand("~/.intelephense/licence.txt"),
                 },
             })
 
-            -- Function to get the virtual environment path dynamically
             local function get_python_path(workspace)
-                -- Use the virtualenv in the workspace directory if available
                 if workspace == nil then
                     return vim.fn.exepath("python3") or vim.fn.exepath("python")
                 end
-                local venv_path = workspace .. "/.venv/bin/python" -- WARN: venv name can be something else than '/venv'
+                local venv_path = workspace .. "/.venv/bin/python"
                 local venv_exists = vim.fn.glob(venv_path)
                 if venv_exists ~= "" then
                     return venv_path
                 end
-                -- Fallback to system python if no virtualenv is found
                 return vim.fn.exepath("python3") or vim.fn.exepath("python")
             end
 
             for _, server in ipairs(servers) do
-                lspconfig[server].setup({
+                local config = {
                     capabilities = capabilities,
-                    on_init = server == "pyright" and function(client)
+                }
+                if server == "pyright" then
+                    config.on_init = function(client)
                         local python_path = get_python_path(client.config.root_dir)
                         client.config.settings.python.pythonPath = python_path
                         client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
-                    end or nil,
-                })
+                    end
+                end
+                lspconfig[server].setup(config)
             end
-
-            --          ╭─────────────────────────────────────────────────────────╮
-            --          │                          Remap                          │
-            --          ╰─────────────────────────────────────────────────────────╯
 
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = { "c", "cpp" },
@@ -118,3 +86,4 @@ return {
     { "nvim-lua/lsp-status.nvim" },
     { "onsails/lspkind.nvim" },
 }
+
