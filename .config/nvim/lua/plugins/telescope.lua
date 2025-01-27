@@ -2,15 +2,12 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
-        -- or                              , branch = '0.1.x',
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     {
         "nvim-telescope/telescope-project.nvim",
         dependencies = { "nvim-telescope/telescope-file-browser.nvim" },
     },
-
-    -- Telescope extension to use code action with telescope
     {
         "nvim-telescope/telescope-ui-select.nvim",
         keys = {
@@ -29,36 +26,68 @@ return {
             { "<leader>fh",  "<Cmd>Telescope help_tags<CR>",          desc = "Help Tags" },
             { "<leader>fp",  "<Cmd>Telescope file_browser<CR>",       desc = "Browse (p)rojects" },
             { "<leader>ft",  "<Cmd>TodoTelescope<CR>",                desc = "Todo telescope" },
+
         },
         config = function()
-            -- This is your opts table
-            dofile(vim.g.base46_cache .. "telescope")
+            local colors = require("catppuccin.palettes").get_palette()
+            local telescope_style = "borderless" -- or "borderless", depending on your preference
+
+            local hlgroups = {
+                TelescopePromptPrefix = {
+                    fg = colors.red,
+                    bg = colors.surface0,
+                },
+                TelescopeNormal = { bg = colors.mantle },
+                TelescopePreviewTitle = {
+                    fg = colors.base,
+                    bg = colors.green,
+                },
+                TelescopePromptTitle = {
+                    fg = colors.base,
+                    bg = colors.red,
+                },
+                TelescopeSelection = { bg = colors.surface0, fg = colors.text },
+                TelescopeResultsDiffAdd = { fg = colors.green },
+                TelescopeResultsDiffChange = { fg = colors.yellow },
+                TelescopeResultsDiffDelete = { fg = colors.red },
+                TelescopeMatching = { bg = colors.surface1, fg = colors.blue },
+            }
+
+            local styles = {
+                borderless = {
+                    TelescopeBorder = { fg = colors.mantle, bg = colors.mantle },
+                    TelescopePromptBorder = { fg = colors.surface0, bg = colors.surface0 },
+                    TelescopePromptNormal = { fg = colors.text, bg = colors.surface0 },
+                    TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
+                    TelescopePromptPrefix = { fg = colors.red, bg = colors.surface0 },
+                },
+                bordered = {
+                    TelescopeBorder = { fg = colors.surface1 },
+                    TelescopePromptBorder = { fg = colors.surface1 },
+                    TelescopeResultsTitle = { fg = colors.base, bg = colors.green },
+                    TelescopePreviewTitle = { fg = colors.base, bg = colors.blue },
+                    TelescopePromptPrefix = { fg = colors.red, bg = colors.base },
+                    TelescopeNormal = { bg = colors.base },
+                    TelescopePromptNormal = { bg = colors.base },
+                },
+            }
+
+            local result = vim.tbl_deep_extend("force", hlgroups, styles[telescope_style])
+
+            for group, colors in pairs(result) do
+                vim.api.nvim_set_hl(0, group, colors)
+            end
+
             require("telescope").setup({
                 defaults = {
-                    -- Default configuration for telescope goes here:
-                    -- config_key = value,
-                    prompt_prefix = "   ",
-                    selection_caret = " ",
-                    entry_prefix = " ",
-                    sorting_strategy = "ascending",
-                    layout_config = {
-                        horizontal = {
-                            prompt_position = "top",
-                            preview_width = 0.55,
-                        },
-                        width = 0.87,
-                        height = 0.80,
-                    },
                     mappings = {
                         i = {
-                            -- map actions.which_key to <C-h> (default: <C-/>)
-                            -- actions.which_key shows the mappings for your picker,
-                            -- e.g. git_{create, delete, ...}_branch for the git_branches picker
                             ["<C-h>"] = "which_key",
                             ["<C-j>"] = "move_selection_next",
                             ["<C-k>"] = "move_selection_previous",
                         },
                     },
+                    layout_strategy = 'horizontal'
                 },
                 pickers = {
                     find_files = {
