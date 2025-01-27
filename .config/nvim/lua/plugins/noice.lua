@@ -33,17 +33,17 @@ return {
 				winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
 			},
 		},
-		routes = {
-			-- Ensure long messages go to `:messages`
-			{
-				filter = {
-					event = "msg_show",
-					min_height = 4, -- Messages taller than 5 lines
-				},
-				view = "split", -- Use the split view for long messages
-				-- Skip VimTeX error messages or notifications
-			},
-		},
+		-- routes = {
+		-- 	-- Ensure long messages go to `:messages`
+		-- 	{
+		-- 		filter = {
+		-- 			event = "msg_show",
+		-- 			min_height = 4, -- Messages taller than 5 lines
+		-- 		},
+		-- 		view = "split", -- Use the split view for long messages
+		-- 		-- Skip VimTeX error messages or notifications
+		-- 	},
+		-- },
 		lsp = {
 			progress = { enabled = true },
 			override = {
