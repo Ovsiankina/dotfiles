@@ -39,7 +39,6 @@ return {
     -- Git branches visualisation (:Flog)
     {
         "rbong/vim-flog",
-        lazy = true,
         cmd = { "Flog", "Flogsplit", "Floggit" },
     },
     {
