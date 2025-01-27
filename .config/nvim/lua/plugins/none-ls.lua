@@ -44,7 +44,7 @@ return {
                     null_ls.builtins.formatting.black,   -- Python
                     null_ls.builtins.formatting.stylua,  -- Lua
                     null_ls.builtins.formatting.rustfmt, --rust
-                }
+                },
 
                 -- Exemple on how to config a source (C_A.gitsigns here)
                 -- Goal: filter out blame actions
@@ -57,7 +57,7 @@ return {
                 --         end,
                 --     },
                 -- })
-
+                debug = true,
             })
         end,
 
