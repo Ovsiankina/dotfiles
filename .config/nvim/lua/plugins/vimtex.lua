@@ -1,7 +1,7 @@
 return {
 	{
 		"lervag/vimtex",
-		lazy = false, -- we don't want to lazy load VimTeX
+		lazy = true,
 
 		-- NOTE: if doesn't work: try `$ fmtutil-sys --all`
 		-- `$ sudo texconfig rehash`
