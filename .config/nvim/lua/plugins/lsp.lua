@@ -30,10 +30,10 @@ return {
         dependencies = { 'saghen/blink.cmp' },
         lazy = false,
         keys = {
-            { "K", vim.lsp.buf.hover, desc = "Definitions" },
-            { "gd", vim.lsp.buf.definitions, desc = "Go to definitions" },
-            { "gr", vim.lsp.buf.references, desc = "Go to reference" },
-            { "<space>ca", vim.lsp.buf.code_action, desc = "Code action", mode = { "n", "v" } },
+            { "K",         vim.lsp.buf.hover,       desc = "Definitions" },
+            { "gd",        vim.lsp.buf.definitions, desc = "Go to definitions" },
+            { "gr",        vim.lsp.buf.references,  desc = "Go to reference" },
+            { "<space>ca", vim.lsp.buf.code_action, desc = "Code action",      mode = { "n", "v" } },
         },
         config = function()
             local lspconfig = require("lspconfig")
@@ -86,4 +86,3 @@ return {
     { "nvim-lua/lsp-status.nvim" },
     { "onsails/lspkind.nvim" },
 }
-

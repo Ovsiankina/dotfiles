@@ -43,6 +43,9 @@ return {
             documentation = {
                 auto_show = true,
             },
+            ghost_text = {
+                enabled = false
+            }
         },
     },
     opts_extend = { "sources.default" }
