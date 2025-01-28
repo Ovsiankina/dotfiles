@@ -1,6 +1,22 @@
 # Doc
 
-The path used:
+- [Doc](#doc)
+  - [Requirements](#requirements)
+    - [Main](#main)
+      - [Pacman packages](#pacman-packages)
+        - [Optional](#optional)
+      - [git clone](#git-clone)
+      - [NPM packages](#npm-packages)
+      - [install tmux plugins](#install-tmux-plugins)
+    - [Optional pacman packages](#optional-pacman-packages)
+  - [Installation](#installation)
+    - [Arch WSL](#arch-wsl)
+      - [Set up default user (optional)](#set-up-default-user-optional)
+      - [Initiallize keyring](#initiallize-keyring)
+    - [With or without arch wsl](#with-or-without-arch-wsl)
+  - [Sources](#sources)
+
+ path used:
 
 `$PATH = ~/.config/Dotfiles/`
 
@@ -8,7 +24,7 @@ The path used:
 
 ### Main
 
-#### pacman packages
+#### Pacman packages
 - git
 - stow
 - neovim
@@ -55,7 +71,7 @@ Follow this guide: (https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/#initiali
 
 #### Set up default user (optional)
 
-```
+```bash
 >Arch.exe
 [root@PC-NAME]# echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
 (setup sudoers file.)
@@ -74,7 +90,7 @@ Follow this guide: (https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/#initiali
 
 ```
 #### Initiallize keyring
-```
+```bash
 >Arch.exe
 [user@PC-NAME]$ sudo pacman-key --init
 
@@ -87,7 +103,7 @@ Follow this guide: (https://wsldl-pg.github.io/ArchW-docs/How-to-Setup/#initiali
 ```
 
 ### With or without arch wsl
-```
+```bash
 $ sudo pacman -Syu git
 $ git clone https://github.com/Ovsiankina/dotfiles.git
 $ sudo pacman -S stow neovim zsh zoxide gcc bat tmux which
@@ -101,7 +117,7 @@ $ chsh -s $(which zsh)
 ```
 Restart terminal
 
-```
+```bash
 $ cd /home/USERNAME/dofiles
 $ cd stow .
 
@@ -111,6 +127,6 @@ $ sudo pacman -S starship fzf thefuck neofetch
 $ source ~/dotfiles/.zshrc
 
 ```
-## Source
+## Sources
 
 https://www.youtube.com/watch?v=y6XCebnB9gs
