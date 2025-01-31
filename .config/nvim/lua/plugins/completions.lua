@@ -19,7 +19,7 @@ return {
         -- See the full "keymap" documentation for information on defining your own keymap.
         keymap = {
             preset = 'default',
-            ['<CR>'] = { 'accept', 'fallback' },
+            ['<Tab>'] = { 'accept', 'fallback' },
             ['<C-k>'] = { 'select_prev', 'fallback' },
             ['<C-J>'] = { 'select_next', 'fallback' },
         },
@@ -49,7 +49,7 @@ return {
             },
             list = {
                 selection = {
-                    preselect = false,
+                    preselect = true,
                     auto_insert = true
                 }
             }
