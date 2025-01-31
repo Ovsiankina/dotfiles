@@ -102,6 +102,6 @@ return {
         },
     },
     keys = {
-        { "<leader>b", "<CMD>Oil --float --preview<CR>", mode = "n", desc = "[b] Open parent directory" },
+        { "<leader>b", "<CMD>Oil --preview<CR>", mode = "n", desc = "[b] Open parent directory" },
     },
 }
