@@ -1,22 +1,22 @@
 local servers = {
-    "ast_grep",      -- Multi-language
-    "clangd",        -- C/C++
-    "gopls",         -- Go
-    "html",          -- HTML
-    "jdtls",         -- Java
-    "lua_ls",        -- Lua
-    "marksman",      -- Markdown
-    "pyright",       -- Python
-    "rust_analyzer", -- Rust
-    "sqlls",         -- SQL
-    "texlab",        -- LaTeX
-    "ts_ls",         -- TypeScript
-    "bashls",        -- Bash
-    "taplo",         -- TOML
-    "intelephense",  -- PHP
-    "lemminx",       -- XML
+    "ast_grep",                        -- Multi-language
+    "clangd",                          -- C/C++
+    "gopls",                           -- Go
+    "html",                            -- HTML
+    "jdtls",                           -- Java
+    "lua_ls",                          -- Lua
+    "marksman",                        -- Markdown
+    "pyright",                         -- Python
+    "rust_analyzer",                   -- Rust
+    "sqlls",                           -- SQL
+    "texlab",                          -- LaTeX
+    "ts_ls",                           -- TypeScript
+    "bashls",                          -- Bash
+    "taplo",                           -- TOML
+    "intelephense",                    -- PHP
+    "lemminx",                         -- XML
     "docker_compose_language_service", -- Docker Compose
-    "dockerls"       -- Dockerfile
+    "dockerls"                         -- Dockerfile
 }
 
 return {
@@ -99,4 +99,27 @@ return {
     },
     { "nvim-lua/lsp-status.nvim" },
     { "onsails/lspkind.nvim" },
+    {
+        "mfussenegger/nvim-jdtls",
+        ft = "java",
+        opts = function()
+            return {
+                cmd = { "jdtls" },
+                root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml" }),
+                settings = {
+                    java = {
+                        -- Configure Java settings here
+                    },
+                },
+            }
+        end,
+        config = function(_, opts)
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "java",
+                callback = function()
+                    require("jdtls").start_or_attach(opts)
+                end,
+            })
+        end,
+    },
 }
