@@ -78,6 +78,9 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 # Display for XLaunch (WSL2)
 export DISPLAY=$(grep nameserver /etc/resolv.conf | awk '{print $2}'):0.0
 
+# Better `man` pager using bat
+export MANPAGER="sh -c 'col -bx | bat -l man --paging=always'"
+
 # ==============================================
 # Sources
 # ==============================================
