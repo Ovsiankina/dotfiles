@@ -3,7 +3,6 @@ local servers = {
     "clangd",                          -- C/C++
     "gopls",                           -- Go
     "html",                            -- HTML
-    "jdtls",                           -- Java
     "lua_ls",                          -- Lua
     "marksman",                        -- Markdown
     "pyright",                         -- Python
@@ -99,27 +98,28 @@ return {
     },
     { "nvim-lua/lsp-status.nvim" },
     { "onsails/lspkind.nvim" },
-    {
-        "mfussenegger/nvim-jdtls",
-        ft = "java",
-        opts = function()
-            return {
-                cmd = { "jdtls" },
-                root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml" }),
-                settings = {
-                    java = {
-                        -- Configure Java settings here
-                    },
-                },
-            }
-        end,
-        config = function(_, opts)
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = "java",
-                callback = function()
-                    require("jdtls").start_or_attach(opts)
-                end,
-            })
-        end,
-    },
+    { 'nvim-java/nvim-java' }
+    -- {
+    --     "mfussenegger/nvim-jdtls",
+    --     ft = "java",
+    --     opts = function()
+    --         return {
+    --             cmd = { "jdtls" },
+    --             root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml" }),
+    --             settings = {
+    --                 java = {
+    --                     -- Configure Java settings here
+    --                 },
+    --             },
+    --         }
+    --     end,
+    --     config = function(_, opts)
+    --         vim.api.nvim_create_autocmd("FileType", {
+    --             pattern = "java",
+    --             callback = function()
+    --                 require("jdtls").start_or_attach(opts)
+    --             end,
+    --         })
+    --     end,
+    -- },
 }
