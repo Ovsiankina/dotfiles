@@ -47,6 +47,7 @@ return {
             { "gd",        vim.lsp.buf.definitions,                     desc = "Go to definitions" },
             { "gr",        vim.lsp.buf.references,                      desc = "Go to reference" },
             { "<space>ca", vim.lsp.buf.code_action,                     desc = "Code action",         mode = { "n", "v" } },
+            { "gi",        vim.lsp.buf.implementation,                  desc = "Go to implementation" },
         },
         config = function()
             require("java").setup()
