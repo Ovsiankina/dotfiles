@@ -1,105 +1,113 @@
+local cp = require("catppuccin.palettes").get_palette("mocha")
+
 return {
-  "folke/todo-comments.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
+	"folke/todo-comments.nvim",
+	dependencies = { "nvim-lua/plenary.nvim" },
+	opts = {
+		keywords = {
+			FIX = {
+				icon = " ",
+				color = "error",
+				alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "fixme", "bug", "fixit", "issue" },
+			},
+			TODO = {
+				icon = " ",
+				color = "info",
+				alt = { "TODO", "CHORE", "TYPO", "todo", "chore", "typo" },
+			},
+			HACK = {
+				icon = " ",
+				color = "warning",
+				alt = { "HACK", "hack" },
+			},
+			WARN = {
+				icon = " ",
+				color = "warning",
+				alt = { "WARNING", "XXX", "warning", "xxx" },
+			},
+			PERF = {
+				icon = " ",
+				color = "default",
+				alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "optim", "performance", "optimize" },
+			},
+			NOTE = {
+				icon = " ",
+				color = "hint",
+				alt = {
+					"INFO",
+					"PRAISE",
+					"NITPICK",
+					"SUGGESTION",
+					"QUESTION",
+					"THOUGHT",
+					"NOTE",
+					"info",
+					"praise",
+					"nitpick",
+					"suggestion",
+					"question",
+					"thought",
+					"note",
+				},
+			},
+			TEST = {
+				icon = "⏲ ",
+				color = "test",
+				alt = { "TESTING", "PASSED", "FAILED", "testing", "passed", "failed" },
+			},
+		},
 
-    keywords = {
-      FIX = {
-        icon = " ", -- icon used for the sign, and in search results
-        color = "error", -- can be a hex color, or a named color (see below)
-        alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "fixme", "bug", "fixit", "issue" },
-      },
-      TODO = {
-        icon = " ",
-        color = "info",
-        alt = { "TODO", "CHORE", "TYPO", "todo", "chore", "typo" },
-      },
-      HACK = {
-        icon = " ",
-        color = "warning",
-        alt = { "HACK", "hack" },
-      },
-      WARN = {
-        icon = " ",
-        color = "warning",
-        alt = { "WARNING", "XXX", "warning", "xxx" },
-      },
-      PERF = {
-        icon = " ",
-        color = "default",
-        alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "optim", "performance", "optimize" },
-      },
-      NOTE = {
-        icon = " ",
-        color = "hint",
-        alt = {
-          "INFO",
-          "PRAISE",
-          "NITPICK",
-          "SUGGESTION",
-          "QUESTION",
-          "THOUGHT",
-          "NOTE",
-          "info",
-          "praise",
-          "nitpick",
-          "suggestion",
-          "question",
-          "thought",
-          "note",
-        },
-      },
-      TEST = {
-        icon = "⏲ ",
-        color = "test",
-        alt = { "TESTING", "PASSED", "FAILED", "testing", "passed", "failed" },
-      },
-    },
+		-- NOTE(non-blocking): foo
+		--
+		-- TEST: bar
+		--
+		-- BUG(blocking): oops
+		-- test
+		-- test2
+		-- test3
 
-    -- NOTE(a):
-    --
-    -- NOTE ( aBc1 ) :
-    --
-    -- NOTE: fjdksh
-    --
-    -- NOTE@: fjdksh
-    --
-    -- @WARN: fd
-    --
-    -- @NOTE: fjdksh
-    merge_keywords = true, -- when true, custom keywords will be merged with the defaults
+		--@WARN: foo
+		-- fd gdgg
 
-    highlight = {
-      before = "",
-      keyword = "bg",
-      after = "",
-      -- pattern = [[.*(KEYWORDS)\s*(\([^)]*\))?\s*:]],
-      -- pattern = [[[a-zA-Z_].*(KEYWORDS)]]
-      --pattern = [[.*(KEYWORDS).*]]
-      pattern = [[[@]?.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlighting (vim regex)
-    },
+		--@NOTE: bar
+		-- test
+		merge_keywords = true, -- when true, custom keywords will be merged with the defaults
 
-    search = {
-      -- regex that will be used to match keywords.
-      -- don't replace the (KEYWORDS) placeholder
-      pattern = [[\b(KEYWORDS)\b\s*(\([^)]*\))?\s*:]], -- ripgrep regex
-    },
+		highlight = {
+			pattern = [[.*<(%(KEYWORDS)%(\(.{-1,}\))?):]],
+		},
 
-    colors = {
-      error = { "#ed8796" },
-      warning = { "#eed49f" },
-      info = { "#8bd5ca" },
-      hint = { "#a6da95" },
-      default = { "#c6a0f6" },
-      test = { "#f5bde6" },
-    },
+		search = {
+			-- regex that will be used to match keywords.
+			-- don't replace the (KEYWORDS) placeholder
+			pattern = [[\b(KEYWORDS)\b\s*(\([^)]*\))?\s*:]], -- ripgrep regex
+		},
 
-    gui_style = {
-      fg = "NONE", -- The gui style to use for the fg highlight group.
-      bg = "BOLD", -- The gui style to use for the bg highlight group.
-    },
-  },
+		colors = {
+			error = { "#ed8796" },
+			warning = { "#eed49f" },
+			info = { "#8bd5ca" },
+			hint = { "#a6da95" },
+			default = { "#c6a0f6" },
+			test = { "#f5bde6" },
+		},
+
+	},
+	config = function(_, opts)
+		require("todo-comments").setup(opts)
+		-- Override the keywords table metatable so that if a match
+		-- returns extra characters (e.g. "TODO 2" or "NOTE(foo)"), only the
+		-- base keyword (the initial word) is used to look up highlighting info.
+		local cfg = require("todo-comments.config")
+		setmetatable(cfg.keywords, {
+			__index = function(t, k)
+				local base = vim.fn.matchstr(k, [[^\w\+]])
+				if base == "" then
+					return nil
+				else
+					return rawget(t, base)
+				end
+			end,
+		})
+	end,
 }
