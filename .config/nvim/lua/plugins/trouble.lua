@@ -46,11 +46,12 @@ return {
 			default = true,
 		})
 
+		local icons = vim.g.diagnostic_icons
 		local signs = {
-			Error = "", -- icon for errors
-			Warn = "", -- icon for warnings
-			Hint = "", -- icon for hints
-			Info = "", -- icon for information
+			Error = icons.error,
+			Warn = icons.warning,
+			Hint = icons.info,
+			Info = icons.hint,
 		}
 
 		for type, icon in pairs(signs) do

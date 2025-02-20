@@ -1,35 +1,74 @@
+local icons = vim.g.diagnostic_icons
+
 return {
 	"folke/todo-comments.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
 		keywords = {
-			FIX = {
-				icon = " ",
+            -- FIX:
+			ERROR = {
+				icon = icons.bug,
 				color = "error",
-				alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "fixme", "bug", "fixit", "issue" },
+				alt = {
+					"FIX",
+					"FIXME",
+					"BUG",
+					"FIXIT",
+					"ISSUE",
+					"fix",
+					"fixme",
+					"bug",
+					"fixit",
+					"issue",
+				},
 			},
+            -- TODO:
 			TODO = {
-				icon = " ",
+				icon = icons.hint,
 				color = "info",
-				alt = { "TODO", "CHORE", "TYPO", "todo", "chore", "typo" },
+				alt = {
+					"TODO",
+					"CHORE",
+					"TYPO",
+					"todo",
+					"chore",
+					"typo",
+				},
 			},
+            -- HACK:
 			HACK = {
-				icon = " ",
+				icon = icons.hack,
 				color = "warning",
-				alt = { "HACK", "hack" },
+				alt = {
+					"HACK",
+					"hack",
+				},
 			},
+            -- WARN:
 			WARN = {
-				icon = " ",
+				icon = icons.warning,
 				color = "warning",
-				alt = { "WARNING", "XXX", "warning", "xxx" },
+				alt = {
+					"WARNING",
+					"warning",
+				},
 			},
+            -- PERF:
 			PERF = {
-				icon = " ",
+				icon = icons.perf,
 				color = "default",
-				alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "optim", "performance", "optimize" },
+				alt = {
+					"OPTIM",
+					"PERFORMANCE",
+					"OPTIMIZE",
+					"optim",
+					"performance",
+					"optimize",
+				},
 			},
+            -- NOTE:
 			NOTE = {
-				icon = " ",
+				icon = icons.note,
 				color = "hint",
 				alt = {
 					"INFO",
@@ -48,10 +87,18 @@ return {
 					"note",
 				},
 			},
+            -- TEST:
 			TEST = {
-				icon = "⏲ ",
+				icon = icons.test,
 				color = "test",
-				alt = { "TESTING", "PASSED", "FAILED", "testing", "passed", "failed" },
+				alt = {
+					"TESTING",
+					"PASSED",
+					"FAILED",
+					"testing",
+					"passed",
+					"failed",
+				},
 			},
 		},
 
@@ -89,7 +136,6 @@ return {
 			default = { "#c6a0f6" },
 			test = { "#f5bde6" },
 		},
-
 	},
 	config = function(_, opts)
 		require("todo-comments").setup(opts)
