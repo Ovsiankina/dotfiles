@@ -19,7 +19,7 @@ local home = os.getenv('HOME') or os.getenv('USERPROFILE')
 vim.opt.undodir = home .. '/.vim/undodir'
 vim.opt.undofile = true
 
--- Make highlights incremental 
+-- Make highlights incremental
 -- ( '/vim.* =' will only highlights from 'v' to '=' )
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -32,8 +32,20 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'yes'
 vim.opt.isfname:append('@-@') -- IDK
 
-vim.opt.updatetime = 50 -- Update time
+vim.opt.updatetime = 50       -- Update time
 vim.opt.colorcolumn = '80'
 
 -- VimTex required options
 vim.o.encoding = "utf-8"
+
+-- Sign column
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
+        },
+    },
+})

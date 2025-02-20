@@ -1,5 +1,3 @@
-local cp = require("catppuccin.palettes").get_palette("mocha")
-
 return {
 	"folke/todo-comments.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
