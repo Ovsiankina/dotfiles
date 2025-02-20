@@ -92,9 +92,11 @@ return {
 				icon = icons.test,
 				color = "test",
 				alt = {
+					"TEST",
 					"TESTING",
 					"PASSED",
 					"FAILED",
+					"test",
 					"testing",
 					"passed",
 					"failed",
@@ -102,19 +104,17 @@ return {
 			},
 		},
 
-		-- NOTE(non-blocking): foo
+		-- TODO:
+        --
+		-- NOTE(exemple): exemple
 		--
-		-- TEST: bar
-		--
-		-- BUG(blocking): oops
+		-- BUG(exemple): exemple
 		-- test
-		-- test2
-		-- test3
 
-		--@WARN: foo
-		-- fd gdgg
+		--@WARN: exemple
+		-- test
 
-		--@NOTE: bar
+		--@TEST: exemple
 		-- test
 		merge_keywords = true, -- when true, custom keywords will be merged with the defaults
 
