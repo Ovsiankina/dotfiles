@@ -1,8 +1,4 @@
-width=400
-height=250
-location=center
-show=drun
-prompt=Search...
+prompt=
 filter_rate=100
 allow_markup=true
 no_actions=true
@@ -13,3 +9,11 @@ insensitive=true
 allow_images=true
 image_size=40
 gtk_dark=true
+
+width=900
+height=350
+always_parse_args=true
+show_all=false
+term=kitty
+print_command=true
+columns=2
