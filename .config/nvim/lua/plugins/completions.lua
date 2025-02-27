@@ -53,7 +53,12 @@ return {
                     auto_insert = true
                 }
             }
+            -- FIX: luasnip broken
+            -- snippets = {
+            -- 	preset = "luasnip",
+            -- },
         },
+        opts_extend = { "sources.default" },
     },
     opts_extend = { "sources.default" }
 }
