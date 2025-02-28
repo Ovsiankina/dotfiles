@@ -4,7 +4,7 @@ vim.g.mapleader = " " -- The leader ( <space> )
 -- vim.keymap.set("n", "<leader>b", vim.cmd.Ex) -- in normal mode, leader <space>, which command (Ex)
 
 -- TODO: write these remaps with which-key plugin
-
+--
 --          ╭─────────────────────────────────────────────────────────╮
 --          │                          Remap                          │
 --          ╰─────────────────────────────────────────────────────────╯
@@ -20,6 +20,8 @@ keymap("n", "<c-l>", "wincmd l<CR>")
 
 ---------- Quick save ----------
 keymap("n", "<leader>w", ":w<CR>", { desc = "Quick save" })
+-- Force write in readonly (vim sudo trick)
+keymap('c', 'w!!', 'w !sudo tee > /dev/null %', { noremap = true })
 
 ---------- Remap "+y to <c-v> ----------
 keymap("n", "<C-y>", '"+y', { desc = "Remap +y to <c-v>" })
