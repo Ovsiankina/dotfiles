@@ -4,7 +4,7 @@
 # alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
 # alias grep='grep --color=auto'
 alias grep='rg'
-# alias sp='sudo pacman'
+alias sp='sudo pacman'
 alias cat='bat'
 alias clip='wl-copy'
 
