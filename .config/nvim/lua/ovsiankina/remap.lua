@@ -32,3 +32,5 @@ keymap("n", "<leader>ac", ":!arduino-cli compile --fqbn arduino:avr:uno %:p:h<CR
 -- Upload Arduino sketch to the board
 keymap("n", "<leader>au", ":!arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno %:p:h<CR>",
     { desc = "Upload Sketch" })
+
+keymap("n", "<leader>mv", ":Markview toggle<CR>", { desc = "toggle markview" })
