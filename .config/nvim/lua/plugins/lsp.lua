@@ -1,21 +1,22 @@
 local servers = {
-    "ast_grep",                        -- Multi-language
-    "clangd",                          -- C/C++
-    "gopls",                           -- Go
-    "html",                            -- HTML
-    "lua_ls",                          -- Lua
-    "marksman",                        -- Markdown
-    "pyright",                         -- Python
-    "rust_analyzer",                   -- Rust
-    "sqlls",                           -- SQL
-    "texlab",                          -- LaTeX
-    "ts_ls",                           -- TypeScript
-    "bashls",                          -- Bash
-    "taplo",                           -- TOML
-    "intelephense",                    -- PHP
-    "lemminx",                         -- XML
-    "docker_compose_language_service", -- Docker Compose
-    "dockerls"                         -- Dockerfile
+    "ast_grep",                         -- Multi-language
+    "clangd",                           -- C/C++
+    "gopls",                            -- Go
+    "html",                             -- HTML
+    "lua_ls",                           -- Lua
+    "marksman",                         -- Markdown
+    "pyright",                          -- Python
+    "rust_analyzer",                    -- Rust
+    "sqlls",                            -- SQL
+    "texlab",                           -- LaTeX
+    "ts_ls",                            -- TypeScript
+    "bashls",                           -- Bash
+    "taplo",                            -- TOML
+    "intelephense",                     -- PHP
+    "lemminx",                          -- XML
+    "docker_compose_language_service",  -- Docker Compose
+    "dockerls",                         -- Dockerfile
+    "biome",                            -- JSON
 }
 
 return {
