@@ -12,6 +12,8 @@ return {
         notifier = {
             enabled = true,
             timeout = 3000,
+            margin = { top = 0, right = 0, bottom = 0, left = 1 },
+            top_down = false,
         },
         picker = { enabled = true },
         quickfile = { enabled = true },
