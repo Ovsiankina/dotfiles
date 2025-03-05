@@ -108,3 +108,11 @@ function catppuccin() {
 
   fi
 }
+
+yt() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: yt <YouTube URL>"
+    return 1
+  fi
+  DISPLAY= mpv --vo=kitty "$1"
+}
