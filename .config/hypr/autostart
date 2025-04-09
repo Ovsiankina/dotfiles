@@ -1,5 +1,7 @@
 #!/usr/bin/zsh
 
+hyprpanel
+
 # variables
 config=$HOME/.config/hypr
 scripts=$config/scripts
