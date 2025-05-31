@@ -127,6 +127,15 @@ $ sudo pacman -S starship fzf thefuck neofetch
 $ source ~/dotfiles/.zshrc
 
 ```
+## Reminder on how to remove a package
+```
+sudo pacman -Rns <pkg>
+sudo pacman -Sc 
+hash -r
+sudo rm -r /var/log/pacman.log
+sudo pacman -Rns $(sudo pacman -Qdtq)
+```
+
 ## Sources
 
 https://www.youtube.com/watch?v=y6XCebnB9gs

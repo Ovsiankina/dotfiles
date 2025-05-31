@@ -78,7 +78,8 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
 # Display for XLaunch (WSL2)
-export DISPLAY=$(grep nameserver /etc/resolv.conf | awk '{print $2}'):0.0
+# WARN: Only set on WSL2 ! This breaks the Vulkan drivers if set on linux
+# export DISPLAY=$(grep nameserver /etc/resolv.conf | awk '{print $2}'):0.0
 
 # Better `man` pager using bat
 export MANROFFOPT='-c'
@@ -103,6 +104,8 @@ eval "$(thefuck --alias fuck)"
 
 # Bonus (slows down startup time)
 # neofetch
+# krabby random
+# cbonsai -p
 
 # The plugin will auto execute this zvm_after_select_vi_mode function
 function zvm_after_select_vi_mode() {
