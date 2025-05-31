@@ -126,10 +126,10 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} {bandwidthUpBytes}, {bandwidthDownBytes} {signalStrength}% ",
-    "format-ethernet": "{ifname}/{cidr}, {bandwidthUpBytes}, {bandwidthDownBytes} ",
+    "format-wifi": "{essid} {signalStrength}% ",
+    "format-ethernet": "{ipaddr}/{cidr} ",
     "tooltip-format": "{ifname} via {ipaddr}/{cidr}",
-    "format-linked": "{ifname} {bandwidthUpBytes}, {bandwidthDownBytes} ",
+    "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
     "on-click": "nmcli device wifi rescan && notify-send 'Scanning for network'",
   },
