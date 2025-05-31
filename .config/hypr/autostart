@@ -7,21 +7,21 @@ config=$HOME/.config/hypr
 scripts=$config/scripts
 
 # notification daemon
-swaync &
+# swaync &
 
 # waybar
-$scripts/launch_waybar &
-$scripts/tools/dynamic &
+# $scripts/launch_waybar &
+# $scripts/tools/dynamic &
 
 # wallpaper
-swww-daemon
-notify-send -a aurora "swww" &
-$scripts/tools/rand_wall &
+# swww-daemon
+# notify-send -a aurora "swww" &
+./$scripts/tools/rand_wall &
 
 # effects
-$scripts/rgb &
+# $scripts/rgb &
 
 # other
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
-notify-send -a aurora "hello $(whoami)" &
+# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+# notify-send -a aurora "hello $(whoami)" &
