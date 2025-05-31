@@ -13,7 +13,7 @@ alias fzf="fzf --preview='cat {}'"
 alias nvimf='nvim $(fzf)'
 
 # ── zoxide ────────────────────────────────────────────────────────────
-alias ff='cdi'
+alias cdf='cdi'
 alias cde='zoxide edit'
 
 # ── Functions ─────────────────────────────────────────────────────────
