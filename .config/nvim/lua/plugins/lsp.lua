@@ -1,22 +1,23 @@
 local servers = {
-    "ast_grep",                         -- Multi-language
-    "clangd",                           -- C/C++
-    "gopls",                            -- Go
-    "html",                             -- HTML
-    "lua_ls",                           -- Lua
-    "marksman",                         -- Markdown
-    "pyright",                          -- Python
-    "rust_analyzer",                    -- Rust
-    "sqlls",                            -- SQL
-    "texlab",                           -- LaTeX
-    "ts_ls",                            -- TypeScript
-    "bashls",                           -- Bash
-    "taplo",                            -- TOML
-    "intelephense",                     -- PHP
-    "lemminx",                          -- XML
-    "docker_compose_language_service",  -- Docker Compose
-    "dockerls",                         -- Dockerfile
-    "biome",                            -- JSON
+    "ast_grep",                        -- Multi-language
+    "clangd",                          -- C/C++
+    "gopls",                           -- Go
+    "html",                            -- HTML
+    "lua_ls",                          -- Lua
+    "marksman",                        -- Markdown
+    "pyright",                         -- Python
+    "rust_analyzer",                   -- Rust
+    -- "sqlls",                           -- SQL
+    -- "texlab",                          -- LaTeX
+    "ts_ls",                           -- TypeScript
+    -- "bashls",                          -- Bash
+    "shellcheck",                      -- Bash
+    "taplo",                           -- TOML
+    -- "intelephense",                    -- PHP
+    "lemminx",                         -- XML
+    "docker_compose_language_service", -- Docker Compose
+    "dockerls",                        -- Dockerfile
+    "biome",                           -- JSON
 }
 
 return {
@@ -34,9 +35,6 @@ return {
         opts = {
             ensure_installed = servers,
             automatic_installation = true,
-            servers = {
-                jdtls = {},
-            },
         },
     },
     {
@@ -51,17 +49,22 @@ return {
             { "gi",        vim.lsp.buf.implementation,                  desc = "Go to implementation" },
         },
         config = function()
-            require("java").setup()
+
+            -- NOTE: Java not always needed. Remember to enable the java plugin
+            -- as well (bottom of this file)
+            --
+            -- require("java").setup()
             local lspconfig = require("lspconfig")
-            lspconfig.jdtls.setup {}
             local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-            lspconfig.intelephense.setup({
-                capabilities = capabilities,
-                init_options = {
-                    licenceKey = vim.fn.expand("~/.intelephense/licence.txt"),
-                },
-            })
+            -- lspconfig.jdtls.setup {}
+
+            -- lspconfig.intelephense.setup({
+            --     capabilities = capabilities,
+            --     init_options = {
+            --         licenceKey = vim.fn.expand("~/.intelephense/licence.txt"),
+            --     },
+            -- })
 
             local function get_python_path(workspace)
                 if workspace == nil then
@@ -88,42 +91,8 @@ return {
                 end
                 lspconfig[server].setup(config)
             end
-
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "c", "cpp" },
-                callback = function()
-                    vim.bo.shiftwidth = 4
-                    vim.bo.tabstop = 4
-                    vim.bo.softtabstop = 4
-                    vim.bo.expandtab = true
-                end,
-            })
         end,
     },
     { "nvim-lua/lsp-status.nvim" },
     { "onsails/lspkind.nvim" },
-    { 'nvim-java/nvim-java' }
-    -- {
-    --     "mfussenegger/nvim-jdtls",
-    --     ft = "java",
-    --     opts = function()
-    --         return {
-    --             cmd = { "jdtls" },
-    --             root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew", "pom.xml" }),
-    --             settings = {
-    --                 java = {
-    --                     -- Configure Java settings here
-    --                 },
-    --             },
-    --         }
-    --     end,
-    --     config = function(_, opts)
-    --         vim.api.nvim_create_autocmd("FileType", {
-    --             pattern = "java",
-    --             callback = function()
-    --                 require("jdtls").start_or_attach(opts)
-    --             end,
-    --         })
-    --     end,
-    -- },
 }

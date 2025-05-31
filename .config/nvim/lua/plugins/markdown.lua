@@ -5,8 +5,9 @@ return {
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		build = "cd app && yarn install",
-		init = function()
+		config = function()
 			vim.g.mkdp_filetypes = { "markdown" }
+            vim.g.mkdp_browser = "zen-browser"
 		end,
 		ft = { "markdown" },
 		keys = {

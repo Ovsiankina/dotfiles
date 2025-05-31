@@ -43,6 +43,7 @@ return {
 					-- Formating
 					null_ls.builtins.formatting.black, -- Python
 					null_ls.builtins.formatting.stylua, -- Lua
+					null_ls.builtins.formatting.shellcheck, --bash
 					-- null_ls.builtins.formatting.rustfmt, --rust
 				},
 
