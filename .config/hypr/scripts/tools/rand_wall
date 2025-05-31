@@ -1,23 +1,12 @@
-#!/bin/zsh
+#!/usr/bin/zsh
 
-# Directory containing wallpapers
-WALLPAPER_DIR="/home/ovsiankina/.config/hypr/wallpapers"
+WALLPAPER_DIR="~/dotfiles/hypr/wallpapers/"
+CURRENT_WALL=$(hyprctl hyprpaper listloaded)
 
-# Get list of wallpapers
-WALLPAPERS=("$WALLPAPER_DIR"/*)
+# Get a random wallpaper that is not the current one
+WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
 
-# Function to change wallpaper
-change_wallpaper() {
-  local wallpaper=${WALLPAPERS[$RANDOM % ${#WALLPAPERS[@]}]}
-  swww img "$wallpaper" --transition-type grow --transition-duration 3 --transition-pos 0,0
-}
+# Apply the selected wallpaper
+hyprctl hyprpaper reload ,"$WALLPAPER"
 
-# Initial wallpaper change
-change_wallpaper
-
-# Loop to change wallpaper every hour
-while true; do
-  notify-send -a aurora "Wallpaper change" &
-  sleep 30m
-  change_wallpaper
-done
+notif-send "rand_wall started"
