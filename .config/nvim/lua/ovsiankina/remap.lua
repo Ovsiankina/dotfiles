@@ -33,4 +33,21 @@ keymap("n", "<leader>ac", ":!arduino-cli compile --fqbn arduino:avr:uno %:p:h<CR
 keymap("n", "<leader>au", ":!arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno %:p:h<CR>",
     { desc = "Upload Sketch" })
 
-keymap("n", "<leader>mv", ":Markview toggle<CR>", { desc = "toggle markview" })
+vim.keymap.set("n", "<leader>mv", function()
+  local image = require("image")
+  local is_enabled = image.is_enabled()
+
+  -- Toggle RenderMarkdown
+  vim.cmd("RenderMarkdown toggle")
+
+  -- If it was disabled and now is enabled, enable image
+  -- We delay checking with a timer to wait for RenderMarkdown to activate
+  vim.defer_fn(function()
+    -- Simple re-check: assume toggling flips the state
+    if not is_enabled then
+      image.enable()
+    else
+      image.disable()
+    end
+  end, 100) -- Wait 100ms (adjustable delay)
+end, { desc = "Toggle MarkView and sync image.nvim" })
