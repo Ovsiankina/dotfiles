@@ -20,6 +20,12 @@
 
 `$PATH = ~/.config/Dotfiles/`
 
+## TODO
+
+- [ ] Style kitty to have no bg color, just transparency
+- [ ] white / tranparent / liquidy style
+- [ ] frosted transaprency everywhere similar to contest #1 Winder december 2022 winner [github](https://hyprland.org/hall_of_fame/)
+- [ ] cutomize walker (rofi replacment)
 ## Requirements
 
 ### Main
