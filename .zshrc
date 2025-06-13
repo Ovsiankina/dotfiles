@@ -85,6 +85,10 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 export MANROFFOPT='-c'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # ==============================================
 # Sources
 # ==============================================
@@ -101,6 +105,8 @@ eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 eval "$(thefuck --alias fuck)"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # Bonus (slows down startup time)
 # neofetch
