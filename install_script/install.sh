@@ -1,7 +1,8 @@
 #!/bin/bash                                                                  
                                                                              
-sudo pacman -Syu git stow neovim zsh zoxide gcc bat tmux which starship fzf thefuck neofetch eza zip unzip texlive openssh wl-clipboard pacman-contrib fd
 sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+chmod +x ./pacman-requirments.sh
+./pacman-requirments.sh
 yay -Syu checkupdates-with-aur
 cd ~
 git clone https://github.com/Ovsiankina/dotfiles.git                        
