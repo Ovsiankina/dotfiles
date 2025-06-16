@@ -66,6 +66,9 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # export LANGUAGE=us_CH.UTF-8
 # export LC_ALL=us_CH.UTF-8
 
+# make nvim default editor
+export EDITOR=nvim
+
 # Keymap layout
 # setxkbmap us_qwerty-fr
 export XKB_DEFAULT_LAYOUT=us_qwerty-fr
